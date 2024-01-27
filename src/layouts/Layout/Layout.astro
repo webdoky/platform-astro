@@ -1,0 +1,21 @@
+---
+import Header from "./components/Header.astro";
+import RollbarScript from "./components/RollbarScript.astro";
+const { title } = Astro.props;
+---
+
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <RollbarScript />
+  </head>
+  <body>
+    <Header />
+    <h1>{title}</h1>
+    <article>
+      <slot />
+      <!-- your content is injected here -->
+    </article>
+  </body>
+</html>
