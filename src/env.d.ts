@@ -1,3 +1,4 @@
+/// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
 interface ImportMetaEnv {
     readonly MODE: 'development' | 'production';
@@ -8,3 +9,7 @@ interface ImportMetaEnv {
 interface ImportMeta {
     readonly env: ImportMetaEnv;
 }
+
+interface ContentEntryMap {
+    translatedContent: typeof translatedContent;
+  }

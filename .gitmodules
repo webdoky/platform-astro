@@ -1,0 +1,6 @@
+[submodule "external/translated-content"]
+	path = external/translated-content
+	url = git@github.com:webdoky/content.git
+[submodule "external/original-content"]
+	path = external/original-content
+	url = git@github.com:mdn/content.git

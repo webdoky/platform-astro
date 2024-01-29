@@ -8,14 +8,185 @@ const { title } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
     <RollbarScript />
+    <slot name="head" />
+    <link rel="stylesheet" href="/prism-base16-ateliersulphurpool.light.css" />
   </head>
-  <body>
-    <Header />
-    <h1>{title}</h1>
-    <article>
-      <slot />
-      <!-- your content is injected here -->
-    </article>
+  <body
+    ><div class="font-sans antialiased text-ui-typo bg-ui-background">
+      <div class="flex flex-col justify-start min-h-screen">
+        <header
+          class="sticky top-0 z-10 w-full border-b bg-ui-background border-ui-border"
+        >
+          <Header />
+        </header>
+        <slot />
+        <!-- your content is injected here -->
+      </div>
+    </div>
+    <style is:global lang="scss">
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      // Colors ----------------------------
+
+      :root {
+        --color-ui-background: theme("colors.white");
+        --color-ui-typo: theme("colors.gray.700");
+        --color-ui-sidebar: theme("colors.gray.200");
+        --color-ui-sidebar-lighter-1: theme("colors.gray.50");
+        --color-ui-border: theme("colors.gray.300");
+        --color-ui-primary: theme("colors.indigo.600");
+        --color-ui-footer: theme("colors.gray.100");
+        --color-ui-primary-lighter-1: theme("colors.indigo.300");
+
+        --color-ui-warning: theme("colors.yellow.100");
+        --color-ui-warning-border: theme("colors.yellow.500");
+        --color-ui-note: theme("colors.indigo.100");
+        --color-ui-note-border: theme("colors.indigo.500");
+        --color-ui-deprecated: theme("colors.red.100");
+        --color-ui-deprecated-border: theme("colors.red.500");
+        --color-ui-supported: rgba(16, 195, 109, 0.2);
+
+        // Icons for BCD table
+        --icon-platform-desktop: url("/icons/computer-line.svg");
+        --icon-platform-mobile: url("/icons/smartphone-line.svg");
+        --icon-platform-server: url("/icons/server-line.svg");
+        --icon-browser-chrome: url("/icons/chrome-line.svg");
+        --icon-browser-edge: url("/icons/edge-fill.svg");
+        --icon-browser-firefox: url("/icons/firefox-line.svg");
+        --icon-browser-ie: url("/icons/ie-fill.svg");
+        --icon-browser-opera: url("/icons/opera-fill.svg");
+        --icon-browser-safari: url("/icons/safari-line.svg");
+        --icon-browser-android: url("/icons/android-line.svg");
+        --icon-browser-samsung-internet: url("/icons/samsung-internet.svg");
+        --icon-browser-deno: url("/icons/deno-fill.svg");
+        --icon-browser-nodejs: url("/icons/nodejs-line.svg");
+
+        // translation status
+        --color-intl-status-not-translated: rgba(252, 115, 115, 0.3);
+        --color-intl-status-out-of-date: rgba(251, 191, 26, 0.3);
+        --color-intl-status-up-to-date: rgba(16, 195, 109, 0.3);
+      }
+
+      html[lights-out] {
+        --color-ui-background: theme("colors.gray.900");
+        --color-ui-typo: theme("colors.gray.100");
+        --color-ui-sidebar: theme("colors.gray.800");
+        --color-ui-sidebar-lighter-1: theme("colors.gray.700");
+        --color-ui-primary-lighter-1: theme("colors.indigo.300");
+        --color-ui-border: theme("colors.gray.800");
+        --color-ui-primary: theme("colors.indigo.500");
+        --color-ui-footer: theme("colors.gray.700");
+
+        --color-ui-warning: theme("colors.yellow.900");
+        --color-ui-warning-border: theme("colors.yellow.600");
+        --color-ui-note: theme("colors.indigo.900");
+        --color-ui-note-border: theme("colors.indigo.600");
+        --color-ui-deprecated: theme("colors.red.900");
+        --color-ui-deprecated-border: theme("colors.red.600");
+        --color-ui-supported: rgba(16, 195, 109, 0.45);
+
+        // Icons for BCD table
+        --icon-platform-desktop: url("/icons-dark/computer-line.svg");
+        --icon-platform-mobile: url("/icons-dark/smartphone-line.svg");
+        --icon-platform-server: url("/icons-dark/server-line.svg");
+        --icon-browser-chrome: url("/icons-dark/chrome-line.svg");
+        --icon-browser-edge: url("/icons-dark/edge-fill.svg");
+        --icon-browser-firefox: url("/icons-dark/firefox-line.svg");
+        --icon-browser-ie: url("/icons-dark/ie-fill.svg");
+        --icon-browser-opera: url("/icons-dark/opera-fill.svg");
+        --icon-browser-safari: url("/icons-dark/safari-line.svg");
+        --icon-browser-android: url("/icons-dark/android-line.svg");
+        --icon-browser-samsung-internet: url("/icons-dark/samsung-internet.svg");
+        --icon-browser-deno: url("/icons-dark/deno-fill.svg");
+        --icon-browser-nodejs: url("/icons-dark/nodejs-line.svg");
+
+        // translation status
+        --color-intl-status-not-translated: rgba(252, 85, 85, 0.4);
+        --color-intl-status-out-of-date: rgba(251, 211, 36, 0.45);
+        --color-intl-status-up-to-date: rgba(16, 195, 109, 0.45);
+
+        pre,
+        code[class*="language-"] {
+          @apply bg-ui-border;
+        }
+      }
+
+      @font-face {
+        font-family: "Roboto Mono";
+        src: url("/fonts/RobotoMono-VariableFont_wght.ttf");
+      }
+
+      @font-face {
+        font-family: "Roboto Mono";
+        src: url("/fonts/RobotoMono-Italic-VariableFont_wght.ttf");
+        font-style: italic;
+      }
+
+      // Global styles -------------------------------
+
+      * {
+        transition-property: color, background-color, border-color;
+        transition-duration: 200ms;
+        transition-timing-function: ease-in-out;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        @apply leading-snug font-black mb-4 text-ui-typo;
+
+        &:hover {
+          a::before {
+            @apply opacity-100;
+          }
+        }
+
+        a {
+          &::before {
+            content: "#";
+            margin-right: -1em;
+            padding-left: 0.125em;
+            @apply text-ui-primary absolute opacity-0 float-left;
+          }
+        }
+      }
+
+      h1 {
+        @apply text-4xl;
+      }
+      h2 {
+        @apply text-2xl;
+      }
+      h3 {
+        @apply text-xl;
+      }
+      h4 {
+        @apply text-lg;
+      }
+      a {
+        @apply text-ui-typo underline;
+        color: var(--color-ui-primary);
+      }
+      a:hover {
+        @apply decoration-dotted;
+      }
+      p,
+      ol,
+      ul,
+      pre,
+      strong,
+      blockquote {
+        @apply mb-4 text-base text-ui-typo;
+      }
+
+      .nav-link.active {
+        color: var(--color-ui-primary);
+        font-weight: 700;
+      }
+    </style>
   </body>
 </html>
