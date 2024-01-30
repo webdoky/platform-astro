@@ -30,6 +30,7 @@ async function populateChangelogWithLinks(changelog: string) {
   const fileSlugToSlug = new Map<string, string>(
     entries.map((entry) => [getFileSlugFromId(entry.id), entry.slug])
   );
+  console.log("fileSlugToSlug", fileSlugToSlug);
   return changelog.replaceAll(CHANGE_REGEXP, (_, action, section, fileSlug) => {
     const slug = fileSlugToSlug.get(fileSlug);
     if (slug) {
@@ -183,5 +184,64 @@ changeLogContent = await populateChangelogWithLinks(changeLogContent);
 
   .changelog li {
     margin-bottom: 0.5em;
+  }
+</style>
+
+<style is:global>
+  .macro {
+    display: inline-block;
+    background: grey;
+    position: relative;
+  }
+  .macro:hover {
+    background: transparent;
+  }
+  .macro::after {
+    content: "";
+    position: absolute;
+    left: calc(50% - 0.5em);
+    top: calc(50% - 0.5em);
+    height: 1em;
+    width: 1em;
+    margin: 0px auto;
+    animation: rotation 0.6s infinite linear;
+    border-left: 6px solid rgba(0, 174, 239, 0.15);
+    border-right: 6px solid rgba(0, 174, 239, 0.15);
+    border-bottom: 6px solid rgba(0, 174, 239, 0.15);
+    border-top: 6px solid rgba(0, 174, 239, 0.8);
+    border-radius: 100%;
+  }
+
+  @-webkit-keyframes rotation {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(359deg);
+    }
+  }
+  @-moz-keyframes rotation {
+    from {
+      -moz-transform: rotate(0deg);
+    }
+    to {
+      -moz-transform: rotate(359deg);
+    }
+  }
+  @-o-keyframes rotation {
+    from {
+      -o-transform: rotate(0deg);
+    }
+    to {
+      -o-transform: rotate(359deg);
+    }
+  }
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
   }
 </style>

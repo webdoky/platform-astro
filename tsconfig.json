@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
+    "esModuleInterop": true,
     "jsx": "react"
   }
 }

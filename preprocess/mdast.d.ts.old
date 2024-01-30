@@ -1,0 +1,19 @@
+/// <reference path="../node_modules/@types/mdast/index.d.ts" />
+
+declare module "mdast" {
+  interface MacroNode extends Node {
+    type: "macro";
+    name: string;
+    parameters: string[];
+  }
+
+  interface BrokenMacroNode extends Node {
+    code: string;
+    error: string;
+    type: "brokenMacro";
+  }
+  interface RootContentMap {
+    brokenMacro: BrokenMacroNode;
+    macro: MacroNode;
+  }
+}
