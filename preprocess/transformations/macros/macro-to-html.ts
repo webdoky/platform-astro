@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import type { Html } from 'mdast';
 import Mustache from 'mustache';
 
-import type { MacroNode } from '../../types.js';
+import { MacroNode } from './types.js';
 
 const templateCode = readFileSync(
   './preprocess/transformations/macros/macro-html.mustache',

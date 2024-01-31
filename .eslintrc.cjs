@@ -74,6 +74,14 @@ module.exports = {
         project: './preprocess/tsconfig.json',
       },
     },
+    {
+      env: {
+        'jest/globals': true,
+      },
+      extends: ['plugin:jest/recommended'],
+      files: ['*.test.*'],
+      plugins: ['jest'],
+    },
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -93,5 +101,10 @@ module.exports = {
       },
     ],
     'unicorn/no-keyword-prefix': 'off',
+  },
+  settings: {
+    jest: {
+      version: 29,
+    },
   },
 };

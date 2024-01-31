@@ -1,19 +1,19 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "esModuleInterop": true,
     "exactOptionalPropertyTypes": false,
     "jsx": "react",
     "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Node",
     "plugins": [
       {
-        "name": "@astrojs/ts-plugin",
-      },
+        "name": "@astrojs/ts-plugin"
+      }
     ],
-    "skipLibCheck": true,
-    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", "dist", "preprocess"],
   "extends": "astro/tsconfigs/strictest",
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.astro", "./*.ts"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.astro", "./*.ts"]
 }

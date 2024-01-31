@@ -1,8 +1,7 @@
 import type { Literal } from 'mdast';
 
-import type { BrokenMacroNode, MacroNode } from '../../types.js';
-
 import parseMacro from './parse-macro.js';
+import type { BrokenMacroNode, MacroNode } from './types.js';
 
 export default function extractMacrosFromText(
   text: string,
@@ -26,12 +25,32 @@ export default function extractMacrosFromText(
       value: beforeAllMacros,
     });
   }
-  while (macroStartIndex !== -1 && macroEndIndex !== -1) {
+  while (macroStartIndex !== -1) {
+    macroEndIndex = text.indexOf('}}', macroStartIndex + '{{'.length);
+    if (macroEndIndex === -1) {
+      extractedNodes.push({
+        code: text.slice(macroStartIndex),
+        error: 'Unbalanced number of {{}} parenthesis',
+        type: 'brokenMacro',
+      });
+      return extractedNodes;
+    }
     const macroCode = text.slice(macroStartIndex + '{{'.length, macroEndIndex);
     const macro = parseMacro(macroCode.trim());
     extractedNodes.push(macro);
     macroStartIndex = text.indexOf('{{', macroEndIndex + '}}'.length);
-    macroEndIndex = text.indexOf('}}', macroStartIndex + '{{'.length);
+    if (macroStartIndex !== -1) {
+      const textBetweenMacros = text.slice(
+        macroEndIndex + '}}'.length,
+        macroStartIndex,
+      );
+      if (textBetweenMacros.length > 0) {
+        extractedNodes.push({
+          type: 'text',
+          value: textBetweenMacros,
+        });
+      }
+    }
   }
   const afterAllMacros = text.slice(macroEndIndex + '}}'.length);
   if (afterAllMacros.length > 0) {

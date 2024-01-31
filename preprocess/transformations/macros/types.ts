@@ -12,12 +12,12 @@ export interface BrokenMacroNode extends Node {
   type: 'brokenMacro';
 }
 
-export interface AbstractParentNode extends Node {
-  children: CustomNode[];
+export interface AbstractMacroParentNode extends Node {
+  children: MacroTreeNode[];
 }
 
-export type CustomNode =
+export type MacroTreeNode =
   | Node
-  | AbstractParentNode
+  | AbstractMacroParentNode
   | MacroNode
   | BrokenMacroNode;

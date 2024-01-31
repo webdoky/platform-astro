@@ -1,0 +1,264 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "list",
+      "ordered": false,
+      "start": null,
+      "spread": false,
+      "children": [
+        {
+          "type": "listItem",
+          "spread": false,
+          "checked": null,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "link",
+                  "title": null,
+                  "url": "/uk/docs/Web/CSS/Selector_list",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Список селекторів",
+                      "position": {
+                        "start": {
+                          "line": 77,
+                          "column": 4,
+                          "offset": 3159
+                        },
+                        "end": {
+                          "line": 77,
+                          "column": 21,
+                          "offset": 3176
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 77,
+                      "column": 3,
+                      "offset": 3158
+                    },
+                    "end": {
+                      "line": 77,
+                      "column": 54,
+                      "offset": 3209
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": " ",
+                  "position": {
+                    "start": {
+                      "line": 77,
+                      "column": 54,
+                      "offset": 3209
+                    },
+                    "end": {
+                      "line": 77,
+                      "column": 55,
+                      "offset": 3210
+                    }
+                  }
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "A, B",
+                  "position": {
+                    "start": {
+                      "line": 77,
+                      "column": 55,
+                      "offset": 3210
+                    },
+                    "end": {
+                      "line": 77,
+                      "column": 61,
+                      "offset": 3216
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 77,
+                  "column": 3,
+                  "offset": 3158
+                },
+                "end": {
+                  "line": 77,
+                  "column": 61,
+                  "offset": 3216
+                }
+              }
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "start": null,
+              "spread": false,
+              "children": [
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "checked": null,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": ": Вибираються як елементи ",
+                          "position": {
+                            "start": {
+                              "line": 78,
+                              "column": 5,
+                              "offset": 3221
+                            },
+                            "end": {
+                              "line": 78,
+                              "column": 31,
+                              "offset": 3247
+                            }
+                          }
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "A",
+                          "position": {
+                            "start": {
+                              "line": 78,
+                              "column": 31,
+                              "offset": 3247
+                            },
+                            "end": {
+                              "line": 78,
+                              "column": 34,
+                              "offset": 3250
+                            }
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "value": ", так і елементи ",
+                          "position": {
+                            "start": {
+                              "line": 78,
+                              "column": 34,
+                              "offset": 3250
+                            },
+                            "end": {
+                              "line": 78,
+                              "column": 51,
+                              "offset": 3267
+                            }
+                          }
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "B",
+                          "position": {
+                            "start": {
+                              "line": 78,
+                              "column": 51,
+                              "offset": 3267
+                            },
+                            "end": {
+                              "line": 78,
+                              "column": 54,
+                              "offset": 3270
+                            }
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "value": ". Це підхід до групування, що вибирає декілька елементів збігу.",
+                          "position": {
+                            "start": {
+                              "line": 78,
+                              "column": 54,
+                              "offset": 3270
+                            },
+                            "end": {
+                              "line": 78,
+                              "column": 117,
+                              "offset": 3333
+                            }
+                          }
+                        }
+                      ],
+                      "position": {
+                        "start": {
+                          "line": 78,
+                          "column": 5,
+                          "offset": 3221
+                        },
+                        "end": {
+                          "line": 78,
+                          "column": 117,
+                          "offset": 3333
+                        }
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 78,
+                      "column": 3,
+                      "offset": 3219
+                    },
+                    "end": {
+                      "line": 78,
+                      "column": 117,
+                      "offset": 3333
+                    }
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 78,
+                  "column": 3,
+                  "offset": 3219
+                },
+                "end": {
+                  "line": 78,
+                  "column": 117,
+                  "offset": 3333
+                }
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 77,
+              "column": 1,
+              "offset": 3156
+            },
+            "end": {
+              "line": 78,
+              "column": 117,
+              "offset": 3333
+            }
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 77,
+          "column": 1,
+          "offset": 3156
+        },
+        "end": {
+          "line": 78,
+          "column": 117,
+          "offset": 3333
+        }
+      }
+    }
+  ]
+}

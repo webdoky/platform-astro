@@ -1,0 +1,9 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "html",
+      "value": "<dl><dt><a href=\"/uk/docs/Web/CSS/Selector_list\">Список селекторів</a> <code>A, B</code></dt><dd><p>Вибираються як елементи <code>A</code>, так і елементи <code>B</code>. Це підхід до групування, що вибирає декілька елементів збігу.</p></dd></dl>"
+    }
+  ]
+}

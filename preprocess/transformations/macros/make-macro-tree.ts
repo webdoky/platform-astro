@@ -1,14 +1,13 @@
 import type { Literal, Root } from 'mdast';
-import { visit } from 'unist-util-visit';
-
-import type { CustomNode } from '../../types.js';
+import { SKIP, visit } from 'unist-util-visit';
 
 import extractMacrosFromText from './extract-macros-from-text.js';
+import type { MacroTreeNode } from './types.js';
 
 export default function makeMacroTree(tree: Root) {
-  visit<CustomNode, (node: CustomNode) => boolean>(
+  visit<MacroTreeNode, (node: MacroTreeNode) => boolean>(
     tree,
-    (node: CustomNode) => {
+    (node: MacroTreeNode) => {
       if (node.type === 'text') {
         return (node as Literal).value.includes('{{');
       }
@@ -24,7 +23,9 @@ export default function makeMacroTree(tree: Root) {
       //   console.log("parse", node);
       const nodeLiteral = node as Literal;
       const replacementNodes = extractMacrosFromText(nodeLiteral.value);
+      // console.log(replacementNodes);
       parent.children.splice(index, 1, ...replacementNodes);
+      return [SKIP, index + replacementNodes.length];
     },
   );
 }

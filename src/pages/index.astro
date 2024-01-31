@@ -32,7 +32,7 @@ async function populateChangelogWithLinks(changelog: string) {
   const fileSlugToSlug = new Map<string, string>(
     entries.map((entry) => [getFileSlugFromId(entry.id), entry.slug]),
   );
-  console.log('fileSlugToSlug', fileSlugToSlug);
+  // console.log('fileSlugToSlug', fileSlugToSlug);
   return changelog.replaceAll(CHANGE_REGEXP, (_, action, section, fileSlug) => {
     const slug = fileSlugToSlug.get(fileSlug);
     if (slug) {
