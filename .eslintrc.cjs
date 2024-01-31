@@ -26,6 +26,7 @@ module.exports = {
       },
       rules: {
         'astro/no-set-html-directive': 'warn',
+        'import/extensions': ['error', 'ignorePackages'],
         'import/order': [
           'error',
           {
@@ -91,6 +92,7 @@ module.exports = {
   },
   plugins: ['import', 'react', 'unicorn'],
   rules: {
+    'import/extensions': ['error', 'always'],
     'import/order': [
       'error',
       {

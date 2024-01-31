@@ -1,21 +1,15 @@
 ---
 
 ---
-
-<rollbar-script
-  data-access-token={import.meta.env.ROLLBAR_ACCESS_TOKEN}
-  data-mode={import.meta.env.MODE}></rollbar-script>
-
-<script type="application/javascript">
-  class RollbarScript extends HTMLElement {
-    constructor() {
-      super();
-      if (this.dataset.mode !== "production") {
-        return;
-      }
-      const rollbarAccesstoken = this.dataset.rollbarAccesstoken;
+<script
+  define:vars={{
+    accessToken: import.meta.env.ROLLBAR_ACCESS_TOKEN,
+    mode: import.meta.env.MODE,
+  }}
+>
+  if (mode === 'production') {
       var _rollbarConfig = {
-        accessToken: rollbarAccesstoken,
+        accessToken: accessToken,
         captureUncaught: true,
         captureUnhandledRejections: true,
         payload: {
@@ -388,7 +382,5 @@
         },
       ]);
       // End Rollbar Snippet
-    }
   }
-  window.customElements.define("rollbar-script", RollbarScript);
 </script>

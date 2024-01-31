@@ -4,6 +4,7 @@ import { join, resolve } from 'node:path';
 import { config as dotenvConfig } from 'dotenv';
 
 import adjustOutputFolder from './adjust-output-folder.js';
+import copyMiscFiles from './copy-misc-files.js';
 import processFile from './process-file.js';
 
 dotenvConfig();
@@ -52,5 +53,7 @@ walk(join(PATH_TO_LOCALIZED_CONTENT, 'files'), (filePath: string) => {
       { recursive: true },
     );
     processFile(filePath, outputPath);
+
+    copyMiscFiles(folder, outputPath.slice(0, -'/index.md'.length));
   }
 });
