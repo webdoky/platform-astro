@@ -3,10 +3,10 @@ import { readFileSync } from 'node:fs';
 import type { Html } from 'mdast';
 import Mustache from 'mustache';
 
-import type { BrokenMacroNode } from './types.js';
+import type { BrokenMacroNode } from '../../types.js';
 
 const templateCode = readFileSync(
-  './preprocess/broken-macro-html.mustache',
+  './preprocess/transformations/macros/broken-macro-html.mustache',
   'utf8',
 );
 Mustache.parse(templateCode);

@@ -1,8 +1,9 @@
 import type { Literal, Root } from 'mdast';
 import { visit } from 'unist-util-visit';
 
+import type { CustomNode } from '../../types.js';
+
 import extractMacrosFromText from './extract-macros-from-text.js';
-import type { CustomNode } from './types.js';
 
 export default function makeMacroTree(tree: Root) {
   visit<CustomNode, (node: CustomNode) => boolean>(

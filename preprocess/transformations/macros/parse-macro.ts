@@ -1,4 +1,4 @@
-import type { BrokenMacroNode, MacroNode } from './types.js';
+import type { BrokenMacroNode, MacroNode } from '../../types.js';
 
 export default function parseMacro(
   macroCode: string,

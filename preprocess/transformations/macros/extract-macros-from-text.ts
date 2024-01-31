@@ -1,7 +1,8 @@
 import type { Literal } from 'mdast';
 
+import type { BrokenMacroNode, MacroNode } from '../../types.js';
+
 import parseMacro from './parse-macro.js';
-import type { BrokenMacroNode, MacroNode } from './types.js';
 
 export default function extractMacrosFromText(
   text: string,

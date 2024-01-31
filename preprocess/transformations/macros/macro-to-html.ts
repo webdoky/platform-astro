@@ -3,9 +3,12 @@ import { readFileSync } from 'node:fs';
 import type { Html } from 'mdast';
 import Mustache from 'mustache';
 
-import type { MacroNode } from './types.js';
+import type { MacroNode } from '../../types.js';
 
-const templateCode = readFileSync('./preprocess/macro-html.mustache', 'utf8');
+const templateCode = readFileSync(
+  './preprocess/transformations/macros/macro-html.mustache',
+  'utf8',
+);
 Mustache.parse(templateCode);
 
 export default function macroToHtml(macro: MacroNode): Html {
