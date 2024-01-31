@@ -12,6 +12,7 @@ export default function macroToHtml(macro: MacroNode): Html {
   return {
     type: 'html',
     value: Mustache.render(templateCode, {
+      class: 'macro missing',
       name: macro.name,
       parameters: macro.parameters.join(', '),
     }),

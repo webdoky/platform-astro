@@ -17,5 +17,6 @@
   ],
   "[astro]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }
+  },
+  "stylelint.validate": ["astro"]
 }

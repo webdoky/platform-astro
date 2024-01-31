@@ -13,7 +13,7 @@ import Layout from '../layouts/Layout/Layout.astro';
 import getFileSlugFromId from '../utils/get-file-slug-from-slug';
 import getPathFromSlug from '../utils/get-path-from-slug';
 
-import '../styles/index.scss';
+import '../style.scss';
 
 const CHANGE_REGEXP =
   /(Оновлен{2}я перекладу|Переклад)\((\w+)\):<\/strong> (\S+)/g;
@@ -180,5 +180,5 @@ changeLogContent = await populateChangelogWithLinks(changeLogContent);
 
   /* .changelog li {
     margin-bottom: 0.5em;
-  }*/
+  } */
 </style>
