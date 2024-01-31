@@ -1,0 +1,5 @@
+dist
+external
+preprocess/dist
+src/content/translatedContent
+src/layouts/Layout/components/RollbarScript.astro

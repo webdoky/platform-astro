@@ -1,9 +1,9 @@
 ---
-interface Props {
-  size?: number;
+export interface Properties {
   className?: string;
+  size?: number;
 }
-const { size = 1, className = "" } = Astro.props;
+const { size = 1, className = '' } = Astro.props;
 ---
 
 <svg
@@ -11,8 +11,7 @@ const { size = 1, className = "" } = Astro.props;
   viewBox="0 0 24 24"
   width={`${size}em`}
   height={`${size}em`}
-  class={className}
-  fill="currentColor"
->
+  class:list={className}
+  fill="currentColor">
   <slot />
 </svg>

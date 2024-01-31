@@ -1,16 +1,18 @@
 ---
-import IconWrapper from "../../../components/IconWrapper.astro";
-import Logo from "../../../components/Logo.astro";
-import ToggleDarkMode from "./ToggleDarkMode";
+import IconWrapper from '../../../components/IconWrapper.astro';
+import Logo from '../../../components/Logo.astro';
+
+import ToggleDarkMode from './ToggleDarkMode';
+
 const { pathname } = Astro.url;
 const NAV = [
   {
-    path: "/uk/docs/Web/",
-    title: "Технології",
+    path: '/uk/docs/Web/',
+    title: 'Технології',
   },
-  { path: "/docs/", title: "Про проєкт" },
+  { path: '/docs/', title: 'Про проєкт' },
 ];
-const GITHUB_LINK = "https://github.com/webdoky";
+const GITHUB_LINK = 'https://github.com/webdoky';
 ---
 
 <div class="py-2 border-t-2 border-ui-primary">
@@ -20,12 +22,10 @@ const GITHUB_LINK = "https://github.com/webdoky";
         <a
           href="/"
           class="flex items-center text-ui-primary no-underline"
-          title="На головну"
-        >
+          title="На головну">
           <Logo width={40} className="text-ui-primary" />
           <span
-            class="hidden ml-2 text-xl font-black tracking-tighter sm:block"
-          >
+            class="hidden ml-2 text-xl font-black tracking-tighter sm:block">
             WebDoky
           </span>
         </a>
@@ -36,10 +36,9 @@ const GITHUB_LINK = "https://github.com/webdoky";
               <a
                 href={path}
                 class:list={[
-                  "block p-1 font-medium nav-link text-ui-typo hover:text-ui-primary sm:ml-4 md:whitespace-nowrap no-underline",
+                  'block p-1 font-medium nav-link text-ui-typo hover:text-ui-primary sm:ml-4 md:whitespace-nowrap no-underline',
                   { active: pathname.startsWith(path) },
-                ]}
-              >
+                ]}>
                 {title}
               </a>
             ))
@@ -48,17 +47,17 @@ const GITHUB_LINK = "https://github.com/webdoky";
       </div>
 
       <div class="w-full px-2 sm:px-4 max-w-screen-xs">
-        <!-- <Search /> -->
+        {/* Search */}
       </div>
 
       <div class="flex items-center justify-end px-2 sm:px-4">
         <a
+          aria-label="Ми на GitHub"
           href={GITHUB_LINK}
           class="sm:ml-3 text-ui-typo no-underline"
           target="_blank"
           rel="noopener noreferrer"
-          title="Ми на GitHub"
-        >
+          title="Ми на GitHub">
           <IconWrapper size={1.7}>
             <path fill="none" d="M0 0h24v24H0z"></path>
             <path

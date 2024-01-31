@@ -1,36 +1,38 @@
 ---
-import { getCollection } from "astro:content";
+import { escapeHTML } from 'astro/runtime/server/escape.js';
+import { getCollection } from 'astro:content';
 
-import Layout from "../layouts/Layout/Layout.astro";
-import logo from "../../assets/logo.png";
-import appleTouchIcon from "../../assets/apple-touch-icon.png";
-import favicon16 from "../../assets/favicon-16x16.png";
-import favicon32 from "../../assets/favicon-32x32.png";
-import safariPinnedTab from "../../assets/safari-pinned-tab.svg";
-import logoIndex from "../../assets/logo-index.svg";
-import WdChangelogLoader from "../data/changelog";
-import getFileSlugFromId from "../utils/getFileSlugFromId";
-import getPathFromSlug from "../utils/getPathFromSlug";
-import { escapeHTML } from "astro/runtime/server/escape.js";
+import appleTouchIcon from '../../assets/apple-touch-icon.png';
+import favicon16 from '../../assets/favicon-16x16.png';
+import favicon32 from '../../assets/favicon-32x32.png';
+import logoIndex from '../../assets/logo-index.svg';
+import logo from '../../assets/logo.png';
+import safariPinnedTab from '../../assets/safari-pinned-tab.svg';
+import WdChangelogLoader from '../data/changelog';
+import Layout from '../layouts/Layout/Layout.astro';
+import getFileSlugFromId from '../utils/get-file-slug-from-slug';
+import getPathFromSlug from '../utils/get-path-from-slug';
+
+import '../styles/index.scss';
 
 const CHANGE_REGEXP =
-  /((?:Оновлення перекладу)|(?:Переклад))\((\w+)\):<\/strong> (\S+)/gu;
+  /(Оновлен{2}я перекладу|Переклад)\((\w+)\):<\/strong> (\S+)/g;
 
-const TITLE = "Про веб, у вебі, для вебу | ВебДоки";
+const TITLE = 'Про веб, у вебі, для вебу | ВебДоки';
 const DESCRIptION =
-  "Проєкт Webdoky — це зібрання інформації про технології відкритого вебу. HTML, CSS, JavaScript, та API, як для вебсайтів, так і для прогресивних вебзастосунків";
-const BASE_PATH = import.meta.env.BASE_PATH;
-const TARGET_LOCALE = import.meta.env.TARGET_LOCALE;
+  'Проєкт Webdoky — це зібрання інформації про технології відкритого вебу. HTML, CSS, JavaScript, та API, як для вебсайтів, так і для прогресивних вебзастосунків';
+const { BASE_PATH } = import.meta.env;
+const { TARGET_LOCALE } = import.meta.env;
 const CANONICAL_URL = `${BASE_PATH}/`;
 async function populateChangelogWithLinks(changelog: string) {
-  const entries = await getCollection("translatedContent");
+  const entries = await getCollection('translatedContent');
   const fileSlugToTitle = new Map<string, string>(
-    entries.map((entry) => [getFileSlugFromId(entry.id), entry.data.title])
+    entries.map((entry) => [getFileSlugFromId(entry.id), entry.data.title]),
   );
   const fileSlugToSlug = new Map<string, string>(
-    entries.map((entry) => [getFileSlugFromId(entry.id), entry.slug])
+    entries.map((entry) => [getFileSlugFromId(entry.id), entry.slug]),
   );
-  console.log("fileSlugToSlug", fileSlugToSlug);
+  console.log('fileSlugToSlug', fileSlugToSlug);
   return changelog.replaceAll(CHANGE_REGEXP, (_, action, section, fileSlug) => {
     const slug = fileSlugToSlug.get(fileSlug);
     if (slug) {
@@ -39,21 +41,21 @@ async function populateChangelogWithLinks(changelog: string) {
       // console.log("title", title);
       if (title) {
         return `${action}(${section}):</strong> <a href="${path}">${escapeHTML(
-          title
+          title,
         )}</a>`;
       }
     }
-    console.log("No title for slug", fileSlug);
+    console.log('No title for slug', fileSlug);
     return `${action}(${section}):</strong> ${fileSlug}`;
   });
 }
 const changelogs = await WdChangelogLoader.getAll();
 // console.log(changelogs);
-if (!changelogs.length) {
-  throw new Error("No changelogs found");
+if (changelogs.length === 0) {
+  throw new Error('No changelogs found');
 }
 
-let changeLogContent = changelogs[0]?.content || "";
+let changeLogContent = changelogs[0]?.content || '';
 // console.log("changeLogContent", changeLogContent);
 changeLogContent = await populateChangelogWithLinks(changeLogContent);
 ---
@@ -109,40 +111,35 @@ changeLogContent = await populateChangelogWithLinks(changeLogContent);
       <div class="flex p-2 flex-wrap justify-center">
         <a
           href={`/${TARGET_LOCALE}/docs/Web/JavaScript/`}
-          class="p-2 mx-5 border-b border-ui-border no-underline text-ui-typo"
-        >
+          class="p-2 mx-5 border-b border-ui-border no-underline text-ui-typo">
           JavaScript &#8594;
         </a>
         <a
           href={`/${TARGET_LOCALE}/docs/Web/CSS/`}
-          class="p-2 mx-5 border-b border-ui-border no-underline text-ui-typo"
-        >
+          class="p-2 mx-5 border-b border-ui-border no-underline text-ui-typo">
           CSS &#8594;
         </a>
         <a
           href={`/${TARGET_LOCALE}/docs/Web/HTML/`}
-          class="p-2 mx-5 border-b border-ui-border no-underline text-ui-typo"
-        >
+          class="p-2 mx-5 border-b border-ui-border no-underline text-ui-typo">
           HTML &#8594;
         </a>
       </div>
     </div>
 
     <div
-      class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"
-    >
+      class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm">
     </div>
 
     <div class="section-info flex flex-wrap justify-center -mx-4">
       <div class="flex flex-col w-full px-4 mb-8 md:w-2/3">
         <h2 class="font-bold tracking-wide uppercase mb-0">Що нового</h2>
         <p class="mb-0">
-          Найсвіжіші оновлення з нашого{" "}
+          Найсвіжіші оновлення з нашого{' '}
           <a
             href="https://github.com/webdoky/content/"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             репозиторію
           </a>
         </p>
@@ -155,8 +152,7 @@ changeLogContent = await populateChangelogWithLinks(changeLogContent);
       <a
         href="https://github.com/webdoky/content/blob/master/CHANGELOG.md"
         target="_blank"
-        rel="noopener noreferrer"
-      >
+        rel="noopener noreferrer">
         Вся історія версій
       </a>
     </div>
@@ -170,7 +166,7 @@ changeLogContent = await populateChangelogWithLinks(changeLogContent);
       <h3 class="font-bold tracking-wide uppercase">Долучитись</h3>
       <p class="text-lg text-left">
         WebDoky — це відкритий проєкт, і будь-хто може долучитися і допомогти
-        нам робити вебдокументацію доступною для україномовних читачів.{" "}
+        нам робити вебдокументацію доступною для україномовних читачів.{' '}
         <a href="/docs/"> Докладніше — в розділі &quot;Про проєкт&quot;</a>
       </p>
     </div>
@@ -182,66 +178,7 @@ changeLogContent = await populateChangelogWithLinks(changeLogContent);
     text-decoration: underline;
   }
 
-  .changelog li {
+  /* .changelog li {
     margin-bottom: 0.5em;
-  }
-</style>
-
-<style is:global>
-  .macro {
-    display: inline-block;
-    background: grey;
-    position: relative;
-  }
-  .macro:hover {
-    background: transparent;
-  }
-  .macro::after {
-    content: "";
-    position: absolute;
-    left: calc(50% - 0.5em);
-    top: calc(50% - 0.5em);
-    height: 1em;
-    width: 1em;
-    margin: 0px auto;
-    animation: rotation 0.6s infinite linear;
-    border-left: 6px solid rgba(0, 174, 239, 0.15);
-    border-right: 6px solid rgba(0, 174, 239, 0.15);
-    border-bottom: 6px solid rgba(0, 174, 239, 0.15);
-    border-top: 6px solid rgba(0, 174, 239, 0.8);
-    border-radius: 100%;
-  }
-
-  @-webkit-keyframes rotation {
-    from {
-      -webkit-transform: rotate(0deg);
-    }
-    to {
-      -webkit-transform: rotate(359deg);
-    }
-  }
-  @-moz-keyframes rotation {
-    from {
-      -moz-transform: rotate(0deg);
-    }
-    to {
-      -moz-transform: rotate(359deg);
-    }
-  }
-  @-o-keyframes rotation {
-    from {
-      -o-transform: rotate(0deg);
-    }
-    to {
-      -o-transform: rotate(359deg);
-    }
-  }
-  @keyframes rotation {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(359deg);
-    }
-  }
+  }*/
 </style>

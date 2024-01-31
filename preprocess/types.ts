@@ -1,15 +1,15 @@
-import type { Node } from "mdast";
+import type { Node } from 'mdast';
 
 export interface MacroNode extends Node {
-  type: "macro";
   name: string;
   parameters: string[];
+  type: 'macro';
 }
 
 export interface BrokenMacroNode extends Node {
   code: string;
   error: string;
-  type: "brokenMacro";
+  type: 'brokenMacro';
 }
 
 export interface AbstractParentNode extends Node {

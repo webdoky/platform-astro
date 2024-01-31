@@ -1,0 +1,21 @@
+{
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "cSpell.enabled": false,
+  "eslint.experimental.useFlatConfig": false,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro",
+    "typescript",
+    "typescriptreact"
+  ],
+  "[astro]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
+}

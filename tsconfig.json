@@ -2,6 +2,16 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "esModuleInterop": true,
-    "jsx": "react"
-  }
+    "jsx": "react",
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin",
+      },
+    ],
+    "exactOptionalPropertyTypes": false,
+  },
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.astro"],
+  "exclude": ["node_modules", "dist", "preprocess"],
 }
