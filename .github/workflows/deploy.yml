@@ -52,7 +52,7 @@ jobs:
           name: interactive-examples
           path: ./docs/
   preprocess:
-    needs: [lint]
+    needs: [lint, test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -66,6 +66,10 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build preprocess
         run: tsc --project ./preprocess/tsconfig.json --outDir ./preprocess/dist
+      - name: Debug PATH_TO_LOCALIZED_CONTENT
+        run: echo $PATH_TO_LOCALIZED_CONTENT
+        env:
+          PATH_TO_LOCALIZED_CONTENT: ${{ env.PATH_TO_LOCALIZED_CONTENT }}
       - name: Run preprocess
         env:
           PATH_TO_LOCALIZED_CONTENT: ${{ env.PATH_TO_LOCALIZED_CONTENT }}
@@ -76,7 +80,7 @@ jobs:
           name: translatedContent
           path: src/content/translatedContent
   build:
-    needs: [lint, preprocess]
+    needs: [lint, preprocess, test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
