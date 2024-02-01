@@ -46,7 +46,7 @@ jobs:
           node-version: '18'
       - run: yarn install
       - run: yarn build
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           if-no-files-found: error
           name: interactive-examples
@@ -69,12 +69,12 @@ jobs:
       - name: Debug PATH_TO_LOCALIZED_CONTENT
         run: echo $PATH_TO_LOCALIZED_CONTENT
         env:
-          PATH_TO_LOCALIZED_CONTENT: ${{ env.PATH_TO_LOCALIZED_CONTENT }}
+          PATH_TO_LOCALIZED_CONTENT: ${{ vars.PATH_TO_LOCALIZED_CONTENT }}
       - name: Run preprocess
         env:
-          PATH_TO_LOCALIZED_CONTENT: ${{ env.PATH_TO_LOCALIZED_CONTENT }}
+          PATH_TO_LOCALIZED_CONTENT: ${{ vars.PATH_TO_LOCALIZED_CONTENT }}
         run: node ./preprocess/dist/index.js
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           if-no-files-found: error
           name: translatedContent
@@ -95,10 +95,10 @@ jobs:
       - name: Run build
         run: yarn build
         env:
-          BASE_PATH: ${{ env.BASE_PATH }}
-          PATH_TO_LOCALIZED_CONTENT: ${{ env.PATH_TO_LOCALIZED_CONTENT }}
+          BASE_PATH: ${{ vars.BASE_PATH }}
+          PATH_TO_LOCALIZED_CONTENT: ${{ vars.PATH_TO_LOCALIZED_CONTENT }}
           ROLLBAR_ACCESS_TOKEN: ${{ secrets.ROLLBAR_ACCESS_TOKEN }}
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           if-no-files-found: error
           name: build
@@ -120,5 +120,5 @@ jobs:
           node-version: '21'
       - run: yarn deploy
         env:
-          SURGE_LOGIN: ${{ env.SURGE_LOGIN }}
+          SURGE_LOGIN: ${{ vars.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
