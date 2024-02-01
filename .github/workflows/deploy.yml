@@ -105,6 +105,13 @@ jobs:
           BASE_PATH: ${{ vars.BASE_PATH }}
           PATH_TO_LOCALIZED_CONTENT: ${{ vars.PATH_TO_LOCALIZED_CONTENT }}
           ROLLBAR_ACCESS_TOKEN: ${{ secrets.ROLLBAR_ACCESS_TOKEN }}
+      - run: sudo apt install rename
+      # Recursively replace all asterisks in folder names with "_asterisk_"
+      - run: find ./dist -depth -type d -name "*" -execdir rename 's/\*/_asterisk_/g' "{}" \;
+      # Recursively replace all doublecolons in folder names with "_doublecolon_"
+      - run: find ./dist -depth -type d -name "*" -execdir rename 's/::/_doublecolon_/g' "{}" \;
+      # Recursively replace all colons in folder names with "_colon_"
+      - run: find ./book -depth -type d -name "*" -execdir rename 's/:/_colon_/g' "{}" \;
       - uses: actions/upload-artifact@v4
         with:
           if-no-files-found: error
@@ -118,6 +125,13 @@ jobs:
         with:
           name: build
           path: dist
+      - run: sudo apt install rename
+      # Recursively replace all "_asterisk_" in folder names with asterisks
+      - run: find ./dist -depth -type d -name "*_asterisk_*" -execdir rename 's/_asterisk_/*/g' "{}" \;
+      # Recursively replace all "_doublecolon_" in folder names with doublecolons
+      - run: find ./dist -depth -type d -name "*_doublecolon_*" -execdir rename 's/_doublecolon_/::/g' "{}" \;
+      # Recursively replace all "_colon_" in folder names with colons
+      - run: find ./dist -depth -type d -name "*_colon_*" -execdir rename 's/_colon_/:/g' "{}" \;
       - uses: actions/download-artifact@v4
         with:
           name: interactive-examples
@@ -125,6 +139,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '21'
+      - run: yarn global add surge
       - run: yarn deploy
         env:
           SURGE_LOGIN: ${{ vars.SURGE_LOGIN }}

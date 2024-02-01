@@ -85,7 +85,6 @@
     "stylelint-config-html": "~1.1.0",
     "stylelint-config-standard-scss": "~13.0.0",
     "stylelint-scss": "~6.1.0",
-    "surge": "0.23.1",
     "ts-jest": "~29.1.2",
     "ts-node": "~10.9.2"
   }
