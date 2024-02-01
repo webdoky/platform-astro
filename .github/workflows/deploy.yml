@@ -1,0 +1,120 @@
+env:
+  PRODUCTION: true
+name: Deploy
+run-name: ${{ github.actor }} deploys 🚀
+on:
+  push:
+    branches:
+      - main
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run lint
+        run: yarn lint
+  test:
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run test
+        run: yarn test
+  build-interactive-examples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: webdoky/interactive-examples
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - run: yarn install
+      - run: yarn build
+      - uses: actions/upload-artifact@v3
+        with:
+          if-no-files-found: error
+          name: interactive-examples
+          path: ./docs/
+  preprocess:
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          submodules: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build preprocess
+        run: tsc --project ./preprocess/tsconfig.json --outDir ./preprocess/dist
+      - name: Run preprocess
+        env:
+          PATH_TO_LOCALIZED_CONTENT: ${{ env.PATH_TO_LOCALIZED_CONTENT }}
+        run: node ./preprocess/dist/index.js
+      - uses: actions/upload-artifact@v3
+        with:
+          if-no-files-found: error
+          name: translatedContent
+          path: src/content/translatedContent
+  build:
+    needs: [lint, preprocess]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Setup MDBook
+        run: mkdir bin && curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.35/mdbook-v0.4.35-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=bin
+      - uses: actions/download-artifact@v3
+        with:
+          name: translatedContent
+          path: src/content/translatedContent
+      - name: Run build
+        run: yarn build
+        env:
+          BASE_PATH: ${{ env.BASE_PATH }}
+          PATH_TO_LOCALIZED_CONTENT: ${{ env.PATH_TO_LOCALIZED_CONTENT }}
+          ROLLBAR_ACCESS_TOKEN: ${{ secrets.ROLLBAR_ACCESS_TOKEN }}
+      - uses: actions/upload-artifact@v3
+        with:
+          if-no-files-found: error
+          name: build
+          path: dist
+  deploy:
+    needs: [build, build-interactive-examples]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: dist
+      - uses: actions/download-artifact@v3
+        with:
+          name: interactive-examples
+          path: dist/interactive-examples
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+      - run: yarn deploy
+        env:
+          SURGE_LOGIN: ${{ env.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}

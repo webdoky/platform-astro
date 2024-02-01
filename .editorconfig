@@ -1,6 +1,7 @@
-# EditorConfig is awesome: https://EditorConfig.org
+# EditorConfig helps developers define and maintain consistent
+# coding styles between different editors and IDEs
+# http://editorconfig.org
 
-# top-most EditorConfig file
 root = true
 
 [*]
@@ -17,3 +18,9 @@ trim_trailing_whitespace = false
 [*.mustache]
 trim_trailing_whitespace = false
 
+
+# editorconfig-tools is unable to ignore longs strings or urls
+max_line_length = null
+
+[Makefile]
+indent_style = tab
