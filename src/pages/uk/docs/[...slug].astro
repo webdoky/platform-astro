@@ -18,19 +18,26 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const page = await getEntry('processed-content', slug);
-const { Content } = await page.render();
+const { remarkPluginFrontmatter, Content } = await page.render();
 ---
 
 <Layout title={page.data.title}>
   <main
     class="wd-doc-page container relative flex flex-wrap justify-start flex-1 w-full bg-ui-background">
     <h1>{page.data.title}</h1>
+    <span class="reading-time">{remarkPluginFrontmatter.minutesRead}</span>
     <div class="flex flex-wrap items-start justify-start">
       <div class="order-1 w-full md:w-2/3"><Content /></div>
     </div>
   </main>
 </Layout>
 <style lang="scss">
+  .reading-time {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 1em;
+  }
+
   .wd-doc-page {
     /* .sidebar {
     @apply fixed bg-ui-background px-4 inset-x-0 bottom-0 w-full border-r border-ui-border overflow-y-auto transition-all z-40;
