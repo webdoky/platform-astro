@@ -77,7 +77,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           if-no-files-found: error
-          name: translatedContent
+          name: preprocessed-content
           path: src/content/translatedContent
   build:
     needs: [lint, preprocess, test]
@@ -86,9 +86,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
-          name: translatedContent
+          name: preprocessed-content
           path: src/content/translatedContent
       - uses: actions/setup-node@v4
         with:
@@ -108,11 +108,11 @@ jobs:
     needs: [build, build-interactive-examples]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: build
           path: dist
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: interactive-examples
           path: dist/interactive-examples
