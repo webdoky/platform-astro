@@ -1,8 +1,8 @@
 ---
+import Footer from './components/Footer.astro';
 import Header from './components/Header.astro';
 import RollbarScript from './components/RollbarScript.astro';
-import Footer from './components/Footer.astro';
-
+import DarkModeScript from './components/DarkModeScript.astro';
 import '../../style.scss';
 
 const { title } = Astro.props;
@@ -18,27 +18,8 @@ const { title } = Astro.props;
     <link rel="stylesheet" href="/prism-base16-ateliersulphurpool.light.css" />
   </head>
   <body>
-    <script is:inline>
-      /* eslint-disable prettier/prettier */
-      function setDarkMode(value) {
-        if (value) {
-          document.body.classList.add(LIGHTS_OUT);
-        } else {
-          document.body.classList.remove(LIGHTS_OUT);
-        }
-      }
-      const LIGHTS_OUT = 'lights-out';
-      if (window.sessionStorage.getItem(LIGHTS_OUT)) {
-        const lightsOut = window.sessionStorage.getItem(LIGHTS_OUT);
-        setDarkMode(lightsOut === 'true');
-      } else {
-        const darkModeMediaQuery = window.matchMedia(
-          '(prefers-color-scheme: dark)',
-        );
-        setDarkMode(darkModeMediaQuery.matches);
-      }
-      /* eslint-enable prettier/prettier */
-    </script><div class="font-sans antialiased text-ui-typo bg-ui-background">
+    <DarkModeScript /><div
+      class="font-sans antialiased text-ui-typo bg-ui-background">
       <div class="flex flex-col justify-start min-h-screen">
         <header
           class="sticky top-0 z-10 w-full border-b bg-ui-background border-ui-border">

@@ -18,7 +18,7 @@ module.exports = {
         'plugin:unicorn/all',
         'plugin:prettier/recommended',
       ],
-      files: ['*.astro'],
+      files: ['src/**/*.astro'],
       parser: 'astro-eslint-parser',
       parserOptions: {
         extraFileExtensions: ['.astro'],
