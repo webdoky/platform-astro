@@ -43,7 +43,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
       - run: yarn build
       - uses: actions/upload-artifact@v4
         with:
@@ -95,7 +95,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Run build
-        run: yarn build
+        run: npx astro build
         env:
           BASE_PATH: ${{ vars.BASE_PATH }}
           PATH_TO_LOCALIZED_CONTENT: ${{ vars.PATH_TO_LOCALIZED_CONTENT }}
