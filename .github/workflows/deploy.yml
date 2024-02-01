@@ -140,7 +140,7 @@ jobs:
         with:
           node-version: '21'
       - run: yarn global add surge
-      - run: yarn deploy
+      - run: npx surge ./dist --domain https://webdoky4.surge.sh
         env:
           SURGE_LOGIN: ${{ vars.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
