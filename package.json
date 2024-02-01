@@ -14,7 +14,8 @@
     "preprocess": "rm -rf ./preprocess/dist && tsc --project ./preprocess/tsconfig.json --outDir ./preprocess/dist && rm -rf src/content/translatedContent && node ./preprocess/dist/index.js",
     "lint": "eslint .",
     "test": "jest --config jest.config.cjs",
-    "deploy": "surge ./dist --domain https://webdoky4.surge.sh"
+    "deploy": "surge ./dist --domain https://webdoky4.surge.sh",
+    "fix": "yarn lint --fix"
   },
   "dependencies": {
     "@astrojs/check": "0.4.1",

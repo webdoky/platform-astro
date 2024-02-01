@@ -1,12 +1,15 @@
 {
+  "[astro]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
   "[javascript]": {
     "editor.formatOnSave": false
   },
-  "editor.formatOnSave": true,
+  "cSpell.enabled": false,
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
-  "cSpell.enabled": false,
+  "editor.formatOnSave": true,
   "eslint.experimental.useFlatConfig": false,
   "eslint.validate": [
     "javascript",
@@ -15,8 +18,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "[astro]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
+  "prettier.documentSelectors": ["**/*.astro"],
   "stylelint.validate": ["astro"]
 }

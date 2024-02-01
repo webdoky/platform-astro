@@ -11,11 +11,11 @@ export default function ToggleDarkMode() {
   const [isDarkMode, setDarkMode] = useState(false);
   const enableDarkMode = useCallback(() => {
     setDarkMode(true);
-    document.body.classList.add('dark-mode');
+    document.body.classList.add(LIGHTS_OUT);
   }, []);
   const disableDarkMode = useCallback(() => {
     setDarkMode(false);
-    document.body.classList.remove('dark-mode');
+    document.body.classList.remove(LIGHTS_OUT);
   }, []);
   const toggleDarkMode = useCallback(
     (prefersDark: boolean) => {
@@ -32,13 +32,6 @@ export default function ToggleDarkMode() {
     const darkModeMediaQuery = window.matchMedia(
       '(prefers-color-scheme: dark)',
     );
-    if (!window.sessionStorage.getItem(LIGHTS_OUT)) {
-      if (darkModeMediaQuery.matches) {
-        enableDarkMode();
-      } else {
-        disableDarkMode();
-      }
-    }
     darkModeMediaQuery.addEventListener('change', (event) =>
       toggleDarkMode(event.matches),
     );
