@@ -146,29 +146,28 @@ changeLogContent = await populateChangelogWithLinks(changeLogContent);
         <div class="border-ui-border w-1/4 border-b mb-5 mt-1"></div>
 
         <div class="changelog" set:html={changeLogContent} />
+        <div class="border-ui-border w-1/4 border-b mb-3 mt-4"></div>
+        <a
+          href="https://github.com/webdoky/content/blob/master/CHANGELOG.md"
+          target="_blank"
+          rel="noopener noreferrer">
+          Вся історія версій
+        </a>
       </div>
 
-      <div class="border-ui-border w-1/4 border-b mb-3 mt-4"></div>
-      <a
-        href="https://github.com/webdoky/content/blob/master/CHANGELOG.md"
-        target="_blank"
-        rel="noopener noreferrer">
-        Вся історія версій
-      </a>
-    </div>
-
-    <div class="flex flex-col w-full px-4 mb-8 md:w-1/3">
-      <h2 class="sr-only">Про нас</h2>
-      <p class="text-lg text-left">
-        WebDoky (ВебДоки) — це проект, покликаний зробити вміст MDN Web Docs
-        доступним українською мовою.
-      </p>
-      <h3 class="font-bold tracking-wide uppercase">Долучитись</h3>
-      <p class="text-lg text-left">
-        WebDoky — це відкритий проєкт, і будь-хто може долучитися і допомогти
-        нам робити вебдокументацію доступною для україномовних читачів.{' '}
-        <a href="/docs/"> Докладніше — в розділі &quot;Про проєкт&quot;</a>
-      </p>
+      <div class="flex flex-col w-full px-4 mb-8 md:w-1/3">
+        <h2 class="sr-only">Про нас</h2>
+        <p class="text-lg text-left">
+          WebDoky (ВебДоки) — це проект, покликаний зробити вміст MDN Web Docs
+          доступним українською мовою.
+        </p>
+        <h3 class="font-bold tracking-wide uppercase">Долучитись</h3>
+        <p class="text-lg text-left">
+          WebDoky — це відкритий проєкт, і будь-хто може долучитися і допомогти
+          нам робити вебдокументацію доступною для україномовних читачів.{' '}
+          <a href="/docs/"> Докладніше — в розділі &quot;Про проєкт&quot;</a>
+        </p>
+      </div>
     </div>
   </div>
 </Layout>
