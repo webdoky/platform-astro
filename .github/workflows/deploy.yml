@@ -111,7 +111,7 @@ jobs:
       # Recursively replace all doublecolons in folder names with "_doublecolon_"
       - run: find ./dist -depth -type d -name "*" -execdir rename 's/::/_doublecolon_/g' "{}" \;
       # Recursively replace all colons in folder names with "_colon_"
-      - run: find ./book -depth -type d -name "*" -execdir rename 's/:/_colon_/g' "{}" \;
+      - run: find ./dist -depth -type d -name "*" -execdir rename 's/:/_colon_/g' "{}" \;
       - uses: actions/upload-artifact@v4
         with:
           if-no-files-found: error
