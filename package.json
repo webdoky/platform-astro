@@ -11,7 +11,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "preprocess": "rm -rf ./preprocess/dist && tsc --project ./preprocess/tsconfig.json --outDir ./preprocess/dist && rm -rf src/content/translatedContent && node ./preprocess/dist/index.js",
+    "preprocess": "rm -rf ./preprocess/dist && tsc --project ./preprocess/tsconfig.json --outDir ./preprocess/dist && rm -rf src/content/processed-content && node ./preprocess/dist/index.js",
     "lint": "eslint .",
     "test": "jest --config jest.config.cjs",
     "deploy": "surge ./dist --domain https://webdoky4.surge.sh",

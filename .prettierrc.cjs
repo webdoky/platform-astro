@@ -10,6 +10,12 @@ module.exports = {
         parser: "astro",
       },
     },
+    {
+      files: ".jsonc?",
+      options: {
+        trailingComma: "none",
+      }
+    }
   ],
   plugins: ["prettier-plugin-astro"],
   singleQuote: true,

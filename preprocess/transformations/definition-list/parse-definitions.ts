@@ -28,12 +28,6 @@ export default function parseDefinitions(tree: Root) {
         return [];
       }
       const terms = listItem.children.slice(0, -1);
-      console.log(
-        'terms.length =',
-        terms.length,
-        'listItem.children.length =',
-        listItem.children.length,
-      );
       const definition = (listItem.children.at(-1) as List).children[0];
       const [paragraph, ...rest]: Parent[] = definition.children as Parent[];
       (paragraph.children[0] as Literal).value = (

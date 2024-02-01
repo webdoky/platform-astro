@@ -25,7 +25,7 @@ const { BASE_PATH } = import.meta.env;
 const { TARGET_LOCALE } = import.meta.env;
 const CANONICAL_URL = `${BASE_PATH}/`;
 async function populateChangelogWithLinks(changelog: string) {
-  const entries = await getCollection('translatedContent');
+  const entries = await getCollection('processed-content');
   const fileSlugToTitle = new Map<string, string>(
     entries.map((entry) => [getFileSlugFromId(entry.id), entry.data.title]),
   );

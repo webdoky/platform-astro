@@ -5,6 +5,12 @@
   "[javascript]": {
     "editor.formatOnSave": false
   },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
   "cSpell.enabled": false,
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
@@ -18,6 +24,10 @@
     "typescript",
     "typescriptreact"
   ],
-  "prettier.documentSelectors": ["**/*.astro"],
-  "stylelint.validate": ["astro"]
+  "prettier.documentSelectors": [
+    "**/*.astro"
+  ],
+  "stylelint.validate": [
+    "astro"
+  ]
 }

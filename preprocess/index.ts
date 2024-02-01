@@ -11,7 +11,7 @@ dotenvConfig();
 
 const { PATH_TO_LOCALIZED_CONTENT } = process.env;
 
-const OUTPUT_FOLDER = 'src/content/translatedContent';
+const OUTPUT_FOLDER = 'src/content/processed-content';
 
 // walk through all the Markdown files in the localized content directory
 function walk(directory: string, callback: (path: string) => void) {

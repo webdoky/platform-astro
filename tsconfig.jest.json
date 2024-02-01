@@ -13,7 +13,16 @@
     ],
     "skipLibCheck": true
   },
-  "exclude": ["node_modules", "dist", "preprocess"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "preprocess"
+  ],
   "extends": "astro/tsconfigs/strictest",
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.astro", "./*.ts"]
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.astro",
+    "./*.ts"
+  ]
 }

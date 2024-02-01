@@ -10,7 +10,7 @@ endif
 .PHONY: build clean deploy install lint preview rebuild test
 .SHELLFLAGS += -e
 
-dist: astro.config.mjs lint package.json src src/content/translatedContent yarn.lock
+dist: astro.config.mjs lint package.json src src/content/processed-content yarn.lock
 	npx astro build
 
 external/translated-content:
@@ -20,8 +20,8 @@ preprocess/dist:
 	rm -rf ./preprocess/dist
 	tsc --project ./preprocess/tsconfig.json --outDir ./preprocess/dist
 
-src/content/translatedContent: external/translated-content preprocess/dist
-	rm -rf ./src/content/translatedContent
+src/content/processed-content: external/translated-content preprocess/dist
+	rm -rf ./src/content/processed-content
 	node ./preprocess/dist/index.js
 
 clean:

@@ -1,6 +1,6 @@
 import { z, defineCollection } from 'astro:content';
 
-const translatedContent = defineCollection({
+const processedContent = defineCollection({
   type: 'content',
   schema: z.object({
     'browser-compat': z.optional(z.union([z.string(), z.array(z.string())])),
@@ -16,5 +16,5 @@ const translatedContent = defineCollection({
 
 // eslint-disable-next-line import/prefer-default-export
 export const collections = {
-  translatedContent,
+  'processed-content': processedContent,
 };

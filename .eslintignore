@@ -1,6 +1,6 @@
 dist
 external
 preprocess/dist
-src/content/translatedContent
+src/content/processed-content
 src/layouts/Layout/components/RollbarScript.astro
 src/layouts/Layout/components/DarkModeScript.astro
