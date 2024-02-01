@@ -1,0 +1,21 @@
+---
+---
+<script is:inline>
+  function setDarkMode(value) {
+    if (value) {
+      document.body.classList.add(LIGHTS_OUT);
+    } else {
+      document.body.classList.remove(LIGHTS_OUT);
+    }
+  }
+  const LIGHTS_OUT = 'lights-out';
+  if (window.sessionStorage.getItem(LIGHTS_OUT)) {
+    const lightsOut = window.sessionStorage.getItem(LIGHTS_OUT);
+    setDarkMode(lightsOut === 'true');
+  } else {
+    const darkModeMediaQuery = window.matchMedia(
+      '(prefers-color-scheme: dark)',
+    );
+    setDarkMode(darkModeMediaQuery.matches);
+  }
+</script>

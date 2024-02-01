@@ -3,3 +3,4 @@ external
 preprocess/dist
 src/content/translatedContent
 src/layouts/Layout/components/RollbarScript.astro
+src/layouts/Layout/components/DarkModeScript.astro
