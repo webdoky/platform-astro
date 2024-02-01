@@ -9,3 +9,7 @@ export default function fixNolintLanguage(tree: Root) {
     node.lang = node.lang.replace('-nolint', '');
   });
 }
+
+export function fixNolintLanguagePlugin() {
+  return fixNolintLanguage;
+}

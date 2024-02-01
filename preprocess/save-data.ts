@@ -1,7 +1,8 @@
 import { createHash } from 'node:crypto';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
 
-export function saveData(
+export default async function saveData(
   place: string,
   kind: string,
   data: unknown,
@@ -10,6 +11,6 @@ export function saveData(
   const json = JSON.stringify(data, undefined, 2);
   const hash = createHash('sha256').update(identity).digest('hex');
   const filename = `${hash}-${kind}.json`;
-  mkdirSync(place, { recursive: true });
-  writeFileSync(`${place}/${filename}`, json);
+  await mkdir(place, { recursive: true });
+  await writeFile(join(place, filename), json);
 }

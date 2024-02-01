@@ -1,18 +1,20 @@
-import { copyFileSync, readdirSync, statSync } from 'node:fs';
+import { copyFile, readdir, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 
-export default function copyMiscFiles(folder: string, outputPath: string) {
+export default async function copyMiscFiles(
+  folder: string,
+  outputPath: string,
+) {
   // console.log(`Copying misc files from ${folder} to ${outputPath}`);
-  const miscFiles = readdirSync(folder).filter(
-    (fileName) =>
-      !fileName.endsWith('index.md') &&
-      !statSync(join(folder, fileName)).isDirectory(),
-  );
-  for (const f of miscFiles) {
-    // console.log(f);
-    const source = join(folder, f);
-    const destination = join(outputPath, f);
-    console.log(`Copying ${source} to ${destination}`);
-    copyFileSync(source, destination);
+  for (const f of await readdir(folder)) {
+    if (!f.endsWith('index.md')) {
+      const fStat = await stat(join(folder, f));
+      if (fStat.isFile()) {
+        const source = join(folder, f);
+        const destination = join(outputPath, f);
+        console.log(`Copying ${source} to ${destination}`);
+        await copyFile(source, destination);
+      }
+    }
   }
 }

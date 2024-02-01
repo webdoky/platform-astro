@@ -13,3 +13,7 @@ export default function fixLocalImages(tree: Root) {
     node.url = `./${node.url}`;
   });
 }
+
+export function fixLocalImagesPlugin() {
+  return fixLocalImages;
+}

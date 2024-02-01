@@ -92,7 +92,7 @@ module.exports = {
   },
   plugins: ['import', 'react', 'unicorn'],
   rules: {
-    'import/extensions': ['error', 'always'],
+    'import/extensions': ['error', 'ignorePackages'],
     'import/order': [
       'error',
       {
