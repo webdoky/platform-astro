@@ -3,9 +3,9 @@
 <script is:inline>
   function setDarkMode(value) {
     if (value) {
-      document.body.classList.add(LIGHTS_OUT);
+      document.documentElement.classList.add(LIGHTS_OUT);
     } else {
-      document.body.classList.remove(LIGHTS_OUT);
+      document.documentElement.classList.remove(LIGHTS_OUT);
     }
   }
   const LIGHTS_OUT = 'lights-out';

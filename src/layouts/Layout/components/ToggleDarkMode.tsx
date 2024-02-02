@@ -9,13 +9,18 @@ const LIGHTS_OUT = 'lights-out';
 
 export default function ToggleDarkMode() {
   const [isDarkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      setDarkMode(document.documentElement.classList.contains(LIGHTS_OUT));
+    }
+  }, []);
   const enableDarkMode = useCallback(() => {
     setDarkMode(true);
-    document.body.classList.add(LIGHTS_OUT);
+    document.documentElement.classList.add(LIGHTS_OUT);
   }, []);
   const disableDarkMode = useCallback(() => {
     setDarkMode(false);
-    document.body.classList.remove(LIGHTS_OUT);
+    document.documentElement.classList.remove(LIGHTS_OUT);
   }, []);
   const toggleDarkMode = useCallback(
     (prefersDark: boolean) => {

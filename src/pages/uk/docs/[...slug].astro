@@ -42,15 +42,211 @@ const TARGET_LOCALE = import.meta.env.TARGET_LOCALE;
     </div>
   </main>
 </Layout>
-<style lang="scss">
+<style is:global lang="scss">
   .wd-doc-page {
-    /* .sidebar {
-    @apply fixed bg-ui-background px-4 inset-x-0 bottom-0 w-full border-r border-ui-border overflow-y-auto transition-all z-40;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply -mt-12 pt-20;
+    }
 
-    transform: translateX(-100%);
+    h2 + h3,
+    h2 + h2,
+    h3 + h3 {
+      @apply border-none -mt-20;
+    }
 
-    &.open {
-      transform: translateX(0);
+    h2,
+    h3 {
+      @apply border-b border-ui-border pb-1 mb-3;
+    }
+
+    ul {
+      @apply list-disc;
+
+      ul {
+        list-style: circle;
+      }
+    }
+
+    ol {
+      @apply list-decimal;
+    }
+
+    ol,
+    ul {
+      @apply pl-5 py-1;
+
+      li {
+        @apply mb-2;
+
+        p {
+          @apply mb-0;
+        }
+
+        &:last-child {
+          @apply mb-0;
+        }
+      }
+    }
+
+    dl dd {
+      margin: 0 1.5em;
+    }
+
+    blockquote {
+      @apply border-l-4 border-ui-border py-2 pl-4;
+
+      p:last-child {
+        @apply mb-0;
+      }
+    }
+
+    h1 {
+      @apply text-4xl;
+
+      // needs for responsive page titles
+      word-break: break-word;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    h3 {
+      @apply text-xl;
+    }
+
+    h4 {
+      @apply text-lg;
+    }
+
+    p,
+    ol,
+    ul,
+    pre,
+    strong,
+    blockquote {
+      @apply mb-4 text-base text-ui-typo;
+    }
+
+    code {
+      @apply px-1 text-ui-typo bg-ui-sidebar border-b border-r border-ui-border text-sm rounded;
+
+      padding-top: 0.125em;
+      padding-bottom: 0.125em;
+    }
+
+    a > code {
+      color: inherit;
+    }
+
+    pre {
+      z-index: 0;
+
+      @apply px-5 py-4 max-w-full overflow-x-auto rounded;
+
+      & + p {
+        @apply mt-4;
+      }
+
+      & > code[class*='language-'] {
+        @apply px-0 border-none leading-relaxed;
+      }
+    }
+
+    .wd-live-sample {
+      @apply border border-ui-border max-w-full w-full p-2;
+    }
+
+    .wd-interactive-example {
+      @apply border w-full border-ui-border my-4;
+
+      &.is-default-height {
+        height: 375px;
+      }
+
+      &.is-js-height {
+        height: 500px;
+      }
+
+      &.is-shorter-height {
+        height: 420px;
+      }
+
+      &.is-taller-height {
+        height: 710px;
+      }
+
+      &.is-tabbed-shorter-height {
+        height: 340px;
+      }
+
+      &.is-tabbed-standard-height {
+        height: 530px;
+      }
+
+      &.is-tabbed-taller-height {
+        height: 760px;
+      }
+    }
+
+    header {
+      background-color: rgb(255 255 255 / 90%);
+      backdrop-filter: blur(4px);
+    }
+
+    footer {
+      a {
+        @apply text-ui-primary underline;
+      }
+    }
+
+    table {
+      @apply text-left mb-6;
+
+      td,
+      th {
+        @apply py-3 px-4;
+
+        &:first-child {
+          @apply pl-0;
+        }
+
+        &:last-child {
+          @apply pr-0;
+        }
+      }
+
+      tr {
+        @apply border-b border-ui-border;
+
+        &:last-child {
+          @apply border-b-0;
+        }
+      }
+    }
+
+    .badge-inline svg {
+      @apply inline mr-1;
+    }
+
+    .badge-inline.badge-readonly,
+    .badge-inline.badge-optional {
+      @apply px-1 py-1 bg-ui-sidebar border-b border-r border-ui-border text-sm rounded font-bold italic;
+    }
+
+    .sidebar {
+      @apply fixed bg-ui-background px-4 inset-x-0 bottom-0 w-full border-r border-ui-border overflow-y-auto transition-all z-40;
+
+      transform: translateX(-100%);
+
+      &.open {
+        transform: translateX(0);
+      }
 
       @screen lg {
         @apply w-1/4 px-0 bg-transparent top-0 bottom-auto inset-x-auto sticky z-0;
@@ -58,6 +254,279 @@ const TARGET_LOCALE = import.meta.env.TARGET_LOCALE;
         transform: translateX(0);
       }
     }
-  } */
+
+    // notecards
+    .notecard-warning,
+    .notecard-note,
+    .notecard-deprecated {
+      @apply border-l-4 py-2 pl-4 pr-4 mb-4;
+
+      h4 {
+        @apply pt-0 mt-0 mb-1;
+      }
+
+      p:last-child {
+        @apply mb-0;
+      }
+    }
+
+    .notecard-deprecated {
+      background: var(--color-ui-deprecated);
+      border-color: var(--color-ui-deprecated-border);
+    }
+
+    .notecard-warning {
+      background: var(--color-ui-warning);
+      border-color: var(--color-ui-warning-border);
+    }
+
+    .notecard-note {
+      background: var(--color-ui-note);
+      border-color: var(--color-ui-note-border);
+    }
+
+    // spec table
+    .table-standard,
+    .wd-standard-table {
+      @apply text-left mb-6 w-full;
+
+      background: var(--color-ui-sidebar-lighter-1);
+
+      td,
+      th {
+        &:first-child {
+          @apply pl-2;
+        }
+
+        &:last-child {
+          @apply pr-2;
+        }
+      }
+
+      tbody tr {
+        @apply border-t border-ui-border;
+      }
+    }
+
+    // compatibility table
+    .bc-table-wrapper {
+      overflow-x: auto;
+      max-width: 100%;
+    }
+
+    .bc-table {
+      background: var(--color-ui-sidebar-lighter-1);
+
+      td,
+      th {
+        @apply py-2 px-2;
+
+        font-weight: normal;
+
+        &:nth-child(n + 2) {
+          @apply border-l border-ui-border;
+        }
+
+        &:first-child {
+          @apply pl-2;
+        }
+
+        &:last-child {
+          @apply pr-2;
+        }
+      }
+
+      .bc-platforms {
+        span {
+          @apply invisible inline-block w-0 h-0 overflow-hidden absolute;
+        }
+
+        th {
+          text-align: center;
+        }
+
+        .bc-platform-desktop::after,
+        .bc-platform-mobile::after,
+        .bc-platform-server::after {
+          content: '';
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          vertical-align: middle;
+        }
+
+        .bc-platform-desktop::after {
+          background: var(--icon-platform-desktop);
+        }
+
+        .bc-platform-mobile::after {
+          background: var(--icon-platform-mobile);
+        }
+
+        .bc-platform-server::after {
+          background: var(--icon-platform-server);
+        }
+      }
+
+      .bc-browsers {
+        span {
+          @apply invisible inline-block w-0 h-0 overflow-hidden absolute;
+        }
+
+        th {
+          text-align: center;
+        }
+
+        th::after {
+          content: '';
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          vertical-align: middle;
+        }
+
+        .bc-browser-chrome::after,
+        .bc-browser-chrome-android::after {
+          background: var(--icon-browser-chrome);
+        }
+
+        .bc-browser-edge::after {
+          background: var(--icon-browser-edge);
+        }
+
+        .bc-browser-firefox::after,
+        .bc-browser-firefox-android::after {
+          background: var(--icon-browser-firefox);
+        }
+
+        .bc-browser-ie::after {
+          background: var(--icon-browser-ie);
+        }
+
+        .bc-browser-opera::after,
+        .bc-browser-opera-android::after {
+          background: var(--icon-browser-opera);
+        }
+
+        .bc-browser-safari::after,
+        .bc-browser-safari-ios::after {
+          background: var(--icon-browser-safari);
+        }
+
+        .bc-browser-webview-android::after {
+          background: var(--icon-browser-android);
+        }
+
+        .bc-browser-samsunginternet-android::after {
+          background: var(--icon-browser-samsung-internet);
+        }
+
+        .bc-browser-deno::after {
+          background: var(--icon-browser-deno);
+        }
+
+        .bc-browser-nodejs::after {
+          background: var(--icon-browser-nodejs);
+        }
+      }
+
+      tbody tr {
+        @apply border-t border-ui-border;
+
+        td {
+          text-align: center;
+
+          abbr {
+            @apply invisible inline-block w-0 h-0 overflow-hidden absolute;
+          }
+        }
+      }
+
+      .bc-icons {
+        @apply flex px-1 py-2;
+      }
+
+      .bc-icons span {
+        @apply invisible inline-block w-0 h-0 overflow-hidden absolute;
+      }
+
+      .bc-browser-name {
+        @apply invisible inline-block w-0 h-0 overflow-hidden absolute;
+      }
+
+      .bc-supports-yes {
+        background: var(--color-ui-supported);
+      }
+
+      .bc-supports-no {
+        background: var(--color-ui-deprecated);
+      }
+
+      .bc-supports-partial {
+        background: var(--color-ui-deprecated);
+        background: repeating-linear-gradient(
+          130deg,
+          var(--color-ui-deprecated),
+          var(--color-ui-deprecated) 8px,
+          var(--color-ui-supported) 8px,
+          var(--color-ui-supported) 16px
+        );
+      }
+    }
+
+    // properties table
+
+    table.properties {
+      min-width: 100%;
+    }
+
+    // responsive stuff
+
+    .wd-table-scroll {
+      overflow-x: auto;
+      max-width: 100%;
+    }
+
+    .properties td,
+    .properties th {
+      @apply block;
+    }
+
+    // not translated links
+
+    .wd-nav-link-not-translated {
+      color: var(--color-ui-deprecated-border);
+    }
+
+    .wd-nav-link-not-translated * {
+      color: inherit;
+    }
+
+    li.wd-nav-link-not-translated a {
+      color: var(--color-ui-deprecated-border);
+    }
+
+    // External links
+    .wd-external::after {
+      background-color: var(--color-ui-typo);
+      content: '';
+      display: inline-flex;
+      height: 16px;
+      margin-left: 3px;
+      mask-image: url('../../../../assets/icon-external.svg');
+      mask-size: cover;
+      width: 16px;
+    }
+
+    // Expunged macros
+    .wd-expunged {
+      cursor: help;
+      background-color: currentcolor;
+      transition: 0.3s ease;
+
+      &:hover {
+        background-color: var(--color-ui-border);
+      }
+    }
   }
 </style>

@@ -18,12 +18,12 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <RollbarScript />
+    <DarkModeScript />
     <slot name="head" />
     <link rel="stylesheet" href="/prism-base16-ateliersulphurpool.light.css" />
   </head>
-  <body>
-    <DarkModeScript /><div
-      class="font-sans antialiased text-ui-typo bg-ui-background">
+  <body
+    ><div class="font-sans antialiased text-ui-typo bg-ui-background">
       <div class="flex flex-col justify-start min-h-screen">
         <header
           class="sticky top-0 z-10 w-full border-b bg-ui-background border-ui-border">
