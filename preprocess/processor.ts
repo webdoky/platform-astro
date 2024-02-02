@@ -9,6 +9,7 @@ import { extractDescriptionPlugin } from './transformations/extract-description.
 import { extractSectionPlugin } from './transformations/extract-section.js';
 import { fixLocalImagesPlugin } from './transformations/fix-local-images.js';
 import { fixNolintLanguagePlugin } from './transformations/fix-nolint-language.js';
+import { injectLinkClassesPlugin } from './transformations/inject-link-classes.js';
 import expandMacrosPlugin from './transformations/macros/plugin.js';
 
 const processor = unified()
@@ -17,6 +18,7 @@ const processor = unified()
   .use(extractSectionPlugin)
   .use(extractDescriptionPlugin)
   .use(expandMacrosPlugin)
+  .use(injectLinkClassesPlugin)
   .use(fixLocalImagesPlugin)
   .use(extractCoverPlugin)
   .use(fixNolintLanguagePlugin)
