@@ -3,6 +3,9 @@ import type { Nodes } from 'mdast';
 import { toHast } from 'mdast-util-to-hast';
 
 export default function stringifyMdastToHtml(tree: Nodes) {
-  const hast = toHast(tree);
-  return toHtml(hast);
+  if (tree.type === 'html') {
+    return tree.value;
+  }
+  const hast = toHast(tree, { allowDangerousHtml: true });
+  return toHtml(hast, { allowDangerousHtml: true });
 }

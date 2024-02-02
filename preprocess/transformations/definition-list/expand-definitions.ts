@@ -1,3 +1,5 @@
+// import { createHash } from 'node:crypto';
+
 import type { Html, Paragraph, Parent, Root } from 'mdast';
 import { SKIP, visit } from 'unist-util-visit';
 
@@ -10,6 +12,9 @@ import {
 } from './types.js';
 
 export default function expandDefinitions(tree: Root) {
+  // const data = JSON.stringify(tree, undefined, 2);
+  // const identity = createHash('sha256').update(data).digest('hex');
+  // saveData('expandDefinitions', 'input', tree, identity);
   visit<AbstractDefinitionParentNode, 'definitionData'>(
     tree,
     'definitionData',

@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expandMacros expands macros 1`] = `
+{
+  "children": [
+    {
+      "type": "text",
+      "value": "Докладно про стандартні вбудовані об'єкти: ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Array&quot;">{{jsxref(&quot;Array&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Boolean&quot;">{{jsxref(&quot;Boolean&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Date&quot;">{{jsxref(&quot;Date&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Error&quot;">{{jsxref(&quot;Error&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Function&quot;">{{jsxref(&quot;Function&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;JSON&quot;">{{jsxref(&quot;JSON&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Math&quot;">{{jsxref(&quot;Math&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Number&quot;">{{jsxref(&quot;Number&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Object&quot;">{{jsxref(&quot;Object&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;RegExp&quot;">{{jsxref(&quot;RegExp&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;String&quot;">{{jsxref(&quot;String&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Map&quot;">{{jsxref(&quot;Map&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Set&quot;">{{jsxref(&quot;Set&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;WeakMap&quot;">{{jsxref(&quot;WeakMap&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", ",
+    },
+    {
+      "type": "html",
+      "value": "<span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;WeakSet&quot;">{{jsxref(&quot;WeakSet&quot;)}}</span>",
+    },
+    {
+      "type": "text",
+      "value": ", та інші.",
+    },
+  ],
+  "type": "root",
+}
+`;

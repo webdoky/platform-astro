@@ -1,0 +1,2255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parseDefinitions works with multiple definitions 1`] = `
+{
+  "children": [
+    {
+      "position": {
+        "end": {
+          "column": 4,
+          "line": 5,
+          "offset": 70,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "yaml",
+      "value": "title: JavaScript
+slug: Web/JavaScript
+page-type: landing-page
+section: javascript
+description: "JavaScript (JS) – це невибаглива до ресурсів мова програмування з функціями
+  першого класу, код якої інтерпретується (або компілюється \\"на льоту\\"). Хоча
+  JavaScript насамперед відома як скриптова мова для вебсторінок, вона також
+  використовується у багатьох небраузерних середовищах, як от: Node.js, Apache
+  CouchDB та Adobe Acrobat. JavaScript — це прототипна, однопотокова динамічна
+  мова, що має декілька парадигм та підтримує об'єктноорієнтований та
+  декларативні (зокрема функційне програмування) стилі."
+",
+    },
+    {
+      "children": [
+        {
+          "type": "html",
+          "value": "<span class="macro missing" data-macro-name="jsSidebar" data-parameters="">{{jsSidebar()}}</span>",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 14,
+          "line": 7,
+          "offset": 85,
+        },
+        "start": {
+          "column": 1,
+          "line": 7,
+          "offset": 72,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 13,
+                  "line": 9,
+                  "offset": 99,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 9,
+                  "offset": 89,
+                },
+              },
+              "type": "text",
+              "value": "JavaScript",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 15,
+              "line": 9,
+              "offset": 101,
+            },
+            "start": {
+              "column": 1,
+              "line": 9,
+              "offset": 87,
+            },
+          },
+          "type": "strong",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 17,
+              "line": 9,
+              "offset": 103,
+            },
+            "start": {
+              "column": 15,
+              "line": 9,
+              "offset": 101,
+            },
+          },
+          "type": "text",
+          "value": " (",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 21,
+                  "line": 9,
+                  "offset": 107,
+                },
+                "start": {
+                  "column": 19,
+                  "line": 9,
+                  "offset": 105,
+                },
+              },
+              "type": "text",
+              "value": "JS",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 23,
+              "line": 9,
+              "offset": 109,
+            },
+            "start": {
+              "column": 17,
+              "line": 9,
+              "offset": 103,
+            },
+          },
+          "type": "strong",
+        },
+        {
+          "type": "text",
+          "value": ") – це невибаглива до ресурсів мова програмування з ",
+        },
+        {
+          "type": "html",
+          "value": "<span class="macro missing" data-macro-name="Glossary" data-parameters="&quot;First-class Function&quot;, &quot;функціями першого класу&quot;">{{Glossary(&quot;First-class Function&quot;, &quot;функціями першого класу&quot;)}}</span>",
+        },
+        {
+          "type": "text",
+          "value": ", код якої інтерпретується (або компілюється ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 194,
+                  "line": 9,
+                  "offset": 280,
+                },
+                "start": {
+                  "column": 184,
+                  "line": 9,
+                  "offset": 270,
+                },
+              },
+              "type": "text",
+              "value": ""на льоту"",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 291,
+              "line": 9,
+              "offset": 377,
+            },
+            "start": {
+              "column": 183,
+              "line": 9,
+              "offset": 269,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "https://uk.wikipedia.org/wiki/JIT-%D0%BA%D0%BE%D0%BC%D0%BF%D1%96%D0%BB%D1%8F%D1%86%D1%96%D1%8F",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 393,
+              "line": 9,
+              "offset": 479,
+            },
+            "start": {
+              "column": 291,
+              "line": 9,
+              "offset": 377,
+            },
+          },
+          "type": "text",
+          "value": "). Хоча JavaScript насамперед відома як скриптова мова для вебсторінок, вона також використовується у ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 427,
+                  "line": 9,
+                  "offset": 513,
+                },
+                "start": {
+                  "column": 394,
+                  "line": 9,
+                  "offset": 480,
+                },
+              },
+              "type": "text",
+              "value": "багатьох небраузерних середовищах",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 543,
+              "line": 9,
+              "offset": 629,
+            },
+            "start": {
+              "column": 393,
+              "line": 9,
+              "offset": 479,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "https://uk.wikipedia.org/wiki/JavaScript#%D0%97%D0%B0%D1%81%D1%82%D0%BE%D1%81%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F",
+        },
+        {
+          "type": "text",
+          "value": ", як от: ",
+        },
+        {
+          "type": "html",
+          "value": "<span class="macro missing" data-macro-name="Glossary" data-parameters="&quot;Node.js&quot;">{{Glossary(&quot;Node.js&quot;)}}</span>",
+        },
+        {
+          "type": "text",
+          "value": ", ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 592,
+                  "line": 9,
+                  "offset": 678,
+                },
+                "start": {
+                  "column": 578,
+                  "line": 9,
+                  "offset": 664,
+                },
+              },
+              "type": "text",
+              "value": "Apache CouchDB",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 622,
+              "line": 9,
+              "offset": 708,
+            },
+            "start": {
+              "column": 577,
+              "line": 9,
+              "offset": 663,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "https://couchdb.apache.org/",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 626,
+              "line": 9,
+              "offset": 712,
+            },
+            "start": {
+              "column": 622,
+              "line": 9,
+              "offset": 708,
+            },
+          },
+          "type": "text",
+          "value": " та ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 640,
+                  "line": 9,
+                  "offset": 726,
+                },
+                "start": {
+                  "column": 627,
+                  "line": 9,
+                  "offset": 713,
+                },
+              },
+              "type": "text",
+              "value": "Adobe Acrobat",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 703,
+              "line": 9,
+              "offset": 789,
+            },
+            "start": {
+              "column": 626,
+              "line": 9,
+              "offset": 712,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "https://opensource.adobe.com/dc-acrobat-sdk-docs/acrobatsdk/",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 721,
+              "line": 9,
+              "offset": 807,
+            },
+            "start": {
+              "column": 703,
+              "line": 9,
+              "offset": 789,
+            },
+          },
+          "type": "text",
+          "value": ". JavaScript — це ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 732,
+                  "line": 9,
+                  "offset": 818,
+                },
+                "start": {
+                  "column": 722,
+                  "line": 9,
+                  "offset": 808,
+                },
+              },
+              "type": "text",
+              "value": "прототипна",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 780,
+              "line": 9,
+              "offset": 866,
+            },
+            "start": {
+              "column": 721,
+              "line": 9,
+              "offset": 807,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "/uk/docs/Glossary/Prototype-based_programming",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 782,
+              "line": 9,
+              "offset": 868,
+            },
+            "start": {
+              "column": 780,
+              "line": 9,
+              "offset": 866,
+            },
+          },
+          "type": "text",
+          "value": ", ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 795,
+                  "line": 9,
+                  "offset": 881,
+                },
+                "start": {
+                  "column": 783,
+                  "line": 9,
+                  "offset": 869,
+                },
+              },
+              "type": "text",
+              "value": "однопотокова",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 822,
+              "line": 9,
+              "offset": 908,
+            },
+            "start": {
+              "column": 782,
+              "line": 9,
+              "offset": 868,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "/uk/docs/Glossary/Thread",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 823,
+              "line": 9,
+              "offset": 909,
+            },
+            "start": {
+              "column": 822,
+              "line": 9,
+              "offset": 908,
+            },
+          },
+          "type": "text",
+          "value": " ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 833,
+                  "line": 9,
+                  "offset": 919,
+                },
+                "start": {
+                  "column": 824,
+                  "line": 9,
+                  "offset": 910,
+                },
+              },
+              "type": "text",
+              "value": "динамічна",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 868,
+              "line": 9,
+              "offset": 954,
+            },
+            "start": {
+              "column": 823,
+              "line": 9,
+              "offset": 909,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "/uk/docs/Glossary/Dynamic_typing",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 990,
+              "line": 9,
+              "offset": 1076,
+            },
+            "start": {
+              "column": 868,
+              "line": 9,
+              "offset": 954,
+            },
+          },
+          "type": "text",
+          "value": " мова, що має декілька парадигм та підтримує об'єктноорієнтований та декларативні (зокрема функційне програмування) стилі.",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 990,
+          "line": 9,
+          "offset": 1076,
+        },
+        "start": {
+          "column": 1,
+          "line": 9,
+          "offset": 87,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 171,
+              "line": 11,
+              "offset": 1248,
+            },
+            "start": {
+              "column": 1,
+              "line": 11,
+              "offset": 1078,
+            },
+          },
+          "type": "text",
+          "value": "Серед динамічних можливостей JavaScript – конструювання об'єктів під час виконання, змінні списки параметрів, змінні-функції, динамічне створення сценаріїв (за допомогою ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 178,
+                  "line": 11,
+                  "offset": 1255,
+                },
+                "start": {
+                  "column": 172,
+                  "line": 11,
+                  "offset": 1249,
+                },
+              },
+              "type": "inlineCode",
+              "value": "eval",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 234,
+              "line": 11,
+              "offset": 1311,
+            },
+            "start": {
+              "column": 171,
+              "line": 11,
+              "offset": 1248,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "/uk/docs/Web/JavaScript/Reference/Global_Objects/eval",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 273,
+              "line": 11,
+              "offset": 1350,
+            },
+            "start": {
+              "column": 234,
+              "line": 11,
+              "offset": 1311,
+            },
+          },
+          "type": "text",
+          "value": "), інтроспекція об'єктів (за допомогою ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 284,
+                  "line": 11,
+                  "offset": 1361,
+                },
+                "start": {
+                  "column": 274,
+                  "line": 11,
+                  "offset": 1351,
+                },
+              },
+              "type": "inlineCode",
+              "value": "for...in",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 340,
+              "line": 11,
+              "offset": 1417,
+            },
+            "start": {
+              "column": 273,
+              "line": 11,
+              "offset": 1350,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "/uk/docs/Web/JavaScript/Reference/Statements/for...in",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 343,
+              "line": 11,
+              "offset": 1420,
+            },
+            "start": {
+              "column": 340,
+              "line": 11,
+              "offset": 1417,
+            },
+          },
+          "type": "text",
+          "value": " і ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 363,
+                  "line": 11,
+                  "offset": 1440,
+                },
+                "start": {
+                  "column": 344,
+                  "line": 11,
+                  "offset": 1421,
+                },
+              },
+              "type": "text",
+              "value": "допоміжних засобів ",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 371,
+                  "line": 11,
+                  "offset": 1448,
+                },
+                "start": {
+                  "column": 363,
+                  "line": 11,
+                  "offset": 1440,
+                },
+              },
+              "type": "inlineCode",
+              "value": "Object",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 446,
+              "line": 11,
+              "offset": 1523,
+            },
+            "start": {
+              "column": 343,
+              "line": 11,
+              "offset": 1420,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "/uk/docs/Web/JavaScript/Reference/Global_Objects/Object#statychni-metody",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 559,
+              "line": 11,
+              "offset": 1636,
+            },
+            "start": {
+              "column": 446,
+              "line": 11,
+              "offset": 1523,
+            },
+          },
+          "type": "text",
+          "value": ") і відновлення вихідного коду (функції JavaScript зберігають текст свого коду, його можна отримати за допомогою ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 572,
+                  "line": 11,
+                  "offset": 1649,
+                },
+                "start": {
+                  "column": 560,
+                  "line": 11,
+                  "offset": 1637,
+                },
+              },
+              "type": "inlineCode",
+              "value": "toString()",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 641,
+              "line": 11,
+              "offset": 1718,
+            },
+            "start": {
+              "column": 559,
+              "line": 11,
+              "offset": 1636,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "/uk/docs/Web/JavaScript/Reference/Global_Objects/Function/toString",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 643,
+              "line": 11,
+              "offset": 1720,
+            },
+            "start": {
+              "column": 641,
+              "line": 11,
+              "offset": 1718,
+            },
+          },
+          "type": "text",
+          "value": ").",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 643,
+          "line": 11,
+          "offset": 1720,
+        },
+        "start": {
+          "column": 1,
+          "line": 11,
+          "offset": 1078,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "children": [
+        {
+          "type": "text",
+          "value": "Цей розділ присвячено саме мові JavaScript, він не стосується тонкощів роботи з вебсторінками чи іншими середовищами виконання JavaScript. Інформацію стосовно конкретних ",
+        },
+        {
+          "type": "html",
+          "value": "<span class="macro missing" data-macro-name="Glossary" data-parameters="&quot;API&quot;">{{Glossary(&quot;API&quot;)}}</span>",
+        },
+        {
+          "type": "text",
+          "value": " вебсторінок дивіться у ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 222,
+                  "line": 13,
+                  "offset": 1943,
+                },
+                "start": {
+                  "column": 215,
+                  "line": 13,
+                  "offset": 1936,
+                },
+              },
+              "type": "text",
+              "value": "веб API",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 241,
+              "line": 13,
+              "offset": 1962,
+            },
+            "start": {
+              "column": 214,
+              "line": 13,
+              "offset": 1935,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "/uk/docs/Web/API",
+        },
+        {
+          "type": "text",
+          "value": " та ",
+        },
+        {
+          "type": "html",
+          "value": "<span class="macro missing" data-macro-name="Glossary" data-parameters="&quot;DOM&quot;">{{Glossary(&quot;DOM&quot;)}}</span>",
+        },
+        {
+          "type": "text",
+          "value": ".",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 265,
+          "line": 13,
+          "offset": 1986,
+        },
+        "start": {
+          "column": 1,
+          "line": 13,
+          "offset": 1722,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 30,
+              "line": 15,
+              "offset": 2017,
+            },
+            "start": {
+              "column": 1,
+              "line": 15,
+              "offset": 1988,
+            },
+          },
+          "type": "text",
+          "value": "Стандартами для JavaScript є ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 67,
+                  "line": 15,
+                  "offset": 2054,
+                },
+                "start": {
+                  "column": 31,
+                  "line": 15,
+                  "offset": 2018,
+                },
+              },
+              "type": "text",
+              "value": "Специфікація мови ECMAScript (англ.)",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 94,
+              "line": 15,
+              "offset": 2081,
+            },
+            "start": {
+              "column": 30,
+              "line": 15,
+              "offset": 2017,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "https://tc39.es/ecma262/",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 98,
+              "line": 15,
+              "offset": 2085,
+            },
+            "start": {
+              "column": 94,
+              "line": 15,
+              "offset": 2081,
+            },
+          },
+          "type": "text",
+          "value": " та ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 158,
+                  "line": 15,
+                  "offset": 2145,
+                },
+                "start": {
+                  "column": 99,
+                  "line": 15,
+                  "offset": 2086,
+                },
+              },
+              "type": "text",
+              "value": "Специфікація API ECMAScript для інтернаціоналізації (англ.)",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 185,
+              "line": 15,
+              "offset": 2172,
+            },
+            "start": {
+              "column": 98,
+              "line": 15,
+              "offset": 2085,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "https://tc39.es/ecma402/",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 313,
+              "line": 15,
+              "offset": 2300,
+            },
+            "start": {
+              "column": 185,
+              "line": 15,
+              "offset": 2172,
+            },
+          },
+          "type": "text",
+          "value": " (ECMA-402). Щойно один браузер реалізовує певну функціональність, ми намагаємося її задокументувати. Це означає, що якщо певні ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 358,
+                  "line": 15,
+                  "offset": 2345,
+                },
+                "start": {
+                  "column": 314,
+                  "line": 15,
+                  "offset": 2301,
+                },
+              },
+              "type": "text",
+              "value": "пропозиції нової функціональності ECMAScript",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 394,
+              "line": 15,
+              "offset": 2381,
+            },
+            "start": {
+              "column": 313,
+              "line": 15,
+              "offset": 2300,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "https://github.com/tc39/proposals",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 566,
+              "line": 15,
+              "offset": 2553,
+            },
+            "start": {
+              "column": 394,
+              "line": 15,
+              "offset": 2381,
+            },
+          },
+          "type": "text",
+          "value": " уже реалізовані у браузерах, то документація та приклади у статтях на MDN можуть використовувати деякі з цих нових особливостей. У більшості випадків таке трапляється між ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 583,
+                  "line": 15,
+                  "offset": 2570,
+                },
+                "start": {
+                  "column": 567,
+                  "line": 15,
+                  "offset": 2554,
+                },
+              },
+              "type": "text",
+              "value": "стадіями (англ.)",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 619,
+              "line": 15,
+              "offset": 2606,
+            },
+            "start": {
+              "column": 566,
+              "line": 15,
+              "offset": 2553,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "https://tc39.es/process-document/",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 691,
+              "line": 15,
+              "offset": 2678,
+            },
+            "start": {
+              "column": 619,
+              "line": 15,
+              "offset": 2606,
+            },
+          },
+          "type": "text",
+          "value": " 3 та 4, а крім того – зазвичай до офіційного оприлюднення специфікації.",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 691,
+          "line": 15,
+          "offset": 2678,
+        },
+        "start": {
+          "column": 1,
+          "line": 15,
+          "offset": 1988,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 26,
+              "line": 17,
+              "offset": 2705,
+            },
+            "start": {
+              "column": 1,
+              "line": 17,
+              "offset": 2680,
+            },
+          },
+          "type": "text",
+          "value": "Не плутайте JavaScript з ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 51,
+                  "line": 17,
+                  "offset": 2730,
+                },
+                "start": {
+                  "column": 27,
+                  "line": 17,
+                  "offset": 2706,
+                },
+              },
+              "type": "text",
+              "value": "мовою програмування Java",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 88,
+              "line": 17,
+              "offset": 2767,
+            },
+            "start": {
+              "column": 26,
+              "line": 17,
+              "offset": 2705,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "https://uk.wikipedia.org/wiki/Java",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 90,
+              "line": 17,
+              "offset": 2769,
+            },
+            "start": {
+              "column": 88,
+              "line": 17,
+              "offset": 2767,
+            },
+          },
+          "type": "text",
+          "value": ": ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 103,
+                  "line": 17,
+                  "offset": 2782,
+                },
+                "start": {
+                  "column": 92,
+                  "line": 17,
+                  "offset": 2771,
+                },
+              },
+              "type": "text",
+              "value": "JavaScript ",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 106,
+                      "line": 17,
+                      "offset": 2785,
+                    },
+                    "start": {
+                      "column": 104,
+                      "line": 17,
+                      "offset": 2783,
+                    },
+                  },
+                  "type": "text",
+                  "value": "не",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 107,
+                  "line": 17,
+                  "offset": 2786,
+                },
+                "start": {
+                  "column": 103,
+                  "line": 17,
+                  "offset": 2782,
+                },
+              },
+              "type": "emphasis",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 132,
+                  "line": 17,
+                  "offset": 2811,
+                },
+                "start": {
+                  "column": 107,
+                  "line": 17,
+                  "offset": 2786,
+                },
+              },
+              "type": "text",
+              "value": " є "інтерпретованою Java"",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 134,
+              "line": 17,
+              "offset": 2813,
+            },
+            "start": {
+              "column": 90,
+              "line": 17,
+              "offset": 2769,
+            },
+          },
+          "type": "strong",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 325,
+              "line": 17,
+              "offset": 3004,
+            },
+            "start": {
+              "column": 134,
+              "line": 17,
+              "offset": 2813,
+            },
+          },
+          "type": "text",
+          "value": ". І "Java", і "JavaScript" – торгові марки або зареєстровані торгові марки Oracle у США та інших країнах. Проте ці дві мови програмування мають дуже різні синтаксис, семантику й застосування.",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 325,
+          "line": 17,
+          "offset": 3004,
+        },
+        "start": {
+          "column": 1,
+          "line": 17,
+          "offset": 2680,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 74,
+              "line": 19,
+              "offset": 3079,
+            },
+            "start": {
+              "column": 1,
+              "line": 19,
+              "offset": 3006,
+            },
+          },
+          "type": "text",
+          "value": "Документація JavaScript з базовими можливостями мови (здебільшого чистий ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 85,
+                  "line": 19,
+                  "offset": 3090,
+                },
+                "start": {
+                  "column": 75,
+                  "line": 19,
+                  "offset": 3080,
+                },
+              },
+              "type": "text",
+              "value": "ECMAScript",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 144,
+              "line": 19,
+              "offset": 3149,
+            },
+            "start": {
+              "column": 74,
+              "line": 19,
+              "offset": 3079,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "/uk/docs/Web/JavaScript/JavaScript_technologies_overview",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 163,
+              "line": 19,
+              "offset": 3168,
+            },
+            "start": {
+              "column": 144,
+              "line": 19,
+              "offset": 3149,
+            },
+          },
+          "type": "text",
+          "value": ") включає наступне:",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 163,
+          "line": 19,
+          "offset": 3168,
+        },
+        "start": {
+          "column": 1,
+          "line": 19,
+          "offset": 3006,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "children": [
+        {
+          "checked": null,
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "position": {
+                        "end": {
+                          "column": 23,
+                          "line": 21,
+                          "offset": 3192,
+                        },
+                        "start": {
+                          "column": 4,
+                          "line": 21,
+                          "offset": 3173,
+                        },
+                      },
+                      "type": "text",
+                      "value": "Посібник JavaScript",
+                    },
+                  ],
+                  "position": {
+                    "end": {
+                      "column": 55,
+                      "line": 21,
+                      "offset": 3224,
+                    },
+                    "start": {
+                      "column": 3,
+                      "line": 21,
+                      "offset": 3172,
+                    },
+                  },
+                  "title": null,
+                  "type": "link",
+                  "url": "/uk/docs/Web/JavaScript/Guide",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 55,
+                  "line": 21,
+                  "offset": 3224,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 21,
+                  "offset": 3172,
+                },
+              },
+              "type": "paragraph",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 55,
+              "line": 21,
+              "offset": 3224,
+            },
+            "start": {
+              "column": 1,
+              "line": 21,
+              "offset": 3170,
+            },
+          },
+          "spread": false,
+          "type": "listItem",
+        },
+        {
+          "checked": null,
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "position": {
+                        "end": {
+                          "column": 22,
+                          "line": 22,
+                          "offset": 3246,
+                        },
+                        "start": {
+                          "column": 4,
+                          "line": 22,
+                          "offset": 3228,
+                        },
+                      },
+                      "type": "text",
+                      "value": "Довідку JavaScript",
+                    },
+                  ],
+                  "position": {
+                    "end": {
+                      "column": 58,
+                      "line": 22,
+                      "offset": 3282,
+                    },
+                    "start": {
+                      "column": 3,
+                      "line": 22,
+                      "offset": 3227,
+                    },
+                  },
+                  "title": null,
+                  "type": "link",
+                  "url": "/uk/docs/Web/JavaScript/Reference",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 58,
+                  "line": 22,
+                  "offset": 3282,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 22,
+                  "offset": 3227,
+                },
+              },
+              "type": "paragraph",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 58,
+              "line": 22,
+              "offset": 3282,
+            },
+            "start": {
+              "column": 1,
+              "line": 22,
+              "offset": 3225,
+            },
+          },
+          "spread": false,
+          "type": "listItem",
+        },
+      ],
+      "ordered": false,
+      "position": {
+        "end": {
+          "column": 58,
+          "line": 22,
+          "offset": 3282,
+        },
+        "start": {
+          "column": 1,
+          "line": 21,
+          "offset": 3170,
+        },
+      },
+      "spread": false,
+      "start": null,
+      "type": "list",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 73,
+              "line": 24,
+              "offset": 3356,
+            },
+            "start": {
+              "column": 1,
+              "line": 24,
+              "offset": 3284,
+            },
+          },
+          "type": "text",
+          "value": "Більше інформації про специфікації JavaScript та суміжні технології – в ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 102,
+                  "line": 24,
+                  "offset": 3385,
+                },
+                "start": {
+                  "column": 74,
+                  "line": 24,
+                  "offset": 3357,
+                },
+              },
+              "type": "text",
+              "value": "огляді технологій JavaScript",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 161,
+              "line": 24,
+              "offset": 3444,
+            },
+            "start": {
+              "column": 73,
+              "line": 24,
+              "offset": 3356,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "/uk/docs/Web/JavaScript/JavaScript_technologies_overview",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 162,
+              "line": 24,
+              "offset": 3445,
+            },
+            "start": {
+              "column": 161,
+              "line": 24,
+              "offset": 3444,
+            },
+          },
+          "type": "text",
+          "value": ".",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 162,
+          "line": 24,
+          "offset": 3445,
+        },
+        "start": {
+          "column": 1,
+          "line": 24,
+          "offset": 3284,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 13,
+                      "line": 26,
+                      "offset": 3459,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 26,
+                      "offset": 3451,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Callout:",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 15,
+                  "line": 26,
+                  "offset": 3461,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 26,
+                  "offset": 3449,
+                },
+              },
+              "type": "strong",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 16,
+                  "line": 26,
+                  "offset": 3462,
+                },
+                "start": {
+                  "column": 15,
+                  "line": 26,
+                  "offset": 3461,
+                },
+              },
+              "type": "text",
+              "value": " ",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 52,
+                      "line": 26,
+                      "offset": 3498,
+                    },
+                    "start": {
+                      "column": 18,
+                      "line": 26,
+                      "offset": 3464,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Хочете стати фронтенд розробником?",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 54,
+                  "line": 26,
+                  "offset": 3500,
+                },
+                "start": {
+                  "column": 16,
+                  "line": 26,
+                  "offset": 3462,
+                },
+              },
+              "type": "strong",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 54,
+              "line": 26,
+              "offset": 3500,
+            },
+            "start": {
+              "column": 3,
+              "line": 26,
+              "offset": 3449,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 39,
+                  "line": 29,
+                  "offset": 3624,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 28,
+                  "offset": 3505,
+                },
+              },
+              "type": "text",
+              "value": "Ми зібрали докупи курс, що містить всю необхідну інформацію, яка знадобиться вам
+для роботи над досягненням цієї мети",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 39,
+              "line": 29,
+              "offset": 3624,
+            },
+            "start": {
+              "column": 3,
+              "line": 28,
+              "offset": 3505,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "position": {
+                        "end": {
+                          "column": 12,
+                          "line": 31,
+                          "offset": 3638,
+                        },
+                        "start": {
+                          "column": 6,
+                          "line": 31,
+                          "offset": 3632,
+                        },
+                      },
+                      "type": "text",
+                      "value": "Почати",
+                    },
+                  ],
+                  "position": {
+                    "end": {
+                      "column": 14,
+                      "line": 31,
+                      "offset": 3640,
+                    },
+                    "start": {
+                      "column": 4,
+                      "line": 31,
+                      "offset": 3630,
+                    },
+                  },
+                  "type": "strong",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 55,
+                  "line": 31,
+                  "offset": 3681,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 31,
+                  "offset": 3629,
+                },
+              },
+              "title": null,
+              "type": "link",
+              "url": "/uk/docs/Learn/Front-end_web_developer",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 55,
+              "line": 31,
+              "offset": 3681,
+            },
+            "start": {
+              "column": 3,
+              "line": 31,
+              "offset": 3629,
+            },
+          },
+          "type": "paragraph",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 55,
+          "line": 31,
+          "offset": 3681,
+        },
+        "start": {
+          "column": 1,
+          "line": 26,
+          "offset": 3447,
+        },
+      },
+      "type": "blockquote",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 13,
+              "line": 33,
+              "offset": 3695,
+            },
+            "start": {
+              "column": 4,
+              "line": 33,
+              "offset": 3686,
+            },
+          },
+          "type": "text",
+          "value": "Посібники",
+        },
+      ],
+      "depth": 2,
+      "position": {
+        "end": {
+          "column": 13,
+          "line": 33,
+          "offset": 3695,
+        },
+        "start": {
+          "column": 1,
+          "line": 33,
+          "offset": 3683,
+        },
+      },
+      "type": "heading",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 78,
+              "line": 35,
+              "offset": 3774,
+            },
+            "start": {
+              "column": 1,
+              "line": 35,
+              "offset": 3697,
+            },
+          },
+          "type": "text",
+          "value": "Вчіться програмувати на JavaScript за допомогою наших настанов та посібників.",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 78,
+          "line": 35,
+          "offset": 3774,
+        },
+        "start": {
+          "column": 1,
+          "line": 35,
+          "offset": 3697,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 31,
+              "line": 37,
+              "offset": 3806,
+            },
+            "start": {
+              "column": 5,
+              "line": 37,
+              "offset": 3780,
+            },
+          },
+          "type": "text",
+          "value": "Для абсолютних початківців",
+        },
+      ],
+      "depth": 3,
+      "position": {
+        "end": {
+          "column": 31,
+          "line": 37,
+          "offset": 3806,
+        },
+        "start": {
+          "column": 1,
+          "line": 37,
+          "offset": 3776,
+        },
+      },
+      "type": "heading",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 134,
+              "line": 39,
+              "offset": 3941,
+            },
+            "start": {
+              "column": 1,
+              "line": 39,
+              "offset": 3808,
+            },
+          },
+          "type": "text",
+          "value": "Якщо є бажання вчити JavaScript, але немає жодного попереднього досвіду роботи з JavaScript чи програмування загалом — зверніться до ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 185,
+                  "line": 39,
+                  "offset": 3992,
+                },
+                "start": {
+                  "column": 135,
+                  "line": 39,
+                  "offset": 3942,
+                },
+              },
+              "type": "text",
+              "value": "тематики "JavaScript" у нашому навчальному розділі",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 213,
+              "line": 39,
+              "offset": 4020,
+            },
+            "start": {
+              "column": 134,
+              "line": 39,
+              "offset": 3941,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "/uk/docs/Learn/JavaScript",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 270,
+              "line": 39,
+              "offset": 4077,
+            },
+            "start": {
+              "column": 213,
+              "line": 39,
+              "offset": 4020,
+            },
+          },
+          "type": "text",
+          "value": ". Повний список модулів, доступних там, має такий вигляд:",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 270,
+          "line": 39,
+          "offset": 4077,
+        },
+        "start": {
+          "column": 1,
+          "line": 39,
+          "offset": 3808,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "type": "html",
+      "value": "<dl><dt><a href="/uk/docs/Learn/JavaScript/First_steps">Перші кроки з JavaScript</a></dt><dd><p>Відповідає на деякі базові питання, як-от: "що таке JavaScript?", "на що вона схожа?" та "що вона може?"; включно з обговоренням ключових особливостей JavaScript, таких як: змінні, рядки, числа та масиви.</p></dd><dt><a href="/uk/docs/Learn/JavaScript/Building_blocks">Будівельні блоки JavaScript</a></dt><dd><p>Продовжує пояснення основних фундаментальних концепцій JavaScript, звертаючи увагу на загальновживані блоки коду, як-от: умовні інструкції, цикли, функції та події.</p></dd><dt><a href="/uk/docs/Learn/JavaScript/Objects">Вступ до об'єктів у JavaScript</a></dt><dd><p>Важливо розуміти об'єктноорієнтовану природу JavaScript, якщо ви хочете далі пізнавати цю мову програмування і писати ефективніший код. Щоб допомогти вам у цьому, ми підготували цей модуль.</p></dd><dt><a href="/uk/docs/Learn/JavaScript/Asynchronous">Асинхронність у JavaScript</a></dt><dd><p>Описує асинхронність у JavaScript, чому вона важлива, і як її можна застосовувати для ефективної обробки операцій, що можуть блокувати виконання програми (наприклад, запит ресурсів від сервера).</p></dd><dt><a href="/uk/docs/Learn/JavaScript/Client-side_web_APIs">Клієнтські веб-API</a></dt><dd><p>Досліджує, що собою являють ці інтерфейси, і як використовувати деякі з найбільш поширених веб-API, з якими доводиться мати справу при розробці.</p></dd></dl>",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 27,
+              "line": 52,
+              "offset": 5391,
+            },
+            "start": {
+              "column": 5,
+              "line": 52,
+              "offset": 5369,
+            },
+          },
+          "type": "text",
+          "value": "Настанови з JavaScript",
+        },
+      ],
+      "depth": 3,
+      "position": {
+        "end": {
+          "column": 27,
+          "line": 52,
+          "offset": 5391,
+        },
+        "start": {
+          "column": 1,
+          "line": 52,
+          "offset": 5365,
+        },
+      },
+      "type": "heading",
+    },
+    {
+      "type": "html",
+      "value": "<dl><dt><a href="/uk/docs/Web/JavaScript/Guide">Настанови з JavaScript</a></dt><dd><p>Значно деталізованіші настанови з мови JavaScript, корисні для тих, хто вже має досвід програмування на JavaScript чи іншій мові.</p></dd></dl>",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 20,
+              "line": 57,
+              "offset": 5607,
+            },
+            "start": {
+              "column": 5,
+              "line": 57,
+              "offset": 5592,
+            },
+          },
+          "type": "text",
+          "value": "Середній рівень",
+        },
+      ],
+      "depth": 3,
+      "position": {
+        "end": {
+          "column": 20,
+          "line": 57,
+          "offset": 5607,
+        },
+        "start": {
+          "column": 1,
+          "line": 57,
+          "offset": 5588,
+        },
+      },
+      "type": "heading",
+    },
+    {
+      "type": "html",
+      "value": "<dl><dt><a href="/uk/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks">Розуміння клієнтських фреймворків JavaScript</a></dt><dd><p>JavaScript фреймворки – неодмінна частина сучасної клієнтської веброзробки, що забезпечує розробників перевіреними інструментами для побудови масштабованих інтерактивних вебзастосунків. Цей модуль надає деякі фундаментальні знання про те, як влаштовані клієнтські фреймворки, і як вони вписуються в ваш інструментарій, перед тим як розглянути найбільш популярні із них на сьогодні у наступних посібниках.</p></dd><dt><a href="/uk/docs/Web/JavaScript/Language_overview">Огляд мови JavaScript</a></dt><dd><p>Огляд базових мови та семантики JavaScript для тих, хто прийшов з інших мов програмування і хоче різко набрати темп вивчення.</p></dd><dt><a href="/uk/docs/Web/JavaScript/Data_structures">Структури даних у JavaScript</a></dt><dd><p>Огляд наявних структур даних у JavaScript.</p></dd><dt><a href="/uk/docs/Web/JavaScript/Equality_comparisons_and_sameness">Порівняння на схожість і однаковість</a></dt><dd><p>JavaScript надає три різних способи для порівняння значень: строга рівність через використання <code>===</code>, вільна рівність з <code>==</code> та метод <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Object.is(">{{jsxref(&quot;Object.is()}}</span>.</p></dd><dt><a href="/uk/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">Перелічуваність і власність властивостей</a></dt><dd><p>Те, як різні методи, котрі одну за одною обробляють властивості об'єктів, обробляють перелічуваність та власність властивостей.</p></dd><dt><a href="/uk/docs/Web/JavaScript/Closures">Замикання</a></dt><dd><p>Замикання — це сполучення функції та лексичного середовища, всередині якого ця функція була оголошена.</p></dd></dl>",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 24,
+              "line": 72,
+              "offset": 7155,
+            },
+            "start": {
+              "column": 5,
+              "line": 72,
+              "offset": 7136,
+            },
+          },
+          "type": "text",
+          "value": "Поглиблене вивчення",
+        },
+      ],
+      "depth": 3,
+      "position": {
+        "end": {
+          "column": 24,
+          "line": 72,
+          "offset": 7155,
+        },
+        "start": {
+          "column": 1,
+          "line": 72,
+          "offset": 7132,
+        },
+      },
+      "type": "heading",
+    },
+    {
+      "type": "html",
+      "value": "<dl><dt><a href="/uk/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">Наслідування та ланцюжок прототипів</a></dt><dd><p>Роз'яснення прототипного наслідування (яке часто недооцінюють та невірно розуміють).</p></dd><dt><a href="/uk/docs/Web/JavaScript/Memory_management">Керування пам'яттю</a></dt><dd><p>Життєвий цикл пам'яті та збирання сміття у JavaScript.</p></dd><dt><a href="/uk/docs/Web/JavaScript/Event_loop">Цикл подій</a></dt><dd><p>JavaScript має модель середовища виконання, засновану на "циклі подій".</p></dd></dl>",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 12,
+              "line": 81,
+              "offset": 7617,
+            },
+            "start": {
+              "column": 4,
+              "line": 81,
+              "offset": 7609,
+            },
+          },
+          "type": "text",
+          "value": "Довідник",
+        },
+      ],
+      "depth": 2,
+      "position": {
+        "end": {
+          "column": 12,
+          "line": 81,
+          "offset": 7617,
+        },
+        "start": {
+          "column": 1,
+          "line": 81,
+          "offset": 7606,
+        },
+      },
+      "type": "heading",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 20,
+              "line": 83,
+              "offset": 7638,
+            },
+            "start": {
+              "column": 1,
+              "line": 83,
+              "offset": 7619,
+            },
+          },
+          "type": "text",
+          "value": "Перегляньте повний ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 40,
+                  "line": 83,
+                  "offset": 7658,
+                },
+                "start": {
+                  "column": 21,
+                  "line": 83,
+                  "offset": 7639,
+                },
+              },
+              "type": "text",
+              "value": "довідник JavaScript",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 76,
+              "line": 83,
+              "offset": 7694,
+            },
+            "start": {
+              "column": 20,
+              "line": 83,
+              "offset": 7638,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "/uk/docs/Web/JavaScript/Reference",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 77,
+              "line": 83,
+              "offset": 7695,
+            },
+            "start": {
+              "column": 76,
+              "line": 83,
+              "offset": 7694,
+            },
+          },
+          "type": "text",
+          "value": ".",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 77,
+          "line": 83,
+          "offset": 7695,
+        },
+        "start": {
+          "column": 1,
+          "line": 83,
+          "offset": 7619,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "type": "html",
+      "value": "<dl><dt><a href="/uk/docs/Web/JavaScript/Reference/Global_Objects">Стандартні об'єкти</a></dt><dd><p>Докладно про стандартні вбудовані об'єкти: <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Array&quot;">{{jsxref(&quot;Array&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Boolean&quot;">{{jsxref(&quot;Boolean&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Date&quot;">{{jsxref(&quot;Date&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Error&quot;">{{jsxref(&quot;Error&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Function&quot;">{{jsxref(&quot;Function&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;JSON&quot;">{{jsxref(&quot;JSON&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Math&quot;">{{jsxref(&quot;Math&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Number&quot;">{{jsxref(&quot;Number&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Object&quot;">{{jsxref(&quot;Object&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;RegExp&quot;">{{jsxref(&quot;RegExp&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;String&quot;">{{jsxref(&quot;String&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Map&quot;">{{jsxref(&quot;Map&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Set&quot;">{{jsxref(&quot;Set&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;WeakMap&quot;">{{jsxref(&quot;WeakMap&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;WeakSet&quot;">{{jsxref(&quot;WeakSet&quot;)}}</span>, та інші.</p></dd><dt><a href="/uk/docs/Web/JavaScript/Reference/Operators">Вирази та оператори</a></dt><dd><p>Дізнайтеся більше про поведінку операторів мови JavaScript <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Operators&#x2F;instanceof&quot;, &quot;instanceof&quot;">{{jsxref(&quot;Operators&#x2F;instanceof&quot;, &quot;instanceof&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Operators&#x2F;typeof&quot;, &quot;typeof&quot;">{{jsxref(&quot;Operators&#x2F;typeof&quot;, &quot;typeof&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Operators&#x2F;new&quot;, &quot;new&quot;">{{jsxref(&quot;Operators&#x2F;new&quot;, &quot;new&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Operators&#x2F;this&quot;, &quot;this&quot;">{{jsxref(&quot;Operators&#x2F;this&quot;, &quot;this&quot;)}}</span>, <a href="/uk/docs/Web/JavaScript/Reference/Operators/Operator_precedence">пріоритет операторів</a> та інші.</p></dd><dt><a href="/uk/docs/Web/JavaScript/Reference/Statements">Інструкції та оголошення</a></dt><dd><p>Дізнайтеся, як працюють <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Statements&#x2F;do...while&quot;, &quot;do-while&quot;">{{jsxref(&quot;Statements&#x2F;do...while&quot;, &quot;do-while&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Statements&#x2F;for...in&quot;, &quot;for-in&quot;">{{jsxref(&quot;Statements&#x2F;for...in&quot;, &quot;for-in&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Statements&#x2F;for...of&quot;, &quot;for-of&quot;">{{jsxref(&quot;Statements&#x2F;for...of&quot;, &quot;for-of&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Statements&#x2F;try...catch&quot;, &quot;try-catch&quot;">{{jsxref(&quot;Statements&#x2F;try...catch&quot;, &quot;try-catch&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Statements&#x2F;let&quot;, &quot;let&quot;">{{jsxref(&quot;Statements&#x2F;let&quot;, &quot;let&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Statements&#x2F;var&quot;, &quot;var&quot;">{{jsxref(&quot;Statements&#x2F;var&quot;, &quot;var&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Statements&#x2F;const&quot;, &quot;const&quot;">{{jsxref(&quot;Statements&#x2F;const&quot;, &quot;const&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Statements&#x2F;if...else&quot;, &quot;if-else&quot;">{{jsxref(&quot;Statements&#x2F;if...else&quot;, &quot;if-else&quot;)}}</span>, <span class="macro missing" data-macro-name="jsxref" data-parameters="&quot;Statements&#x2F;switch&quot;, &quot;switch&quot;">{{jsxref(&quot;Statements&#x2F;switch&quot;, &quot;switch&quot;)}}</span> та інші інструкції й ключові слова JavaScript.</p></dd><dt><a href="/uk/docs/Web/JavaScript/Reference/Functions">Функції</a></dt><dd><p>Дізнайтеся, як працювати з функціями у JavaScript для створення ваших застосунків.</p></dd><dt><a href="/uk/docs/Web/JavaScript/Reference/Classes">Класи</a></dt><dd><p>Класи JavaScript є найкращим засобом об'єктноорієнтованого програмування.</p></dd></dl>",
+    },
+  ],
+  "position": {
+    "end": {
+      "column": 1,
+      "line": 95,
+      "offset": 9371,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "type": "root",
+}
+`;

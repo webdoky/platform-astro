@@ -1,4 +1,4 @@
-import type { Node } from 'mdast';
+import type { Node, Nodes } from 'mdast';
 
 export interface DefinitionDataNode extends Node {
   children: Node[];
@@ -20,7 +20,7 @@ export interface AbstractDefinitionParentNode extends Node {
 }
 
 export type DefinitionTreeNode =
-  | Node
+  | Nodes
   | AbstractDefinitionParentNode
   | DefinitionDataNode
   | DefinitionTermNode
