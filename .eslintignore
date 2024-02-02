@@ -1,6 +1,7 @@
 dist
 external
 preprocess/dist
+src/components/GoogleAnalyticsScript.astro
 src/content/processed-content
 src/layouts/Layout/components/RollbarScript.astro
 src/layouts/Layout/components/DarkModeScript.astro

@@ -6,7 +6,7 @@ import { config as dotenvConfig } from 'dotenv';
 import adjustOutputFolder from './adjust-output-folder.js';
 import copyMiscFiles from './copy-misc-files.js';
 import processFile from './process-file.js';
-import walk from './walk-async.js';
+import walk from './utils/walk-async.js';
 
 dotenvConfig();
 

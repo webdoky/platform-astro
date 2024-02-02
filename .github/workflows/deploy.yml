@@ -107,6 +107,7 @@ jobs:
           PATH_TO_LOCALIZED_CONTENT: ${{ vars.PATH_TO_LOCALIZED_CONTENT }}
           ROLLBAR_ACCESS_TOKEN: ${{ secrets.ROLLBAR_ACCESS_TOKEN }}
           TARGET_LOCALE: ${{ vars.TARGET_LOCALE }}
+          GOOGLE_ANALYTICS_ID: ${{ vars.GOOGLE_ANALYTICS_ID }}
       - run: sudo apt install rename
       # Recursively replace all asterisks in folder names with "_asterisk_"
       - run: find ./dist -depth -type d -name "*" -execdir rename 's/\*/_asterisk_/g' "{}" \;
