@@ -1,46 +1,36 @@
-import type { Root } from 'mdast';
+import type { Node } from 'unist';
 import { SKIP, visit } from 'unist-util-visit';
 
-import brokenMacroToHtml from './broken-macro-to-html.js';
-import macroToHtml from './macro-to-html.js';
-import type {
-  AbstractMacroParentNode,
-  BrokenMacroNode,
-  MacroNode,
-} from './types.js';
+import type { BrokenMacroNode, MacroNode, MacroTreeNode } from './types.js';
 
-export default function unmakeMacroTree(tree: Root) {
-  visit(
-    tree,
-    'macro',
-    (node: MacroNode, index, parent: AbstractMacroParentNode) => {
-      //   console.log("macro", node);
-      if (!parent?.children) {
-        throw new Error("Parent or parent's children are undefined");
-      }
-      if (index === undefined) {
-        throw new Error('Index is undefined');
-      }
-      const replacementNode = macroToHtml(node);
-      parent.children.splice(index, 1, replacementNode);
-      return [SKIP, index + 1];
-    },
-  );
+export default function unmakeMacroTree<
+  T extends { children: MacroTreeNode[] } & Node,
+>(
+  tree: T,
+  renderMacroNode: (node: MacroNode) => Node,
+  renderBrokenMacroNode: (node: BrokenMacroNode) => Node,
+) {
+  visit(tree, 'macro', (node: MacroNode, index, parent) => {
+    //   console.log("macro", node);
+    if (!parent?.children) {
+      throw new Error("Parent or parent's children are undefined");
+    }
+    if (index === undefined) {
+      throw new Error('Index is undefined');
+    }
+    parent.children.splice(index, 1, renderMacroNode(node));
+    return [SKIP, index + 1];
+  });
 
-  visit(
-    tree,
-    'brokenMacro',
-    (node: BrokenMacroNode, index, parent: AbstractMacroParentNode) => {
-      //   console.log("brokenMacro", node);
-      if (!parent?.children) {
-        throw new Error("Parent or parent's children are undefined");
-      }
-      if (index === undefined) {
-        throw new Error('Index is undefined');
-      }
-      const replacementNode = brokenMacroToHtml(node);
-      parent.children.splice(index, 1, replacementNode);
-      return [SKIP, index + 1];
-    },
-  );
+  visit(tree, 'brokenMacro', (node: BrokenMacroNode, index, parent) => {
+    //   console.log("brokenMacro", node);
+    if (!parent?.children) {
+      throw new Error("Parent or parent's children are undefined");
+    }
+    if (index === undefined) {
+      throw new Error('Index is undefined');
+    }
+    parent.children.splice(index, 1, renderBrokenMacroNode(node));
+    return [SKIP, index + 1];
+  });
 }

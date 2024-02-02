@@ -1,4 +1,4 @@
-import type { Literal } from 'mdast';
+import type { Literal } from 'unist';
 
 import parseMacro from './parse-macro.js';
 import type { BrokenMacroNode, MacroNode } from './types.js';

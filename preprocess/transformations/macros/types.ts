@@ -1,4 +1,4 @@
-import type { Node } from 'mdast';
+import type { Node } from 'unist';
 
 export interface MacroNode extends Node {
   name: string;
