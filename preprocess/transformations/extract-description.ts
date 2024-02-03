@@ -22,7 +22,7 @@ export default function extractDescription(tree: Root) {
     text = stripMacros(text);
     if (text && !text.startsWith('<') && !text.startsWith('{{')) {
       setFrontmatterField(frontmatterNode, 'description', text);
-      return EXIT;
+      return [EXIT];
     }
     return;
   });

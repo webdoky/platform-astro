@@ -14,19 +14,15 @@ const EXTERNAL_LINK_CLASS = 'wd-external';
 const MISSING_LINK_CLASS = 'wd-nav-link-not-translated';
 
 function getClassesByUrl(url: string): string[] {
-  console.log('getClassesByUrl', url);
   if (url.startsWith('#')) {
     return [];
   }
   if (url.startsWith('http')) {
-    console.log('external');
     return [EXTERNAL_LINK_CLASS];
   }
   const slug = getSlugFromUrl(url);
-  console.log(slug);
   const isPresent = hasPage(slug);
   if (!isPresent) {
-    console.log('missing');
     return [MISSING_LINK_CLASS];
   }
   return [];

@@ -6,6 +6,9 @@ import astroCritters from 'astro-critters';
 import { defineConfig } from 'astro/config';
 import astroServiceWorker from 'astrojs-service-worker';
 import { config as dotenvConfig } from 'dotenv';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+
+import { injectHeadingSlugsPlugin } from './postprocess/inject-heading-slugs.js';
 
 dotenvConfig();
 
@@ -20,6 +23,10 @@ export default defineConfig({
     tailwind(),
   ],
   markdown: {
+    rehypePlugins: [
+      injectHeadingSlugsPlugin,
+      [rehypeAutolinkHeadings, { behavior: 'append' }],
+    ],
     remarkPlugins: [headings],
     syntaxHighlight: 'prism',
   },

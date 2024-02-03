@@ -20,7 +20,7 @@ export default function extractCover(tree: Root) {
       if (alt) {
         setFrontmatterField(frontmatterNode, 'coverAlt', alt);
       }
-      return EXIT;
+      return [EXIT];
     }
     return;
   });
