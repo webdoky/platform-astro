@@ -72,6 +72,7 @@ jobs:
       - name: Run preprocess
         env:
           PATH_TO_LOCALIZED_CONTENT: ${{ vars.PATH_TO_LOCALIZED_CONTENT }}
+          TARGET_LOCALE: ${{ vars.TARGET_LOCALE }}
         run: node ./preprocess/dist/index.js
       - uses: actions/upload-artifact@v4
         with:
