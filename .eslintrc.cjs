@@ -57,6 +57,7 @@ module.exports = {
           },
         ],
         'unicorn/filename-case': ['error', { case: 'pascalCase' }],
+        'unicorn/no-keyword-prefix': 'off',
       },
     },
     {

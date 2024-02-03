@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { useCallback, useEffect, useState } from 'react';
 
 import moonIcon from '../assets/moonIcon.svg';
@@ -64,7 +65,7 @@ export default function ToggleDarkMode() {
       {isDarkMode ? (
         <img
           alt="Сонце"
-          className={classes.icon}
+          className={classNames(classes.icon, classes.sun)}
           height="27"
           src={sunIcon.src}
           width="27"
