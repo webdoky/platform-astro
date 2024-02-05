@@ -7,8 +7,11 @@ import { defineConfig } from 'astro/config';
 import astroServiceWorker from 'astrojs-service-worker';
 import { config as dotenvConfig } from 'dotenv';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeRaw from 'rehype-raw';
+import remarkFrontmatter from 'remark-frontmatter';
 
 import { injectHeadingSlugsPlugin } from './postprocess/inject-heading-slugs.js';
+import { checkReferencedAnchorsPlugin } from './preprocess/transformations/check-referenced-anchors.js';
 
 dotenvConfig();
 
@@ -26,8 +29,10 @@ export default defineConfig({
     rehypePlugins: [
       injectHeadingSlugsPlugin,
       [rehypeAutolinkHeadings, { behavior: 'append' }],
+      rehypeRaw,
+      checkReferencedAnchorsPlugin,
     ],
-    remarkPlugins: [headings],
+    remarkPlugins: [headings, remarkFrontmatter],
     syntaxHighlight: 'prism',
   },
   prefetch: true,
