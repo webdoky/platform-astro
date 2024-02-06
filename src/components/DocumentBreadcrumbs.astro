@@ -1,0 +1,61 @@
+---
+import { Breadcrumbs } from 'astro-breadcrumbs';
+import getPathFromSlug from '../utils/get-path-from-slug.ts';
+import { getEntry } from 'astro:content';
+export interface Props {
+  slug: string;
+}
+const { slug } = Astro.props;
+const parentSlugs = slug
+  .split('/')
+  .map((_slugPart, index, slugParts) =>
+    slugParts.slice(0, index + 1).join('/'),
+  );
+const crumbs = [
+  {
+    text: 'WebDoky',
+    href: '/',
+  },
+  ...(await Promise.all(
+    parentSlugs.map(async (slug) => {
+      const entry = await getEntry('processed-content', slug);
+      if (!entry) {
+        throw new Error(`No entry found for slug: ${slug}`);
+      }
+      return {
+        text: entry.data.title,
+        href: getPathFromSlug(slug),
+      };
+    }),
+  )),
+];
+---
+
+<Breadcrumbs crumbs={crumbs} trailingSlash={true}
+  ><svg
+    slot="separator"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    ><polyline points="9 18 15 12 9 6"></polyline>
+  </svg></Breadcrumbs
+>
+<style is:global lang="scss">
+  /* stylelint-disable selector-class-pattern */
+  .c-breadcrumbs__crumbs {
+    column-gap: 0;
+    padding: 8px 16px !important;
+
+
+    a:hover {
+      color: var(--color-ui-primary);
+    }
+  }
+  /* stylelint-enable selector-class-pattern */
+</style>

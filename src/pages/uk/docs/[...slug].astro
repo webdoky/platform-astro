@@ -1,10 +1,11 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 
+import DocumentBreadcrumbs from '../../../components/DocumentBreadcrumbs.astro';
 import MetaHead from '../../../components/MetaHead.astro';
 import Layout from '../../../layouts/Layout/Layout.astro';
 import processedFrontmatterSchema from '../../../validation/processed-frontmatter.ts';
-
+import 'astro-breadcrumbs/breadcrumbs.css';
 export interface Params {
   slug: string;
 }
@@ -41,6 +42,7 @@ const TARGET_LOCALE = import.meta.env.TARGET_LOCALE;
     description={description}
     title={`${title} ${section ? `— ${section}` : ''} | ВебДоки`}
   />
+  <DocumentBreadcrumbs slug={slug} />
   <main
     class="wd-doc-page container relative flex flex-wrap justify-start flex-1 w-full bg-ui-background">
     <h1>{title}</h1>
@@ -58,7 +60,7 @@ const TARGET_LOCALE = import.meta.env.TARGET_LOCALE;
     h4,
     h5,
     h6 {
-      @apply -mt-12 pt-20;
+      // @apply -mt-12 pt-20;
     }
 
     h2 + h3,
