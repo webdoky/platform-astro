@@ -50,51 +50,22 @@ jobs:
           if-no-files-found: error
           name: interactive-examples
           path: ./docs/
-  preprocess:
+  build:
     needs: [lint, test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '21'
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build preprocess
-        run: tsc --project ./preprocess/tsconfig.json --outDir ./preprocess/dist
       - uses: actions/checkout@v4
         with:
           repository: webdoky/content
           ref: master
           path: external/translated-content
-      - name: Run preprocess
-        env:
-          PATH_TO_LOCALIZED_CONTENT: ${{ vars.PATH_TO_LOCALIZED_CONTENT }}
-          TARGET_LOCALE: ${{ vars.TARGET_LOCALE }}
-        run: node ./preprocess/dist/index.js
-      - uses: actions/upload-artifact@v4
-        with:
-          if-no-files-found: error
-          name: preprocessed-content
-          path: src/content/processed-content
-  build:
-    needs: [lint, preprocess, test]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-      - uses: actions/checkout@v4
-        with:
-          repository: webdoky/content
-          ref: master
-          path: external/translated-content
-      - uses: actions/download-artifact@v4
-        with:
-          name: preprocessed-content
-          path: src/content/processed-content
+      - name: copy content
+        run: |
+          cp -r ./external/translated-content/files/uk ./src/content/processed-content
+          find ./src/content/processed-content -name "_*" -type d | while read -r dir; do mv "$$dir" "$$(dirname "$$dir")/-`basename $$dir`"; done
       - uses: actions/setup-node@v4
         with:
           node-version: '21'

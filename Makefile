@@ -16,13 +16,10 @@ dist: astro.config.mjs lint package.json src src/content/processed-content yarn.
 external/translated-content:
 	git submodule add git@github.com:webdoky/content.git ./external/translated-content
 
-preprocess/dist:
-	rm -rf ./preprocess/dist
-	tsc --project ./preprocess/tsconfig.json --outDir ./preprocess/dist
-
-src/content/processed-content: external/translated-content preprocess/dist
-	rm -rf ./src/content/processed-content
-	node ./preprocess/dist/index.js
+src/content/processed-content: external/translated-content
+	cp -r ./external/translated-content/files/uk ./src/content/processed-content
+  # Rename all folders in ./src/content/processed-content, replacing starting _ with -_
+	find ./src/content/processed-content -name "_*" -type d | while read -r dir; do mv "$$dir" "$$(dirname "$$dir")/-`basename $$dir`"; done
 
 clean:
 	rm -rf dist

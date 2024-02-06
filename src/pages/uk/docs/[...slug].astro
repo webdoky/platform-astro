@@ -1,8 +1,9 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 
-import Layout from '../../../layouts/Layout/Layout.astro';
 import MetaHead from '../../../components/MetaHead.astro';
+import Layout from '../../../layouts/Layout/Layout.astro';
+import processedFrontmatterSchema from '../../../validation/processed-frontmatter.ts';
 
 export interface Params {
   slug: string;
@@ -20,23 +21,30 @@ export async function getStaticPaths() {
 const slug = Astro.params.slug;
 
 const page = await getEntry('processed-content', slug);
-const { Content } = await page.render();
+const { headings, remarkPluginFrontmatter, Content } = await page.render();
 const {
-  data: { title, section, description },
+  data: { title },
 } = page;
+const {
+  // cover: coverPath,
+  description,
+  section,
+} = processedFrontmatterSchema.parse(remarkPluginFrontmatter);
+// const cover = await importImage(coverPath);
 const TARGET_LOCALE = import.meta.env.TARGET_LOCALE;
 ---
 
 <Layout title={title}>
   <MetaHead
     slot="head"
-    title={`${title} ${section ? `— ${section}` : ''} | ВебДоки`}
-    description={description}
     canonicalPath={`/${TARGET_LOCALE}/docs/${slug}`}
+    description={description}
+    title={`${title} ${section ? `— ${section}` : ''} | ВебДоки`}
   />
   <main
     class="wd-doc-page container relative flex flex-wrap justify-start flex-1 w-full bg-ui-background">
     <h1>{title}</h1>
+    <p>{JSON.stringify(headings)}</p>
     <div class="flex flex-wrap items-start justify-start">
       <div class="order-1 w-full md:w-2/3"><Content /></div>
     </div>

@@ -16,11 +16,9 @@
   "exclude": [
     "node_modules",
     "dist",
-    "preprocess"
   ],
   "extends": "astro/tsconfigs/strictest",
   "include": [
-    "./postprocess/**/*.ts",
     "./src/**/*.ts",
     "./src/**/*.tsx",
     "./src/**/*.astro",

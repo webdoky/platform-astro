@@ -71,12 +71,6 @@ module.exports = {
       },
     },
     {
-      files: ['preprocess/**/*.ts'],
-      parserOptions: {
-        project: './preprocess/tsconfig.json',
-      },
-    },
-    {
       env: {
         'jest/globals': true,
       },

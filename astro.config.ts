@@ -1,17 +1,13 @@
 import react from '@astrojs/react';
 import astroSitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import headings from '@sveltinio/remark-headings';
 import astroCritters from 'astro-critters';
 import { defineConfig } from 'astro/config';
 import astroServiceWorker from 'astrojs-service-worker';
 import { config as dotenvConfig } from 'dotenv';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeRaw from 'rehype-raw';
-import remarkFrontmatter from 'remark-frontmatter';
 
-import { injectHeadingSlugsPlugin } from './postprocess/inject-heading-slugs.js';
-import { checkReferencedAnchorsPlugin } from './preprocess/transformations/check-referenced-anchors.js';
+import rehypePlugins from './src/plugins/rehype/index.ts';
+import remarkPlugins from './src/plugins/remark/index.ts';
 
 dotenvConfig();
 
@@ -26,20 +22,10 @@ export default defineConfig({
     tailwind(),
   ],
   markdown: {
-    rehypePlugins: [
-      injectHeadingSlugsPlugin,
-      [rehypeAutolinkHeadings, { behavior: 'append' }],
-      rehypeRaw,
-      checkReferencedAnchorsPlugin,
-    ],
-    remarkPlugins: [headings, remarkFrontmatter],
+    rehypePlugins: rehypePlugins,
+    remarkPlugins: remarkPlugins,
     syntaxHighlight: 'prism',
   },
   prefetch: true,
   site: process.env.BASE_PATH,
-  vite: {
-    resolve: {
-      preserveSymlinks: true,
-    },
-  },
 });

@@ -13,20 +13,20 @@ const internalContent = defineCollection({
 
 const processedContent = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
-    z.object({
-      'browser-compat': z.optional(z.union([z.string(), z.array(z.string())])),
-      cover: z.optional(image()),
-      coverAlt: z.optional(z.string()),
-      description: z.string().min(1),
-      'page-type': z.string().default('unknown'),
-      section: z.string().min(1),
-      'spec-urls': z.optional(z.union([z.string(), z.array(z.string())])),
-      status: z.optional(
-        z.array(z.enum(['deprecated', 'experimental', 'non-standard'])),
-      ),
-      title: z.string().min(1),
-    }),
+  //({ image }) =>
+  schema: z.object({
+    'browser-compat': z.optional(z.union([z.string(), z.array(z.string())])),
+    // cover: z.optional(image()),
+    // coverAlt: z.optional(z.string()),
+    // description: z.string().min(1),
+    'page-type': z.string().default('unknown'),
+    // section: z.string().min(1),
+    'spec-urls': z.optional(z.union([z.string(), z.array(z.string())])),
+    status: z.optional(
+      z.array(z.enum(['deprecated', 'experimental', 'non-standard'])),
+    ),
+    title: z.string().min(1),
+  }),
 });
 
 // eslint-disable-next-line import/prefer-default-export

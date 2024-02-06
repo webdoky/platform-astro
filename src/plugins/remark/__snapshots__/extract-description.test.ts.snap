@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`extractDescription sets the description and sets it in the frontmatter 1`] = `
+{
+  "data": {
+    "astro": {
+      "frontmatter": {
+        "description": "description",
+        "slug": "slug",
+        "title": "title",
+      },
+    },
+  },
+}
+`;
