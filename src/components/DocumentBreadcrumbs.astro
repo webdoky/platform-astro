@@ -1,7 +1,8 @@
 ---
 import { Breadcrumbs } from 'astro-breadcrumbs';
-import getPathFromSlug from '../utils/get-path-from-slug.ts';
 import { getEntry } from 'astro:content';
+
+import getPathFromSlug from '../utils/get-path-from-slug.ts';
 export interface Props {
   slug: string;
 }
@@ -51,7 +52,6 @@ const crumbs = [
   .c-breadcrumbs__crumbs {
     column-gap: 0;
     padding: 8px 16px !important;
-
 
     a:hover {
       color: var(--color-ui-primary);
