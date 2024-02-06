@@ -7,7 +7,12 @@ module.exports = {
   },
   preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',
-  testPathIgnorePatterns: ['external', 'processed-content', 'node_modules'],
+  testPathIgnorePatterns: [
+    'external',
+    'original-content',
+    'processed-content',
+    'node_modules',
+  ],
   transform: {
     '^.+\\.[tj]s$': [
       'ts-jest',

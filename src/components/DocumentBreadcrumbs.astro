@@ -19,20 +19,41 @@ const crumbs = [
   },
   ...(await Promise.all(
     parentSlugs.map(async (slug) => {
-      const entry = await getEntry('processed-content', slug);
-      if (!entry) {
-        throw new Error(`No entry found for slug: ${slug}`);
+      let text;
+      try {
+        const entry = await getEntry('processed-content', slug);
+        if (!entry) {
+          throw new Error(`No entry found for slug: ${slug}`);
+        }
+        text = entry.data.title;
+      } catch (error) {
+        if (
+          typeof (error as { message: string })?.message === 'string' &&
+          (error as { message: string }).message.includes(
+            'No entry found for slug:',
+          )
+        ) {
+          return {
+            href: getPathFromSlug(slug),
+            className: 'c-breadcrumbs__link wd-nav-link-not-translated',
+            rel: 'noopener noreferrer',
+            target: '_blank',
+            text: slug,
+          };
+        } else {
+          throw error;
+        }
       }
       return {
-        text: entry.data.title,
         href: getPathFromSlug(slug),
+        text: text,
       };
     }),
   )),
 ];
 ---
 
-<Breadcrumbs crumbs={crumbs} trailingSlash={true}
+<Breadcrumbs ariaLabel="Хлібні крихти" crumbs={crumbs} trailingSlash={true}
   ><svg
     slot="separator"
     xmlns="http://www.w3.org/2000/svg"
@@ -55,6 +76,14 @@ const crumbs = [
 
     a:hover {
       color: var(--color-ui-primary);
+
+      &.wd-nav-link-not-translated {
+        color: red;
+      }
+    }
+
+    .wd-nav-link-not-translated {
+      color: red;
     }
   }
   /* stylelint-enable selector-class-pattern */

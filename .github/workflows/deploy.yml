@@ -66,6 +66,11 @@ jobs:
         run: |
           cp -r ./external/translated-content/files/uk ./src/content/processed-content
           find ./src/content/processed-content -name "_*" -type d | while read -r dir; do mv "$dir" "$(dirname "$dir")/-`basename $dir`"; done
+      # - uses: actions/checkout@v4
+      #   with:
+      #     repository: mdn/content
+      #     ref: main
+      #     path: external/original-content
       - uses: actions/setup-node@v4
         with:
           node-version: '21'

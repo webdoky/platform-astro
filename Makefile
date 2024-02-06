@@ -30,7 +30,7 @@ lint: src
 node_modules:
 	yarn
 
-original-content:
+external/original-content:
 	git submodule add git@github.com:mdn/content.git ./external/original-content
 
 preview:

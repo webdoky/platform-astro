@@ -11,7 +11,7 @@ const internalContent = defineCollection({
   }),
 });
 
-const processedContent = defineCollection({
+const content = defineCollection({
   type: 'content',
   //({ image }) =>
   schema: z.object({
@@ -32,5 +32,6 @@ const processedContent = defineCollection({
 // eslint-disable-next-line import/prefer-default-export
 export const collections = {
   'internal-content': internalContent,
-  'processed-content': processedContent,
+  // 'original-content': content,
+  'processed-content': content,
 };

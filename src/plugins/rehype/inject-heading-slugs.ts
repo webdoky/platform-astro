@@ -9,7 +9,7 @@ import getIdFromText from '../../utils/get-id-from-text.js';
 const slugger = new GithubSlugger();
 
 export default function injectHeadingSlugs(tree: Root) {
-  console.log('injectHeadingSlugs');
+  // console.log('injectHeadingSlugs');
   slugger.reset();
 
   visit(tree, 'element', function (node) {

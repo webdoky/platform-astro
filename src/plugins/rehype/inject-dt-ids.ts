@@ -7,7 +7,7 @@ import getIdFromText from '../../utils/get-id-from-text.ts';
 const slugger = new GithubSlugger();
 
 export default function injectDtIds(tree: Root) {
-  console.log('injectDtIds');
+  // console.log('injectDtIds');
   slugger.reset();
   visit(tree, 'element', function (node) {
     if (node.tagName !== 'dt') {
