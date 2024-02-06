@@ -1,6 +1,7 @@
 ---
 import { escapeHTML } from 'astro/runtime/server/escape.js';
 import { getCollection } from 'astro:content';
+import { SEO } from 'astro-seo';
 
 import appleTouchIcon from '../../assets/apple-touch-icon.png';
 import favicon16 from '../../assets/favicon-16x16.png';
@@ -8,22 +9,18 @@ import favicon32 from '../../assets/favicon-32x32.png';
 import logoIndex from '../../assets/logo-index.svg';
 import logo from '../../assets/logo.png';
 import safariPinnedTab from '../../assets/safari-pinned-tab.svg';
-import MetaHead from '../components/MetaHead.astro';
 import WdChangelogLoader from '../data/changelog.js';
 import Layout from '../layouts/Layout/Layout.astro';
 import getFileSlugFromId from '../utils/get-file-slug-from-slug.js';
 import getPathFromSlug from '../utils/get-path-from-slug.js';
+
 import '../style.scss';
 
 const CHANGE_REGEXP =
   /(Оновлен{2}я перекладу|Переклад)\((\w+)\):<\/strong> (\S+)/g;
 
 const TITLE = 'Про веб, у вебі, для вебу | ВебДоки';
-const DESCRIptION =
-  'Проєкт Webdoky — це зібрання інформації про технології відкритого вебу. HTML, CSS, JavaScript, та API, як для вебсайтів, так і для прогресивних вебзастосунків';
-const { BASE_PATH } = import.meta.env;
 const { TARGET_LOCALE } = import.meta.env;
-const CANONICAL_URL = `${BASE_PATH}/`;
 async function populateChangelogWithLinks(changelog: string) {
   const entries = await getCollection('processed-content');
   const fileSlugToTitle = new Map<string, string>(
@@ -61,46 +58,89 @@ changeLogContent = await populateChangelogWithLinks(changeLogContent);
 ---
 
 <Layout title={TITLE}>
-  <MetaHead
-    title="Про веб, у вебі, для вебу | ВебДоки"
+  <SEO
+    slot="head"
     description="Проєкт Webdoky — це зібрання інформації про технології відкритого вебу. HTML, CSS, JavaScript, та API, як для вебсайтів, так і для прогресивних вебзастосунків"
-    canonicalPath="/"
+    canonical={import.meta.env.BASE_PATH}
+    extend={{
+      link: [
+        {
+          rel: 'apple-touch-icon',
+          sizes: ['180x180'] as any,
+          href: appleTouchIcon.src,
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: ['32x32'] as any,
+          href: favicon32.src,
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: ['16x16'] as any,
+          href: favicon16.src,
+        },
+        {
+          rel: 'manifest',
+          href: '/site.webmanifest',
+        },
+        {
+          rel: 'mask-icon',
+          href: safariPinnedTab.src,
+          color: '#5bbad5',
+        } as any,
+      ],
+      meta: [
+        {
+          name: 'msapplication-TileColor',
+          content: '#da532c',
+        },
+        {
+          name: 'theme-color',
+          content: '#ffffff',
+        },
+      ],
+    }}
+    openGraph={{
+      article: {
+        authors: ['adriandecita'],
+        modifiedTime: '2023-02-06T16:07:00Z',
+        publishedTime: '2021-07-15T13:14:11Z',
+      },
+      basic: {
+        image: logo.src,
+        title:
+          'Проєкт Webdoky — це зібрання інформації про технології відкритого вебу',
+        type: 'website',
+      },
+      image: {
+        alt: 'Логотип WebDoky',
+        height: logo.height,
+        type: `image/${logo.format}`,
+        url: logo.src,
+        width: logo.width,
+      },
+      optional: {
+        description:
+          'HTML, CSS, JavaScript, та API, як для вебсайтів, так і для прогресивних вебзастосунків',
+        locale: 'uk_UA',
+      },
+    }}
+    title="Про веб, у вебі, для вебу"
+    titleTemplate="%s | ВебДоки"
+    twitter={{
+      card: 'summary',
+      creator: '@adriandecita',
+      description:
+        'HTML, CSS, JavaScript, та API, як для вебсайтів, так і для прогресивних вебзастосунків',
+      image: logo.src,
+      imageAlt: 'Логотип WebDoky',
+      site: '@webdoky',
+      title:
+        'Проєкт Webdoky — це зібрання інформації про технології відкритого вебу',
+    }}
   />
-  <Fragment slot="head">
-    <meta name="description" content={DESCRIptION} />
-
-    {/* OG */}
-    <meta property="og:title" name="og:title" content={TITLE} />
-    <meta
-      property="og:description"
-      name="og:description"
-      content={DESCRIptION}
-    />
-    <meta property="og:image" name="og:image" content={logo.src} />
-    <meta property="og:locale" name="og:locale" content="uk-UA" />
-    <meta property="og:url" name="og:url" content={CANONICAL_URL} />
-
-    {/* Twitter card */}
-    <meta property="twitter:title" name="twitter:title" content={TITLE} />
-    <meta
-      property="twitter:description"
-      name="twitter:description"
-      content={DESCRIptION}
-    />
-    <meta property="twitter:image" name="twitter:image" content={logo.src} />
-
-    {/* Favicons */}
-    <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon.src} />
-    <link rel="icon" type="image/png" sizes="32x32" href={favicon32.src} />
-    <link rel="icon" type="image/png" sizes="16x16" href={favicon16.src} />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="mask-icon" href={safariPinnedTab.src} color="#5bbad5" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
-
-    {/* Other */}
-    {CANONICAL_URL && <link rel="canonical" href={CANONICAL_URL} />}
-  </Fragment>
   <div class="pt-8 md:pt-16">
     <div class="flex flex-col items-center">
       <div class="flex flex-col items-center mb-2 text-ui-primary">
