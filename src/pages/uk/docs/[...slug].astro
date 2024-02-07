@@ -7,7 +7,6 @@ import DocumentBreadcrumbs from '../../../components/DocumentBreadcrumbs.astro';
 import Layout from '../../../layouts/Layout/Layout.astro';
 import processedFrontmatterSchema from '../../../validation/processed-frontmatter.ts';
 import 'astro-breadcrumbs/breadcrumbs.css';
-import logoSocial from '../../../../assets/logo-social.png';
 import normalizeUrl from '../../../utils/normalize-url.js';
 import GoogleAnalyticsScript from '../../../components/GoogleAnalyticsScript.astro';
 import defaultMeta from '../../../meta.ts';
@@ -64,6 +63,9 @@ if (prettySection === 'Web') {
   prettySection += ' / ' + slugParts[1];
 }
 const tags = getTagsFromPageType({ 'page-type': pageType, section });
+const previewImageUrl = getAbsoluteUrl(
+  `/open-graph/${slug.replace('...', '_ellipsis_')}.png`,
+);
 ---
 
 <Layout title={title}>
@@ -81,16 +83,16 @@ const tags = getTagsFromPageType({ 'page-type': pageType, section });
         tags: tags,
       },
       basic: {
-        image: getAbsoluteUrl(logoSocial.src),
+        image: previewImageUrl,
         title: secondaryTitle,
         type: 'website',
       },
       image: {
-        alt: 'Логотип WebDoky',
-        height: logoSocial.height,
-        type: `image/${logoSocial.format}`,
-        url: getAbsoluteUrl(logoSocial.src),
-        width: logoSocial.width,
+        alt: title,
+        height: 630,
+        type: 'image/png',
+        url: previewImageUrl,
+        width: 1200,
       },
       optional: {
         description: secondaryDescription,
@@ -103,8 +105,8 @@ const tags = getTagsFromPageType({ 'page-type': pageType, section });
       card: 'summary',
       creator: getCreatorTwitter(authors.at(-1)),
       description: secondaryDescription,
-      image: getAbsoluteUrl(logoSocial.src),
-      imageAlt: 'Логотип WebDoky',
+      image: previewImageUrl,
+      imageAlt: title,
       site: '@webdoky',
       title: title,
     }}

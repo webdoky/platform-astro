@@ -1834,7 +1834,7 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-2.0.2.tgz#d9fae00a2d5cb40f92cfe64b47ad749fbc38f917"
   integrity sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==
 
-"@iconify-json/mdi@^1.1.64":
+"@iconify-json/mdi@~1.1.64":
   version "1.1.64"
   resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.1.64.tgz#ef734e33161106485e36b0f92222babe506d3a8d"
   integrity sha512-zGeo5TjhNFAY6FmSDBLAzDO811t77r6v/mDi7CAL9w5eXqKez6bIjk8R9AL/RHIeq44ALP4Ozr4lMqFTkHr7ug==
@@ -3146,6 +3146,15 @@ astro-icon@~1.1.0:
     "@iconify/types" "^2.0.0"
     "@iconify/utils" "^2.1.5"
 
+astro-og-canvas@0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/astro-og-canvas/-/astro-og-canvas-0.4.2.tgz#b271cc68f2a53bcc3e4decdd60e2fcce4e78b099"
+  integrity sha512-OQsH6Gr2HX9ZRHdVy2OcXVBIPI65WvEtLG/60krnphh8d3ldhuAFunymYaNGcrdSZcYgXkHWejbPt//3qaRidA==
+  dependencies:
+    canvaskit-wasm "^0.37.0"
+    deterministic-object-hash "^2.0.2"
+    entities "^4.4.0"
+
 astro-seo@0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/astro-seo/-/astro-seo-0.8.0.tgz#4d930a8fc3e23fd1b9923486843b2a85febae35d"
@@ -3571,6 +3580,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001578, caniuse-lite@^1.0.30001580:
   version "1.0.30001581"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001581.tgz#0dfd4db9e94edbdca67d57348ebc070dece279f4"
   integrity sha512-whlTkwhqV2tUmP3oYhtNfaWGYHDdS3JYFQBKXxcUR9qqPWsRhFHhoISO2Xnl/g0xyKzht9mI1LZpiNWfMzHixQ==
+
+canvaskit-wasm@^0.37.0:
+  version "0.37.2"
+  resolved "https://registry.yarnpkg.com/canvaskit-wasm/-/canvaskit-wasm-0.37.2.tgz#add4321d720cae23f895644ed8f45757e03d6011"
+  integrity sha512-212imazRF98gLOTiU4JAXM7xDvaknI7jaPtAg4ETXGW5rLQs6pomgIvVPUSfoKnQVTdGgzj+B4e+/u0Da20aGg==
 
 ccount@^2.0.0:
   version "2.0.1"
@@ -4292,7 +4306,7 @@ detect-newline@^3.0.0:
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-3.1.0.tgz#576f5dfc63ae1a192ff192d8ad3af6308991b651"
   integrity sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==
 
-deterministic-object-hash@^2.0.1:
+deterministic-object-hash@^2.0.1, deterministic-object-hash@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/deterministic-object-hash/-/deterministic-object-hash-2.0.2.tgz#b251ddc801443905f0e9fef08816a46bc9fe3807"
   integrity sha512-KxektNH63SrbfUyDiwXqRb1rLwKt33AmMv+5Nhsw1kqZ13SJBRTgZHtGbE+hH3a1mVW1cz+4pqSWVPAtLVXTzQ==

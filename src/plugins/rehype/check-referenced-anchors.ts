@@ -12,7 +12,7 @@ import getSlugFromUrl from '../utils/get-slug-from-url.js';
 const stringSchema = z.optional(z.string());
 
 export default async function checkReferencedAnchors(tree: Root, file: VFile) {
-  console.log('checkReferencedAnchors');
+  // console.log('checkReferencedAnchors');
   await initRegistry();
   await initAnchorsRegistry();
   const currentPageSlugs = getAnchorsFromTree(tree);
