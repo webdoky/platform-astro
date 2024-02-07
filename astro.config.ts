@@ -4,6 +4,7 @@ import astroSitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import astroCritters from 'astro-critters';
 import icon from 'astro-icon';
+import webmanifest from 'astro-webmanifest';
 import { defineConfig } from 'astro/config';
 import astroServiceWorker from 'astrojs-service-worker';
 import { config as dotenvConfig } from 'dotenv';
@@ -32,6 +33,25 @@ export default defineConfig({
       },
     }),
     icon(),
+    webmanifest({
+      /**
+       * required
+       **/
+      name: 'WebDoky',
+
+      /**
+       * optional
+       **/
+      icon: 'assets/logo.png', // source for favicon & icons
+
+      description: 'Ресурси та документація. Від розробників — для розробників',
+      start_url: '/',
+      theme_color: '#FFFFFF',
+      background_color: '#FFFFFF',
+      display: 'standalone',
+      lang: 'uk-UA',
+      categories: ['education'],
+    }),
   ],
   markdown: {
     rehypePlugins: rehypePlugins,
