@@ -1,5 +1,6 @@
 ---
-import globeIcon from '../assets/globeIcon.svg';
+import { Icon } from 'astro-icon/components';
+
 export interface Props {
   originalLink?: string;
   originalPath?: string;
@@ -100,7 +101,7 @@ const { originalLink, originalPath, originalTitle } = Astro.props;
               rel="noopener noreferrer"
               title={`MDN: "${originalTitle}"`}>
               <span>Оригінал статті</span>
-              <img alt="" src={globeIcon.src} class="m-1" />
+              <Icon name="mdi:globe" class="ml-1" />
             </a>
           </div>
         )
