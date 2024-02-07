@@ -87,13 +87,13 @@ jobs:
           GOOGLE_ANALYTICS_ID: ${{ vars.GOOGLE_ANALYTICS_ID }}
       - run: sudo apt install rename
       # Recursively replace all asterisks in folder names with "_asterisk_"
-      - run: find ./dist -depth -type d -name "*" -execdir rename 's/\*/_asterisk_/g' "{}" \;
+      - run: find ./dist -depth -name "*" -execdir rename 's/\*/_asterisk_/g' "{}" \;
       # Recursively replace all doublecolons in folder names with "_doublecolon_"
-      - run: find ./dist -depth -type d -name "*" -execdir rename 's/::/_doublecolon_/g' "{}" \;
+      - run: find ./dist -depth -name "*" -execdir rename 's/::/_doublecolon_/g' "{}" \;
       # Recursively replace all colons in folder names with "_colon_"
-      - run: find ./dist -depth -type d -name "*" -execdir rename 's/:/_colon_/g' "{}" \;
+      - run: find ./dist -depth -name "*" -execdir rename 's/:/_colon_/g' "{}" \;
       # Recursively replace all asterisks in folder names with "_star_"
-      - run: find ./dist -depth -type d -name "*" -execdir rename 's/\*/_star_/g' "{}" \;
+      - run: find ./dist -depth -name "*" -execdir rename 's/\*/_star_/g' "{}" \;
       - uses: actions/upload-artifact@v4
         with:
           if-no-files-found: error
@@ -109,13 +109,13 @@ jobs:
           path: dist
       - run: sudo apt install rename
       # Recursively replace all "_asterisk_" in folder names with asterisks
-      - run: find ./dist -depth -type d -name "*_asterisk_*" -execdir rename 's/_asterisk_/*/g' "{}" \;
+      - run: find ./dist -depth -name "*_asterisk_*" -execdir rename 's/_asterisk_/*/g' "{}" \;
       # Recursively replace all "_doublecolon_" in folder names with doublecolons
-      - run: find ./dist -depth -type d -name "*_doublecolon_*" -execdir rename 's/_doublecolon_/::/g' "{}" \;
+      - run: find ./dist -depth -name "*_doublecolon_*" -execdir rename 's/_doublecolon_/::/g' "{}" \;
       # Recursively replace all "_colon_" in folder names with colons
-      - run: find ./dist -depth -type d -name "*_colon_*" -execdir rename 's/_colon_/:/g' "{}" \;
+      - run: find ./dist -depth -name "*_colon_*" -execdir rename 's/_colon_/:/g' "{}" \;
       # Recursively replace all "_star_" in folder names with asterisks
-      - run: find ./dist -depth -type d -name "*_star_*" -execdir rename 's/_star_/*/g' "{}" \;
+      - run: find ./dist -depth -name "*_star_*" -execdir rename 's/_star_/*/g' "{}" \;
       - uses: actions/download-artifact@v4
         with:
           name: interactive-examples
