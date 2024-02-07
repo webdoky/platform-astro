@@ -2,12 +2,12 @@
 import { getCollection, getEntry } from 'astro:content';
 import { SEO } from 'astro-seo';
 
-import Layout from '../../layouts/Layout/Layout.astro';
-import GoogleAnalyticsScript from '../../components/GoogleAnalyticsScript.astro';
-import defaultMeta from '../../meta.js';
-import normalizeUrl from '../../utils/normalize-url.js';
-import logoSocial from '../../../assets/logo-social.png';
-import getAbsoluteUrl from '../../utils/get-absolute-url.ts';
+import Layout from '../layouts/Layout/Layout.astro';
+import GoogleAnalyticsScript from '../components/GoogleAnalyticsScript.astro';
+import defaultMeta from '../meta.js';
+import normalizeUrl from '../utils/normalize-url.js';
+import logoSocial from '../../assets/logo-social.png';
+import getAbsoluteUrl from '../utils/get-absolute-url.ts';
 export interface Params {
   slug: string;
 }

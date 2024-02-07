@@ -9,6 +9,7 @@ import { config as dotenvConfig } from 'dotenv';
 
 import rehypePlugins from './src/plugins/rehype/index.ts';
 import remarkPlugins from './src/plugins/remark/index.ts';
+import serializeSitemapItem from './src/plugins/sitemap.ts';
 dotenvConfig();
 
 // https://astro.build/config
@@ -16,7 +17,7 @@ export default defineConfig({
   // compressHTML: false,
   integrations: [
     import.meta.env.MODE === 'production' ? astroServiceWorker() : undefined,
-    astroSitemap(),
+    astroSitemap({ serialize: serializeSitemapItem }),
     astroCritters({
       Logger: 1,
     }),
