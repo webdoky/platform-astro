@@ -26,7 +26,8 @@ const { title } = Astro.props;
     ><div class="font-sans antialiased text-ui-typo bg-ui-background">
       <div class="flex flex-col justify-start min-h-screen">
         <header
-          class="sticky top-0 z-10 w-full border-b bg-ui-background border-ui-border">
+          class="sticky top-0 z-10 w-full border-b bg-ui-background border-ui-border"
+          transition:persist>
           <Header />
         </header>
         <main
@@ -37,7 +38,7 @@ const { title } = Astro.props;
           </div>
         </main>
 
-        <footer class="border-t border-ui-border">
+        <footer class="border-t border-ui-border" transition:persist>
           <Footer />
         </footer>
       </div>

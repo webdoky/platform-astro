@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import { SEO } from 'astro-seo';
+import { ViewTransitions } from 'astro:transitions';
 
 import DocumentBreadcrumbs from '../../../components/DocumentBreadcrumbs.astro';
 import Layout from '../../../layouts/Layout/Layout.astro';
@@ -66,6 +67,7 @@ const tags = getTagsFromPageType({ 'page-type': pageType, section });
 ---
 
 <Layout title={title}>
+  <ViewTransitions slot="head" />
   <SEO
     slot="head"
     description={description}
