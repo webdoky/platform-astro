@@ -92,6 +92,8 @@ jobs:
       - run: find ./dist -depth -type d -name "*" -execdir rename 's/::/_doublecolon_/g' "{}" \;
       # Recursively replace all colons in folder names with "_colon_"
       - run: find ./dist -depth -type d -name "*" -execdir rename 's/:/_colon_/g' "{}" \;
+      # Recursively replace all asterisks in folder names with "_star_"
+      - run: find ./dist -depth -type d -name "*" -execdir rename 's/\*/_star_/g' "{}" \;
       - uses: actions/upload-artifact@v4
         with:
           if-no-files-found: error
@@ -112,6 +114,8 @@ jobs:
       - run: find ./dist -depth -type d -name "*_doublecolon_*" -execdir rename 's/_doublecolon_/::/g' "{}" \;
       # Recursively replace all "_colon_" in folder names with colons
       - run: find ./dist -depth -type d -name "*_colon_*" -execdir rename 's/_colon_/:/g' "{}" \;
+      # Recursively replace all "_star_" in folder names with asterisks
+      - run: find ./dist -depth -type d -name "*_star_*" -execdir rename 's/_star_/*/g' "{}" \;
       - uses: actions/download-artifact@v4
         with:
           name: interactive-examples

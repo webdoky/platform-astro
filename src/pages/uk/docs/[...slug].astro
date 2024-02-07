@@ -1,11 +1,17 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
+import { SEO } from 'astro-seo';
 
 import DocumentBreadcrumbs from '../../../components/DocumentBreadcrumbs.astro';
-import MetaHead from '../../../components/MetaHead.astro';
 import Layout from '../../../layouts/Layout/Layout.astro';
 import processedFrontmatterSchema from '../../../validation/processed-frontmatter.ts';
 import 'astro-breadcrumbs/breadcrumbs.css';
+import logoSocial from '../../../../assets/logo-social.png';
+import normalizeUrl from '../../../utils/normalize-url.js';
+import GoogleAnalyticsScript from '../../../components/GoogleAnalyticsScript.astro';
+import defaultMeta from '../../../meta.ts';
+import getTagsFromPageType from '../../../utils/get-tags-from-page-type.ts';
+import getCreatorTwitter from '../../../utils/get-creator-twitter.ts';
 export interface Params {
   slug: string;
 }
@@ -24,24 +30,84 @@ const slug = Astro.params.slug;
 const page = await getEntry('processed-content', slug);
 const { headings, remarkPluginFrontmatter, Content } = await page.render();
 const {
-  data: { title },
+  data: { 'page-type': pageType, title },
 } = page;
+console.log(remarkPluginFrontmatter);
 const {
+  authors,
   // cover: coverPath,
   description,
+  modifiedTime,
+  publishedTime,
   section,
 } = processedFrontmatterSchema.parse(remarkPluginFrontmatter);
 // const cover = await importImage(coverPath);
+const BASE_PATH = import.meta.env.BASE_PATH;
 const TARGET_LOCALE = import.meta.env.TARGET_LOCALE;
+
+const canonicalPath = `/${TARGET_LOCALE}/docs/${slug}`;
+const canonicalUrl = normalizeUrl(`${BASE_PATH}${canonicalPath}`);
+let [secondaryTitle, ...otherSentences] = description.split('. ');
+let secondaryDescription = otherSentences.join('. ');
+if (!secondaryTitle) {
+  secondaryTitle = title;
+  secondaryDescription = description;
+} else if (!secondaryDescription) {
+  secondaryDescription = secondaryTitle;
+  secondaryTitle = title;
+}
+const slugParts = slug.split('/');
+let prettySection = slugParts[0];
+if (prettySection === 'Web') {
+  prettySection += ' / ' + slugParts[1];
+}
+const tags = getTagsFromPageType({ 'page-type': pageType, section });
 ---
 
 <Layout title={title}>
-  <MetaHead
+  <SEO
     slot="head"
-    canonicalPath={`/${TARGET_LOCALE}/docs/${slug}`}
     description={description}
-    title={`${title} ${section ? `— ${section}` : ''} | ВебДоки`}
+    canonical={canonicalUrl}
+    extend={defaultMeta}
+    openGraph={{
+      article: {
+        authors,
+        modifiedTime: modifiedTime.toISOString(),
+        publishedTime: publishedTime.toISOString(),
+        tags: tags,
+      },
+      basic: {
+        image: logoSocial.src,
+        title: secondaryTitle,
+        type: 'website',
+      },
+      image: {
+        alt: 'Логотип WebDoky',
+        height: logoSocial.height,
+        type: `image/${logoSocial.format}`,
+        url: logoSocial.src,
+        width: logoSocial.width,
+      },
+      optional: {
+        description: secondaryDescription,
+        locale: 'uk_UA',
+      },
+    }}
+    title={title}
+    titleTemplate="%s – Про нас | ВебДоки"
+    twitter={{
+      card: 'summary',
+      creator: getCreatorTwitter(authors.at(-1)),
+      description: secondaryDescription,
+      image: logoSocial.src,
+      imageAlt: 'Логотип WebDoky',
+      site: '@webdoky',
+      title: title,
+    }}
   />
+
+  <GoogleAnalyticsScript slot="head" />
   <DocumentBreadcrumbs slug={slug} />
   <main
     class="wd-doc-page container relative flex flex-wrap justify-start flex-1 w-full bg-ui-background">

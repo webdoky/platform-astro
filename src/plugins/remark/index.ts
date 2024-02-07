@@ -6,6 +6,7 @@ import { extractDescriptionPlugin } from './extract-description.ts';
 import { extractSectionPlugin } from './extract-section.ts';
 import { fixLocalImagesPlugin } from './fix-local-images.ts';
 import { fixNolintLanguagePlugin } from './fix-nolint-language.ts';
+import injectHistoryPlugin from './inject-history/index.ts';
 import { injectLinkClassesPlugin } from './inject-link-classes.ts';
 import expandMacrosPlugin from './macros/plugin.ts';
 const remarkPlugins: RemarkPlugins = [
@@ -19,6 +20,7 @@ const remarkPlugins: RemarkPlugins = [
   extractCoverPlugin,
   fixNolintLanguagePlugin,
   processDefinitionsPlugin,
+  injectHistoryPlugin,
 ];
 
 export default remarkPlugins;

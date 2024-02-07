@@ -5,11 +5,14 @@ export const astroFileSchema = z.object({
   data: z.object({
     astro: z.object({
       frontmatter: z.object({
+        authors: z.array(z.string()).optional(),
         'browser-compat': z.union([z.string(), z.array(z.string())]).optional(),
         cover: z.string().optional(),
         coverAlt: z.string().optional(),
         description: z.string().min(1).optional(),
         'page-type': z.string().default('unknown'),
+        modifiedTime: z.date().optional(),
+        publishedTime: z.date().optional(),
         section: z.string().min(1).optional(),
         slug: z.string().min(1),
         'spec-urls': z.union([z.string(), z.array(z.string())]).optional(),

@@ -3,16 +3,14 @@ import { escapeHTML } from 'astro/runtime/server/escape.js';
 import { getCollection } from 'astro:content';
 import { SEO } from 'astro-seo';
 
-import appleTouchIcon from '../../assets/apple-touch-icon.png';
-import favicon16 from '../../assets/favicon-16x16.png';
-import favicon32 from '../../assets/favicon-32x32.png';
+import GoogleAnalyticsScript from '../components/GoogleAnalyticsScript.astro';
 import logoIndex from '../../assets/logo-index.svg';
 import logo from '../../assets/logo.png';
-import safariPinnedTab from '../../assets/safari-pinned-tab.svg';
 import WdChangelogLoader from '../data/changelog.js';
 import Layout from '../layouts/Layout/Layout.astro';
 import getFileSlugFromId from '../utils/get-file-slug-from-slug.js';
 import getPathFromSlug from '../utils/get-path-from-slug.js';
+import defaultMeta from '../meta.js';
 
 import '../style.scss';
 
@@ -62,46 +60,7 @@ changeLogContent = await populateChangelogWithLinks(changeLogContent);
     slot="head"
     description="Проєкт Webdoky — це зібрання інформації про технології відкритого вебу. HTML, CSS, JavaScript, та API, як для вебсайтів, так і для прогресивних вебзастосунків"
     canonical={import.meta.env.BASE_PATH}
-    extend={{
-      link: [
-        {
-          rel: 'apple-touch-icon',
-          sizes: ['180x180'] as any,
-          href: appleTouchIcon.src,
-        },
-        {
-          rel: 'icon',
-          type: 'image/png',
-          sizes: ['32x32'] as any,
-          href: favicon32.src,
-        },
-        {
-          rel: 'icon',
-          type: 'image/png',
-          sizes: ['16x16'] as any,
-          href: favicon16.src,
-        },
-        {
-          rel: 'manifest',
-          href: '/site.webmanifest',
-        },
-        {
-          rel: 'mask-icon',
-          href: safariPinnedTab.src,
-          color: '#5bbad5',
-        } as any,
-      ],
-      meta: [
-        {
-          name: 'msapplication-TileColor',
-          content: '#da532c',
-        },
-        {
-          name: 'theme-color',
-          content: '#ffffff',
-        },
-      ],
-    }}
+    extend={defaultMeta}
     openGraph={{
       article: {
         authors: ['adriandecita'],
@@ -141,6 +100,7 @@ changeLogContent = await populateChangelogWithLinks(changeLogContent);
         'Проєкт Webdoky — це зібрання інформації про технології відкритого вебу',
     }}
   />
+  <GoogleAnalyticsScript slot="head" />
   <div class="pt-8 md:pt-16">
     <div class="flex flex-col items-center">
       <div class="flex flex-col items-center mb-2 text-ui-primary">
