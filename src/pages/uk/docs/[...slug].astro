@@ -12,6 +12,7 @@ import GoogleAnalyticsScript from '../../../components/GoogleAnalyticsScript.ast
 import defaultMeta from '../../../meta.ts';
 import getTagsFromPageType from '../../../utils/get-tags-from-page-type.ts';
 import getCreatorTwitter from '../../../utils/get-creator-twitter.ts';
+import getAbsoluteUrl from '../../../utils/get-absolute-url.ts';
 export interface Params {
   slug: string;
 }
@@ -78,7 +79,7 @@ const tags = getTagsFromPageType({ 'page-type': pageType, section });
         tags: tags,
       },
       basic: {
-        image: logoSocial.src,
+        image: getAbsoluteUrl(logoSocial.src),
         title: secondaryTitle,
         type: 'website',
       },
@@ -86,7 +87,7 @@ const tags = getTagsFromPageType({ 'page-type': pageType, section });
         alt: 'Логотип WebDoky',
         height: logoSocial.height,
         type: `image/${logoSocial.format}`,
-        url: logoSocial.src,
+        url: getAbsoluteUrl(logoSocial.src),
         width: logoSocial.width,
       },
       optional: {
@@ -100,7 +101,7 @@ const tags = getTagsFromPageType({ 'page-type': pageType, section });
       card: 'summary',
       creator: getCreatorTwitter(authors.at(-1)),
       description: secondaryDescription,
-      image: logoSocial.src,
+      image: getAbsoluteUrl(logoSocial.src),
       imageAlt: 'Логотип WebDoky',
       site: '@webdoky',
       title: title,

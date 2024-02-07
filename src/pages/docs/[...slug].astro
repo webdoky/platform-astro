@@ -7,6 +7,7 @@ import GoogleAnalyticsScript from '../../components/GoogleAnalyticsScript.astro'
 import defaultMeta from '../../meta.js';
 import normalizeUrl from '../../utils/normalize-url.js';
 import logoSocial from '../../../assets/logo-social.png';
+import getAbsoluteUrl from '../../utils/get-absolute-url.ts';
 export interface Params {
   slug: string;
 }
@@ -81,7 +82,7 @@ if (!secondaryTitle) {
         publishedTime: '2021-07-15T13:14:11Z',
       },
       basic: {
-        image: logoSocial.src,
+        image: getAbsoluteUrl(logoSocial.src),
         title: secondaryTitle,
         type: 'website',
       },
@@ -89,7 +90,7 @@ if (!secondaryTitle) {
         alt: 'Логотип WebDoky',
         height: logoSocial.height,
         type: `image/${logoSocial.format}`,
-        url: logoSocial.src,
+        url: getAbsoluteUrl(logoSocial.src),
         width: logoSocial.width,
       },
       optional: {
@@ -103,7 +104,7 @@ if (!secondaryTitle) {
       card: 'summary',
       creator: '@adriandecita',
       description: secondaryDescription,
-      image: logoSocial.src,
+      image: getAbsoluteUrl(logoSocial.src),
       imageAlt: 'Логотип WebDoky',
       site: '@webdoky',
       title: title,
