@@ -1,5 +1,6 @@
 ---
 import type { MarkdownHeading } from 'astro';
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
   headings: MarkdownHeading[];
@@ -11,18 +12,25 @@ const level2Headings = headings.filter((heading) => heading.depth === 2);
 {
   level2Headings.length > 0 && (
     <aside
-      class="mt-8 pr-2 hidden md:block sm:pl-4 md:pl-6 md:pt-12 lg:pl-8 sm:pb-16 sm:border-l border-ui-border md:mt-0 h-full overflow-y-auto toc"
+      class="mt-8 pr-2 block sm:pl-4 md:pl-6 md:pt-12 lg:pl-8 sm:pb-16 sm:border-l border-ui-border md:mt-0 h-full overflow-y-auto toc"
       style="max-height: calc(-4rem + 100vh);">
       <>
-        <h2 class="pt-0 mt-0 text-sm tracking-wide uppercase border-none">
-          На цій сторінці:
+        <h2
+          class="flex md:inline pt-0 mt-0 text-sm tracking-wide uppercase border-none b-1 md:b-0 hover:color-grey rounded text-center bg-1 md:bg-0"
+          id="toc-heading">
+          Зміст
+          <Icon
+            name="mdi:expand-more"
+            class="block md:hidden w-8 h-8 rotate-180"
+          />
         </h2>
-        <div>
+        <div class="max-h-0 md:max-h-max overflow-hidden transition-all">
           <ul>
             {level2Headings.map((heading) => (
               <li class="depth-2">
+                #{' '}
                 <a
-                  class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 text-ui-typo no-underline"
+                  class="relative inline-flex items-center py-1 text-sm transition transform hover:translate-x-1 text-ui-typo md:no-underline hover:underline min-h-12 md:min-h-0"
                   href={`#${heading.slug}`}>
                   <span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center" />
                   {heading.text}
@@ -35,5 +43,6 @@ const level2Headings = headings.filter((heading) => heading.depth === 2);
     </aside>
   )
 }
+<script src="./toc.ts"></script>
 
 <script src="./scroll-to-hash.ts"></script>
