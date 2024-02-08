@@ -1,6 +1,5 @@
 ---
 description: 'Інформація про проект ВебДоки'
-sidebar: 'docs'
 slug: 'docs'
 next: '/docs/translation/'
 title: Кілька слів про нас

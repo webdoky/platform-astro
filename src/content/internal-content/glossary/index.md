@@ -1,6 +1,5 @@
 ---
 description: 'Алфавітний покажчик термінів та їхніх прийнятих перекладів'
-sidebar: 'docs'
 slug: 'docs/glossary'
 prev: '/docs/git-naming-conventions/'
 next: '/docs/licensing/'

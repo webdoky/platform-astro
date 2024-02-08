@@ -1,6 +1,5 @@
 ---
 description: 'Прийняті патерни і правила іменування гілок та коміт-повідомлень в репозиторіях проекту ВебДоки'
-sidebar: 'docs'
 slug: 'docs/git-naming-conventions'
 prev: '/docs/translating-in-github/'
 next: '/docs/glossary/'

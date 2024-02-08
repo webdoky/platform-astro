@@ -6,7 +6,6 @@ const internalContent = defineCollection({
     description: z.string(),
     next: z.optional(z.string()),
     prev: z.optional(z.string()),
-    sidebar: z.string(),
     title: z.string(),
   }),
 });
