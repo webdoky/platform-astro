@@ -1,0 +1,88 @@
+---
+import type { SidebarData } from '../validation/processed-frontmatter.ts';
+export interface Props {
+  sidebar: SidebarData;
+}
+const { sidebar } = Astro.props;
+---
+
+<aside
+  class="sidebar border-t max-h-full border-ui-border lg:border-t-0 lg:max-h-auto lg:order-first px-4 pt-8 lg:pt-12">
+  <h2>Навігація розділу</h2>
+  <nav class="">
+    <ul class="max-w-full pl-2 mb-2">
+      {
+        sidebar.map((section) => (
+          <li class="pb-4 mb-4 border-ui-border border-b">
+            <ul class="max-w-full pl-2 mb-0">
+              {section.links.map((link) => (
+                <li class="transition transform hover:translate-x-1 hover:text-ui-primary">
+                  <a
+                    href={link.path}
+                    class:list={[
+                      'flex items-center py-1 relative text-ui-typo no-underline',
+                      { current: link.isCurrent },
+                      { 'wd-nav-link--not-translated': !link.hasTranslation },
+                    ]}>
+                    <span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center opacity-100 scale-100 hidden marker" />
+                    {link.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            {section.sections.map((subSection) => (
+              <details open={subSection.expanded}>
+                <summary class="pt-0 mt-0 mb-1 text-lg tracking-tight border-none hover:cursor-pointer">
+                  {subSection.title}
+                </summary>
+                <ul class="max-w-full pl-2 mb-0">
+                  {subSection.items.map((link) => (
+                    <li class="transition transform hover:translate-x-1 hover:text-ui-primary">
+                      <a
+                        href={link.path}
+                        class:list={[
+                          'flex items-center py-1 relative text-ui-typo no-underline',
+                          { current: link.isCurrent },
+                          {
+                            'wd-nav-link-not-translated': !link.hasTranslation,
+                          },
+                        ]}>
+                        <span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center opacity-100 scale-100 hidden marker" />
+                        {link.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))}
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</aside>
+<style lang="scss">
+  .sidebar {
+    @apply fixed bg-ui-background px-4 inset-x-0 bottom-0 w-full border-r border-ui-border overflow-y-auto transition-all z-40;
+
+    transform: translateX(-100%);
+
+    // &.open {
+    //   transform: translateX(0);
+    // }
+
+    @screen lg {
+      @apply w-1/4 px-0 bg-transparent top-0 bottom-auto inset-x-auto sticky z-0;
+
+      transform: translateX(0);
+    }
+
+    .current .marker {
+      @apply inline-block;
+    }
+
+    .wd-nav-link-not-translated {
+      color: red;
+    }
+  }
+</style>

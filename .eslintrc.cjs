@@ -70,6 +70,12 @@ module.exports = {
         'unicorn/prevent-abbreviations': 'off',
       },
     },
+    {
+      files: ['src/plugins/remark/macros/macros/**/*.ts'],
+      rules: {
+        'unicorn/filename-case': 'off',
+      },
+    },
   ],
   parserOptions: {
     ecmaVersion: 'latest',

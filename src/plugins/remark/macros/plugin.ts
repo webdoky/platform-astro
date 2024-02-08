@@ -1,5 +1,7 @@
+import createRemarkPlugin from '../create-plugin.ts';
+
 import expandMacros from './expand.js';
 
-export default function expandMacrosPlugin() {
-  return expandMacros;
-}
+const expandMacrosPlugin = createRemarkPlugin(expandMacros);
+
+export default expandMacrosPlugin;

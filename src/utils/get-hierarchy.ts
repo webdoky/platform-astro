@@ -78,8 +78,6 @@ export default async function getHierarchy(
             children: [],
           });
           break;
-        } else {
-          console.warn('No parent found for', entry.slug);
         }
       }
     }
