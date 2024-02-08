@@ -1,4 +1,5 @@
 import type { Root } from 'mdast';
+import { describe, expect, test } from 'vitest';
 
 import expandMacros from './expand.js';
 

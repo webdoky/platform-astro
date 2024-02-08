@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest';
+
 import parseOutput from './parse-output.ts';
 
 describe('parseOutput', () => {

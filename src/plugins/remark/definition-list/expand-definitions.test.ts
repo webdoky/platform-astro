@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest';
+
 import richInput from './expand-definitions.input.json' assert { type: 'json' };
 import expandDefinitions from './expand-definitions.js';
 import data from './test-ast-parsed.json' assert { type: 'json' };

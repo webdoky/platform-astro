@@ -1,4 +1,5 @@
 import type { Html, Text } from 'mdast';
+import { describe, expect, test } from 'vitest';
 
 import stringifyMdastToHtml from './stringify-mdast-to-html.js';
 

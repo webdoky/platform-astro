@@ -1,4 +1,5 @@
 import type { Root } from 'mdast';
+import { describe, expect, test } from 'vitest';
 
 import { extractDescriptionPlugin } from './extract-description.js';
 import type { AstroFile } from './validate-astro-file.ts';

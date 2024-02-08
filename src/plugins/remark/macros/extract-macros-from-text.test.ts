@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest';
+
 import extractMacrosFromText from './extract-macros-from-text.js';
 
 describe('extractMacrosFromText', () => {

@@ -1,10 +1,12 @@
+import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
+
 import getSubmodulePath from './get-submodule-path.ts';
 
 describe('get-submodule-path', () => {
   const OLD_ENV = process.env;
 
   beforeEach(() => {
-    jest.resetModules(); // Most important - it clears the cache
+    vi.resetModules(); // Most important - it clears the cache
     process.env = {
       PATH_TO_LOCALIZED_CONTENT: 'path/to/localized/content',
       TARGET_LOCALE: 'uk',

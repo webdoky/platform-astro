@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`extractDescription sets the description and sets it in the frontmatter 1`] = `
+exports[`extractDescription > sets the description and sets it in the frontmatter 1`] = `
 {
   "data": {
     "astro": {

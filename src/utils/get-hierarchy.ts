@@ -44,7 +44,7 @@ function processRecursively(
 
 export default async function getHierarchy(
   collectionName: CollectionKey,
-  maxDepth: number = 2,
+  // maxDepth: number = 2,
 ) {
   const entries = await getCollection(collectionName);
   const hierarchy: HierarchyEntry[] = [];
@@ -54,9 +54,9 @@ export default async function getHierarchy(
     return entryA.slug < entryB.slug ? -1 : 1;
   });
   for (let entry of entries) {
-    if (getDepth(entry.slug) > maxDepth || entry.slug.includes('Glossary/')) {
-      continue;
-    }
+    // if (getDepth(entry.slug) > maxDepth || entry.slug.includes('Glossary/')) {
+    //   continue;
+    // }
     const kin = getKin(entry.slug);
     if (kin.length === 1) {
       hierarchy.push({
@@ -78,9 +78,10 @@ export default async function getHierarchy(
             children: [],
           });
           break;
+        } else {
+          console.warn('No parent found for', entry.slug);
         }
       }
-      console.warn('No parent found for', entry.slug);
     }
   }
   hierarchy.sort((entryA, entryB) => {

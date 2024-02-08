@@ -9,22 +9,33 @@ export interface Props {
   hierarchyEntry: HierarchyEntry;
 }
 const { depth = 1, hierarchyEntry } = Astro.props;
-const dropdownSubmenuClass =
-  depth === 1 ? 'group/submenu' : 'group/nestedsubmenu';
+const hasChildren = hierarchyEntry.children.length > 0;
+const areChildrenShownOnDesktop =
+  hierarchyEntry.children.length <= 10 && depth < 2;
 ---
 
-{
-  hierarchyEntry.children.length === 0 && (
-    <a
-      class="no-underline hover:underline"
-      href={getPathFromSlug(hierarchyEntry.slug)}>
-      {hierarchyEntry.title}
-    </a>
-  )
-}
+<a
+  class:list={[
+    'no-underline hover:underline',
+    {
+      hidden: hasChildren,
+      'md:hidden': areChildrenShownOnDesktop,
+      'md:inline': !areChildrenShownOnDesktop,
+    },
+  ]}
+  href={getPathFromSlug(hierarchyEntry.slug)}>
+  {hierarchyEntry.title}
+</a>
 {
   hierarchyEntry.children.length > 0 && (
-    <DropdownSubmenu class:list={dropdownSubmenuClass}>
+    <DropdownSubmenu
+      class:list={[
+        {
+          'group/submenu': depth === 1,
+          'group/nestedsubmenu': depth > 1,
+          'md:hidden': !areChildrenShownOnDesktop,
+        },
+      ]}>
       <button class="flex w-full items-center justify-between font-semibold open-trigger gap-5 min-h-12 md:min-h-auto">
         <span class="text-left">{hierarchyEntry.title}</span>
         <svg
