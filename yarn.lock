@@ -3146,6 +3146,11 @@ astro-icon@~1.1.0:
     "@iconify/types" "^2.0.0"
     "@iconify/utils" "^2.1.5"
 
+astro-navbar@~2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/astro-navbar/-/astro-navbar-2.3.0.tgz#0005221428c03be40542780966903535c9df00ef"
+  integrity sha512-5xnSuEuFM27FyWguZNRWv210P8J4MHCabkj+oHd94x+96peL3QRXWKpupGyHoo4Vdz4aNYe1GolcoOJRoJb7cA==
+
 astro-og-canvas@0.4.2:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/astro-og-canvas/-/astro-og-canvas-0.4.2.tgz#b271cc68f2a53bcc3e4decdd60e2fcce4e78b099"

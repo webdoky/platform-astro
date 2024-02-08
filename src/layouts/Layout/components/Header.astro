@@ -1,69 +1,131 @@
 ---
+import {
+  Astronav,
+  MenuItems,
+  MenuIcon,
+  Dropdown,
+  DropdownItems,
+} from 'astro-navbar';
 import { Icon } from 'astro-icon/components';
 
 import Logo from '../../../components/Logo.astro';
+import getHierarchy from '../../../utils/get-hierarchy.ts';
 
 import ToggleDarkMode from './ToggleDarkMode.jsx';
+import HeaderDropdownItem from './HeaderDropdownItem.astro';
 
-const { pathname } = Astro.url;
-const NAV = [
-  {
-    path: '/uk/docs/Web/',
-    title: 'Технології',
-  },
-  { path: '/docs/', title: 'Про проєкт' },
-];
 const GITHUB_LINK = 'https://github.com/webdoky';
+const internalHierarchy = await getHierarchy('internal-content');
+const documentationHierarchy = await getHierarchy('processed-content');
 ---
 
-<div class="py-2 border-t-2 border-ui-primary">
-  <div class="container">
-    <div class="flex items-center justify-between -mx-2 sm:-mx-4">
-      <div class="flex flex-col items-center px-2 mr-auto sm:px-4 sm:flex-row">
-        <a
-          href="/"
-          class="flex items-center text-ui-primary no-underline"
-          title="На головну">
-          <Logo width={40} className="text-ui-primary" />
-          <span
-            class="hidden ml-2 text-xl font-black tracking-tighter sm:block">
-            WebDoky
-          </span>
-        </a>
-
-        <div class="hidden ml-2 mr-5 sm:flex items-center sm:ml-2">
-          {
-            NAV.map(({ path, title }) => (
-              <a
-                href={path}
-                class:list={[
-                  'block p-1 font-medium nav-link text-ui-typo hover:text-ui-primary sm:ml-4 md:whitespace-nowrap no-underline',
-                  { active: pathname.startsWith(path) },
-                ]}>
-                {title}
-              </a>
-            ))
-          }
-        </div>
-      </div>
-
-      <div class="w-full px-2 sm:px-4 max-w-screen-xs">
-        {/* Search */}
-      </div>
-
-      <div class="flex items-center justify-end px-2 sm:px-4">
-        <a
-          aria-label="Ми на GitHub"
-          href={GITHUB_LINK}
-          class="sm:ml-3 text-ui-typo no-underline"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Ми на GitHub">
-          <Icon name="mdi:github" class="w-6 h-6" />
-        </a>
-
-        <ToggleDarkMode client:idle />
-      </div>
+<Astronav closeOnClick>
+  <div class="flex w-full lg:w-auto justify-between">
+    <a
+      href="/"
+      class="flex items-center text-ui-primary no-underline"
+      title="На головну">
+      <Logo width={40} className="text-ui-primary" />
+      <span class="hidden ml-2 text-xl font-black tracking-tighter sm:block">
+        WebDoky
+      </span>
+    </a>
+    <div class="lg:hidden flex">
+      <MenuIcon class="w-8 h-8 text-gray-800" />
     </div>
   </div>
-</div>
+  <MenuItems
+    class="hidden lg:flex max-h-screen overflow-auto md:overflow-visible">
+    <ul class="flex flex-col lg:flex-row lg:gap-5 items-center mb-0">
+      <li class="w-full">
+        <Dropdown class="group">
+          <button
+            class="flex items-center gap-5 min-h-12 md:min-h-auto justify-between w-full md:w-max">
+            <span> Про проєкт</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="3"
+              stroke="currentColor"
+              class="w-3 h-3 mt-0.5 group-open:rotate-180">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+            </svg>
+          </button>
+          <DropdownItems class="relative">
+            <div
+              class="lg:absolute bg-white top-2 border shadow rounded w-full md:w-40">
+              <ul class="m-0">
+                <li class="font-semibold p-2 w-full">
+                  <a
+                    class="no-underline hover:underline min-h-12 md:min-h-auto"
+                    href="/docs/">Про проєкт</a
+                  >
+                </li>
+                {
+                  internalHierarchy.map((entry) => (
+                    <li class="p-2 w-full">
+                      <HeaderDropdownItem hierarchyEntry={entry} />
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </DropdownItems>
+        </Dropdown>
+      </li>
+      <li class="w-full">
+        <Dropdown class="group">
+          <button
+            class="flex items-center gap-5 min-h-12 md:min-h-auto justify-between w-full md:w-max">
+            <span> Технології</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="3"
+              stroke="currentColor"
+              class="w-3 h-3 group-open:rotate-180">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+            </svg>
+          </button>
+          <DropdownItems class="relative">
+            <div
+              class="lg:absolute bg-white top-2 border shadow rounded w-full md:w-40">
+              <ul>
+                {
+                  documentationHierarchy.map((entry) => (
+                    <li class="p-2 min-h-12 md:min-h-auto w-full">
+                      <HeaderDropdownItem hierarchyEntry={entry} />
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </DropdownItems>
+        </Dropdown>
+        <li class="w-full">
+          <a
+            aria-label="Ми на GitHub"
+            href={GITHUB_LINK}
+            class="sm:ml-3 flex min-h-12 lg:min-h-auto justify-between items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Ми на GitHub">
+            <span class="lg:hidden">Ми на GitHub</span>
+            <Icon name="mdi:github" class="w-6 h-6" />
+          </a>
+        </li>
+        <li class="w-full">
+          <ToggleDarkMode client:idle />
+        </li>
+      </li>
+    </ul>
+  </MenuItems>
+</Astronav>

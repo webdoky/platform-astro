@@ -58,10 +58,12 @@ export default function ToggleDarkMode() {
       aria-label={
         isDarkMode ? 'Перейти в світлий режим' : 'Перейти в темний режим'
       }
-      className="ml-2 sm:ml-8"
+      className="min-h-12 lg:min-h-auto flex g-3 items-center justify-between w-full"
       title={isDarkMode ? 'Перейти в світлий режим' : 'Перейти в темний режим'}
       onClick={handleClick}>
-      {' '}
+      <span className="lg:hidden">
+        {isDarkMode ? 'Перейти в світлий режим' : 'Перейти в темний режим'}
+      </span>{' '}
       {isDarkMode ? (
         <img
           alt="Сонце"

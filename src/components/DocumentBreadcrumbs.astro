@@ -74,11 +74,26 @@ const crumbs = [
     column-gap: 0;
     padding: 8px 16px !important;
 
-    a:hover {
-      color: var(--color-ui-primary);
+    .c-breadcrumbs__crumb {
+      &:first-child,
+      &:last-child {
+        @apply hidden lg:flex;
+      }
+    }
 
-      &.wd-nav-link-not-translated {
-        color: red;
+    a {
+      @apply min-h-12 lg:min-h-0 flex lg:inline items-center;
+
+      // @media (width >= 1024px) {
+      //   @apply min-h-0;
+      // }
+
+      &:hover {
+        color: var(--color-ui-primary);
+
+        &.wd-nav-link-not-translated {
+          color: red;
+        }
       }
     }
 

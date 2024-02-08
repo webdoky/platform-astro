@@ -1,0 +1,62 @@
+---
+import { DropdownItems, DropdownSubmenu } from 'astro-navbar';
+
+import type { HierarchyEntry } from '../../../utils/get-hierarchy.ts';
+import getPathFromSlug from '../../../utils/get-path-from-slug.ts';
+
+export interface Props {
+  depth?: number;
+  hierarchyEntry: HierarchyEntry;
+}
+const { depth = 1, hierarchyEntry } = Astro.props;
+const dropdownSubmenuClass =
+  depth === 1 ? 'group/submenu' : 'group/nestedsubmenu';
+---
+
+{
+  hierarchyEntry.children.length === 0 && (
+    <a
+      class="no-underline hover:underline"
+      href={getPathFromSlug(hierarchyEntry.slug)}>
+      {hierarchyEntry.title}
+    </a>
+  )
+}
+{
+  hierarchyEntry.children.length > 0 && (
+    <DropdownSubmenu class:list={dropdownSubmenuClass}>
+      <button class="flex w-full items-center justify-between font-semibold open-trigger gap-5 min-h-12 md:min-h-auto">
+        <span class="text-left">{hierarchyEntry.title}</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="3"
+          stroke="currentColor"
+          class="w-5 h-5 mt-0.5 group-open/submenu:rotate-180">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+          />
+        </svg>
+      </button>
+      <DropdownItems class="relative">
+        <ul class="lg:absolute bg-white top-0 left-full w-40 border shadow rounded w-full">
+          <li class="p-2 text-center">
+            <a
+              class="italic no-underline hover:underline min-h-12 md:min-h-auto"
+              href={getPathFromSlug(hierarchyEntry.slug)}>
+              {hierarchyEntry.title}
+            </a>
+          </li>
+          {hierarchyEntry.children.map((child) => (
+            <li class="p-2">
+              <Astro.self hierarchyEntry={child} depth={depth + 1} />
+            </li>
+          ))}
+        </ul>
+      </DropdownItems>
+    </DropdownSubmenu>
+  )
+}

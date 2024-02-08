@@ -1,3 +1,7 @@
 export default function getPathFromSlug(slug: string) {
-  return `/${import.meta.env.TARGET_LOCALE}/docs/${slug}`;
+  if (slug.includes('docs')) {
+    // Internal content
+    return `/${slug}/`;
+  }
+  return `/${import.meta.env.TARGET_LOCALE}/docs/${slug}/`;
 }
