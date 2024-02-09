@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`GlossaryDisambiguation > should replace the node with an HTML element 1`] = `
+{
+  "children": [
+    {
+      "type": "html",
+      "value": "<dl><dt><a href="/uk/docs/Glossary/Baseline/Compatibility/">База</a></dt><dd>Це опис</dd><dt><a href="/uk/docs/Glossary/Baseline/Typography/">Базова лінія</a></dt><dd>Це опис</dd></dl>",
+    },
+  ],
+  "type": "root",
+}
+`;

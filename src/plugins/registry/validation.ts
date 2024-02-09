@@ -11,4 +11,6 @@ export const rawPageSchema = z.object({
   title: z.string().min(1),
 });
 
-export type RawPage = z.infer<typeof rawPageSchema>;
+export interface RawPage extends z.infer<typeof rawPageSchema> {
+  filePath: string;
+}

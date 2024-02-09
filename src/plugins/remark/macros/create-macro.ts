@@ -29,5 +29,3 @@ export default function createMacro(
   }
   return applyMacro;
 }
-
-type M = ReturnType<ReturnType<typeof createMacro>>;

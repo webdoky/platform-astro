@@ -7,6 +7,7 @@ import { type AstroFile } from '../validate-astro-file.ts';
 import brokenMacroToHtml from './broken-macro-to-html.js';
 import processHtml from './in-html/process.js';
 import macroToHtml from './macro-to-html.js';
+import GlossaryDisambiguation from './macros/GlossaryDisambiguation.ts';
 import GlossarySidebar from './macros/GlossarySidebar.ts';
 import jsSidebar from './macros/jsSidebar/index.ts';
 import makeMacroTree from './make-macro-tree.js';
@@ -19,8 +20,9 @@ export default async function expandMacros(tree: Root, file: AstroFile) {
   });
   makeMacroTree(tree);
 
-  jsSidebar(tree, file);
+  GlossaryDisambiguation(tree, file);
   GlossarySidebar(tree, file);
+  jsSidebar(tree, file);
 
   unmakeMacroTree(tree, macroToHtml, brokenMacroToHtml);
 }

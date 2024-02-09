@@ -34,7 +34,10 @@ export async function initRegistry() {
       // console.log(markdownFile);
       matter(markdownFile);
       // console.log(markdownFile.data.matter);
-      const data = rawPageSchema.parse(markdownFile.data.matter);
+      const data = {
+        ...rawPageSchema.parse(markdownFile.data.matter),
+        filePath: filePath,
+      };
       registry.set(data.slug, data);
     },
   );
