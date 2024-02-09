@@ -1,5 +1,5 @@
 import type { Root } from 'mdast';
-import { visit, type BuildVisitor } from 'unist-util-visit';
+import { visit, type BuildVisitor, SKIP } from 'unist-util-visit';
 
 import type { AstroFile } from '../validate-astro-file.ts';
 
@@ -23,7 +23,19 @@ export default function createMacro(
         if (node.name !== macroName) return;
         if (!parent) throw new Error('Parent is undefined');
         if (index === undefined) throw new Error('Index is undefined');
-        return macro(node, index, parent, tree, file);
+        try {
+          return macro(node, index, parent, tree, file);
+        } catch (error) {
+          if (!parent?.children || index === undefined) {
+            throw error;
+          }
+          parent.children[index] = {
+            code: `{{${node.name}(${node.parameters})}}`,
+            type: 'brokenMacro',
+            error: `${error}`,
+          };
+          return [SKIP, index];
+        }
       },
     );
   }

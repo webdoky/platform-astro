@@ -61,7 +61,7 @@ export default async function injectLinkClasses(tree: Root) {
     const classes = getClassesByUrl(node.url);
     const replacement: Html = {
       type: 'html',
-      value: `<a href="${node.url}"${classes.includes(EXTERNAL_LINK_CLASS) ? ' target="_blank"' : ''}${classes.includes(EXTERNAL_LINK_CLASS) ? ' rel="noopener noreferrer"' : ''} class="${classes.join(' ')}">${node.children.map((child) => stringifyMdastToHtml(child)).join('')}</a>`,
+      value: `<a${classes.includes(MISSING_LINK_CLASS) ? ' data-astro-prefetch="false"' : ''} href="${node.url}"${classes.includes(EXTERNAL_LINK_CLASS) ? ' target="_blank"' : ''}${classes.includes(EXTERNAL_LINK_CLASS) ? ' rel="noopener noreferrer"' : ''} class="${classes.join(' ')}">${node.children.map((child) => stringifyMdastToHtml(child)).join('')}</a>`,
     };
     parent.children.splice(index, 1, replacement);
     return [SKIP, index];

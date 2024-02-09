@@ -6,6 +6,7 @@ function addNotTranslatedTitles() {
     '.wd-nav-link-not-translated',
   )) {
     element.setAttribute('title', title);
+    (element as HTMLElement).dataset.astroPrefetch = 'false';
   }
 }
 document.addEventListener('DOMContentLoaded', addNotTranslatedTitles);

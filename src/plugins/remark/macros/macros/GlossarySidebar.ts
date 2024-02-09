@@ -8,6 +8,10 @@ import createMacro from '../create-macro.ts';
 
 function macro(_tree: Root, file: AstroFile) {
   if (file.data.astro.frontmatter.sidebar) {
+    console.log(
+      'file.data.astro.frontmatter.sidebar',
+      file.data.astro.frontmatter.sidebar,
+    );
     throw new Error('Sidebar already exists');
   }
   const targetLocale = process.env.TARGET_LOCALE;

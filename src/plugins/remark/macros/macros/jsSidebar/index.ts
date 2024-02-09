@@ -11,6 +11,10 @@ import referenceTitleLinks from './reference-title-links.ts';
 
 function macro(tree: Root, file: AstroFile) {
   if (file.data.astro.frontmatter.sidebar) {
+    console.log(
+      'file.data.astro.frontmatter.sidebar',
+      file.data.astro.frontmatter.sidebar,
+    );
     throw new Error('Sidebar already exists');
   }
   file.data.astro.frontmatter.sidebar = [

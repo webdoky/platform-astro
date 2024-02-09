@@ -9,7 +9,9 @@ import processHtml from './in-html/process.js';
 import macroToHtml from './macro-to-html.js';
 import GlossaryDisambiguation from './macros/GlossaryDisambiguation.ts';
 import GlossarySidebar from './macros/GlossarySidebar.ts';
+import domxref from './macros/domxref.ts';
 import jsSidebar from './macros/jsSidebar/index.ts';
+import jsxref from './macros/jsxref.ts';
 import makeMacroTree from './make-macro-tree.js';
 import unmakeMacroTree from './unmake-macro-tree.js';
 
@@ -23,6 +25,8 @@ export default async function expandMacros(tree: Root, file: AstroFile) {
   GlossaryDisambiguation(tree, file);
   GlossarySidebar(tree, file);
   jsSidebar(tree, file);
+  domxref(tree, file);
+  jsxref(tree, file);
 
   unmakeMacroTree(tree, macroToHtml, brokenMacroToHtml);
 }
