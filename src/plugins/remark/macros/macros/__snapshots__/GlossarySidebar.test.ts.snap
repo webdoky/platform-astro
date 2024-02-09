@@ -1,0 +1,119 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`GlossarySidebar > should add a sidebar to the frontmatter 1`] = `
+[
+  {
+    "links": [],
+    "sections": [
+      {
+        "expanded": true,
+        "items": [
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Truthy",
+            "title": "Істинні значення",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Falsy",
+            "title": "Хибні значення",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Array",
+            "title": "Array",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Event",
+            "title": "Event",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Expression",
+            "title": "Expression",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Function",
+            "title": "Function",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Interface",
+            "title": "Interface",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Keyword",
+            "title": "Keyword",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Method",
+            "title": "Method",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/NaN",
+            "title": "NaN",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Null",
+            "title": "Null",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Object",
+            "title": "Object",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Operator",
+            "title": "Operator",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Primitive",
+            "title": "Primitive",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Property",
+            "title": "Property",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Statement",
+            "title": "Statement",
+          },
+          {
+            "hasTranslation": true,
+            "isCurrent": false,
+            "path": "/uk/docs/Glossary/Undefined",
+            "title": "Undefined",
+          },
+        ],
+        "title": "Терміни глосарія",
+      },
+    ],
+  },
+]
+`;

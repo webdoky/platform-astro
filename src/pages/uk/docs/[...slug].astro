@@ -48,7 +48,7 @@ const {
 const BASE_PATH = import.meta.env.BASE_PATH;
 const TARGET_LOCALE = import.meta.env.TARGET_LOCALE;
 
-const canonicalPath = `/${TARGET_LOCALE}/docs/${slug}`;
+const canonicalPath = `/${TARGET_LOCALE}/docs/${slug}/`;
 const canonicalUrl = normalizeUrl(`${BASE_PATH}${canonicalPath}`);
 let [secondaryTitle, ...otherSentences] = description.split('. ');
 let secondaryDescription = otherSentences.join('. ');

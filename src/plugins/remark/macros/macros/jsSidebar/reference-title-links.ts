@@ -15,7 +15,7 @@ export default function referenceTitleLinks(_tree: Root, file: AstroFile) {
   ].map(({ slug, ...otherAttributes }) => ({
     ...otherAttributes,
     hasTranslation: hasPage(slug),
-    path: `/${targetLocale}/docs/${slug}`,
+    path: `/${targetLocale}/docs/${slug}/`,
     isCurrent: slug === file.data.astro.frontmatter.slug,
   }));
 }

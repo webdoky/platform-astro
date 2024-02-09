@@ -55,7 +55,7 @@ const { headings, Content } = await page.render();
 const {
   data: { description, title },
 } = page;
-const canonicalPath = `/docs/${slug}`;
+const canonicalPath = `/docs/${slug}/`;
 const BASE_PATH = import.meta.env.BASE_PATH;
 const canonicalUrl = normalizeUrl(`${BASE_PATH}${canonicalPath}`);
 // const image = getAbsoluteUrl(coverImage ?? logo.src);
@@ -295,7 +295,7 @@ if (!secondaryTitle) {
     }
 
     .sidebar {
-      @apply fixed bg-ui-background px-4 inset-x-0 bottom-0 w-full border-r border-ui-border overflow-y-auto transition-all z-40;
+      @apply fixed bg-ui-background px-4 inset-x-0 bottom-0 w-full border-r border-ui-border overflow-y-auto transition-all overflow-x-hidden z-40;
 
       transform: translateX(-100%);
 

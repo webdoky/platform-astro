@@ -18,7 +18,7 @@ export default function generalLinks(_tree: Root, file: AstroFile) {
       title: labels.Tutorials,
     },
   ].map(({ slug, ...otherAttributes }) => {
-    const path = `/${targetLocale}/docs/${slug}`;
+    const path = `/${targetLocale}/docs/${slug}/`;
     return {
       ...otherAttributes,
       path: path,

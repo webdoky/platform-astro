@@ -23,7 +23,7 @@ export default function hasAnchor(slug: string, anchor: string): boolean {
   }
   const anchors = anchorsRegistry.get(slug);
   if (!anchors) {
-    throw new Error(`No anchors found for slug: ${slug}`);
+    throw new Error(`No anchors found for slug: ${slug}/`);
   }
   return anchors.has(anchor);
 }
