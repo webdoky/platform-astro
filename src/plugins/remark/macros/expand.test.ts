@@ -14,6 +14,7 @@ describe('expandMacros', () => {
     vi.resetModules(); // Most important - it clears the cache
     process.env = {
       PATH_TO_LOCALIZED_CONTENT: 'path/to/localized/content',
+      PATH_TO_ORIGINAL_CONTENT: 'path/to/original/content',
       TARGET_LOCALE: 'uk',
     };
   });

@@ -10,7 +10,6 @@ const EXTERNAL_LINK_CLASS = 'wd-external';
 const MISSING_LINK_CLASS = 'wd-nav-link-not-translated';
 
 function getClassesByUrl(url: string): string[] {
-  console.log('getClassesByUrl', url);
   if (url.startsWith('#')) {
     return [];
   }
