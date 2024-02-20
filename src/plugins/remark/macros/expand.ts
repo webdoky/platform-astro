@@ -30,7 +30,7 @@ export default async function expandMacros(tree: Root, file: AstroFile) {
     'macro',
     (node: MacroNode, index: number, parent: AbstractMacroParentNode) => {
       try {
-        const macro = MACROS[node.name];
+        const macro = MACROS[node.name.toLowerCase()];
         if (macro) {
           return macro(node, index, parent, tree, file);
         }

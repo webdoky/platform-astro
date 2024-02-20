@@ -13,16 +13,16 @@ import jsSidebar from './jsSidebar/index.ts';
 import jsxref from './jsxref.ts';
 
 const MACROS: Record<string, MacroFunction> = {
-  EmbedLiveSample,
-  GlossaryDisambiguation,
-  GlossarySidebar,
-  HTMLElement,
-  HTTPHeader,
-  HTTPMethod,
   cssxref,
   domxref,
+  embedlivesample: EmbedLiveSample,
   glossary,
-  jsSidebar,
+  glossarydisambiguation: GlossaryDisambiguation,
+  glossarysidebar: GlossarySidebar,
+  htmlelement: HTMLElement,
+  httpheader: HTTPHeader,
+  httpmethod: HTTPMethod,
+  jssidebar: jsSidebar,
   jsxref,
 };
 
