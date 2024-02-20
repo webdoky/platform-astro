@@ -8,10 +8,10 @@ import { injectHeadingSlugsPlugin } from './inject-heading-slugs.ts';
 import { injectLinkClassesPlugin } from './inject-link-classes.ts';
 
 const rehypePlugins: RehypePlugins = [
-  injectLinkClassesPlugin,
   injectHeadingSlugsPlugin,
   [rehypeAutolinkHeadings, { behavior: 'append' }],
   rehypeRaw,
+  injectLinkClassesPlugin,
   injectDtIdsPlugin,
   checkReferencedAnchorsPlugin,
 ];
