@@ -193,3 +193,34 @@ blockquote {
     transform: rotate(359deg);
   }
 }
+
+.visually-hidden {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}
+
+.status-icon {
+  --size: var(--icon-size, 1rem);
+
+  background-color: var(--color-ui-typo);
+  display: inline-block;
+  flex-shrink: 0;
+  height: var(--size);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  vertical-align: middle;
+  width: var(--size);
+
+  &.deprecated {
+    mask-image: url('../assets/deprecated.svg');
+  }
+}
