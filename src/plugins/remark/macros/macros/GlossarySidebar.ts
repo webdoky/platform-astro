@@ -1,17 +1,13 @@
 import type { Root } from 'mdast';
-import { EXIT } from 'unist-util-visit';
+import { SKIP } from 'unist-util-visit';
 
 import getChildren from '../../../registry/get-children.ts';
 import type { RawPage } from '../../../registry/validation.ts';
 import type { AstroFile } from '../../validate-astro-file.ts';
-import createMacro from '../create-macro.ts';
+import type { MacroFunction } from '../types.ts';
 
 function macro(_tree: Root, file: AstroFile) {
   if (file.data.astro.frontmatter.sidebar) {
-    console.log(
-      'file.data.astro.frontmatter.sidebar',
-      file.data.astro.frontmatter.sidebar,
-    );
     throw new Error('Sidebar already exists');
   }
   const targetLocale = process.env.TARGET_LOCALE;
@@ -45,13 +41,10 @@ function macro(_tree: Root, file: AstroFile) {
   ];
 }
 
-const GlossarySidebar = createMacro(
-  'GlossarySidebar',
-  (_node, index, parent, tree, file) => {
-    macro(tree, file);
-    parent.children.splice(index, 1);
-    return [EXIT];
-  },
-);
+const GlossarySidebar: MacroFunction = (_node, index, parent, tree, file) => {
+  macro(tree, file);
+  parent.children.splice(index, 1);
+  return [SKIP, index];
+};
 
 export default GlossarySidebar;

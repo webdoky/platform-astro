@@ -12,7 +12,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint .",
-    "test": "vitest src/**/*.test.*",
+    "test": "vitest .test.ts",
     "deploy": "surge ./dist --domain https://webdoky4.surge.sh",
     "fix": "yarn lint --fix"
   },

@@ -15,7 +15,7 @@ export default function parseMacro(
         parameters: [],
       };
     }
-    const parenthesisCloseIndex = macroCode.indexOf(')', parenthesisOpenIndex);
+    const parenthesisCloseIndex = macroCode.lastIndexOf(')');
     if (parenthesisCloseIndex === -1) {
       throw new Error('Unbalanced number of () parenthesis');
     }
@@ -24,6 +24,7 @@ export default function parseMacro(
       .slice(parenthesisOpenIndex + '('.length, parenthesisCloseIndex)
       .split(',')
       .map((parameter) => parameter.trim());
+    // console.log(macroParameters);
     return {
       type: 'macro',
       name: macroName,

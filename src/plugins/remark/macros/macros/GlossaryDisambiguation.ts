@@ -5,7 +5,7 @@ import { SKIP } from 'unist-util-visit';
 import getChildren from '../../../registry/get-children.ts';
 import readBasicMarkdown from '../../../utils/read-basic-markdown.ts';
 import type { AstroFile } from '../../validate-astro-file.ts';
-import createMacro from '../create-macro.ts';
+import type { MacroFunction } from '../types.ts';
 
 function macro(_tree: Root, file: AstroFile): Html {
   const currentSlug = file.data.astro.frontmatter.slug;
@@ -37,13 +37,16 @@ function macro(_tree: Root, file: AstroFile): Html {
   };
 }
 
-const GlossaryDisambiguation = createMacro(
-  'GlossaryDisambiguation',
-  (_node, index, parent, tree, file) => {
-    const replacement = macro(tree, file);
-    parent.children[index] = replacement;
-    return [SKIP, index];
-  },
-);
+const GlossaryDisambiguation: MacroFunction = (
+  _node,
+  index,
+  parent,
+  tree,
+  file,
+) => {
+  const replacement = macro(tree, file);
+  parent.children[index] = replacement;
+  return [SKIP, index];
+};
 
 export default GlossaryDisambiguation;

@@ -50,7 +50,17 @@ describe('jsSidebar', () => {
           },
         },
       } as any;
-      jsSidebar(tree as Root, file as AstroFile);
+      jsSidebar(
+        {
+          type: 'macro',
+          name: 'jsSidebar',
+          parameters: [],
+        },
+        0,
+        tree,
+        tree as Root,
+        file,
+      );
     }).toThrowError('Sidebar already exists');
   });
   it('should add a sidebar to the frontmatter', () => {
@@ -71,7 +81,17 @@ describe('jsSidebar', () => {
         },
       },
     } as AstroFile;
-    jsSidebar(tree as Root, file);
+    jsSidebar(
+      {
+        type: 'macro',
+        name: 'jsSidebar',
+        parameters: [],
+      },
+      0,
+      tree,
+      tree as Root,
+      file,
+    );
     expect(file.data.astro.frontmatter.sidebar).toMatchSnapshot();
   });
 });

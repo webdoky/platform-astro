@@ -114,7 +114,17 @@ describe('GlossarySidebar', () => {
           },
         },
       } as any;
-      GlossarySidebar(tree as Root, file);
+      GlossarySidebar(
+        {
+          type: 'macro',
+          name: 'GlossarySidebar',
+          parameters: [],
+        },
+        0,
+        tree,
+        tree as Root,
+        file,
+      );
     }).toThrowError('Sidebar already exists');
   });
   it('should add a sidebar to the frontmatter', () => {
@@ -135,7 +145,17 @@ describe('GlossarySidebar', () => {
         },
       },
     } as any;
-    GlossarySidebar(tree as Root, file);
+    GlossarySidebar(
+      {
+        type: 'macro',
+        name: 'GlossarySidebar',
+        parameters: [],
+      },
+      0,
+      tree,
+      tree as Root,
+      file,
+    );
     expect(file.data.astro.frontmatter.sidebar).toMatchSnapshot();
   });
 });

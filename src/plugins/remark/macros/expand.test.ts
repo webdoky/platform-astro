@@ -1,10 +1,27 @@
 import type { Root } from 'mdast';
-import { describe, expect, test } from 'vitest';
+import { afterAll, beforeEach, describe, expect, test, vi } from 'vitest';
 
 import expandMacros from './expand.js';
 
+vi.mock('../../registry/registry.ts', () => ({
+  initRegistry: vi.fn(async () => {}),
+}));
+
 describe('expandMacros', () => {
-  test('expands macros', () => {
+  const OLD_ENV = process.env;
+
+  beforeEach(() => {
+    vi.resetModules(); // Most important - it clears the cache
+    process.env = {
+      PATH_TO_LOCALIZED_CONTENT: 'path/to/localized/content',
+      TARGET_LOCALE: 'uk',
+    };
+  });
+
+  afterAll(() => {
+    process.env = OLD_ENV; // Restore old environment
+  });
+  test('expands macros', async () => {
     const tree: Root = {
       type: 'root',
       children: [
@@ -14,7 +31,7 @@ describe('expandMacros', () => {
         },
       ],
     };
-    expandMacros(tree);
+    await expandMacros(tree, {} as any);
 
     expect(tree).toMatchSnapshot();
   });

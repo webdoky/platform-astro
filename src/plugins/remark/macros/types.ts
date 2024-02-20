@@ -1,4 +1,8 @@
+import type { Root } from 'mdast';
 import type { Node } from 'unist';
+import type { BuildVisitor } from 'unist-util-visit';
+
+import type { AstroFile } from '../validate-astro-file.ts';
 
 export interface MacroNode extends Node {
   name: string;
@@ -21,3 +25,11 @@ export type MacroTreeNode =
   | AbstractMacroParentNode
   | MacroNode
   | BrokenMacroNode;
+
+export type MacroFunction = (
+  node: MacroNode,
+  index: number,
+  parent: AbstractMacroParentNode,
+  tree: Root,
+  file: AstroFile,
+) => ReturnType<BuildVisitor<Root, 'macro'>>;

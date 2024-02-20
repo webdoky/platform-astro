@@ -21,3 +21,4 @@ pnpm-debug.log*
 .DS_Store
 
 src/content/processed-content
+public/**/_sample_.*

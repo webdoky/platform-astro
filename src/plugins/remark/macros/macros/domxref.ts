@@ -2,14 +2,12 @@ import type { Html } from 'mdast';
 import { SKIP } from 'unist-util-visit';
 import { z } from 'zod';
 
-import createMacro from '../create-macro.ts';
-import type { MacroNode } from '../types.ts';
+import type { MacroFunction, MacroNode } from '../types.ts';
 import { wrappedStringSchema } from '../validation.ts';
 
 function parseArguments(
   value: string[],
 ): [string, string | undefined, string, boolean] {
-  console.log(value);
   if (value.length === 0 || !value[0]) {
     throw new Error('No arguments provided');
   }
@@ -57,10 +55,10 @@ function macro(node: MacroNode): Html {
   };
 }
 
-const domxref = createMacro('domxref', (node, index, parent) => {
+const domxref: MacroFunction = (node, index, parent) => {
   const replacement = macro(node);
   parent.children[index] = replacement;
   return [SKIP, index];
-});
+};
 
 export default domxref;

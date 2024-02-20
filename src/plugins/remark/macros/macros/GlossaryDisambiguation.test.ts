@@ -76,7 +76,17 @@ describe('GlossaryDisambiguation', () => {
         },
       },
     } as any;
-    GlossaryDisambiguation(tree as Root, file);
+    GlossaryDisambiguation(
+      {
+        type: 'macro',
+        name: 'GlossaryDisambiguation',
+        parameters: [],
+      },
+      0,
+      tree,
+      tree as Root,
+      file,
+    );
     expect(tree).toMatchSnapshot();
   });
 });

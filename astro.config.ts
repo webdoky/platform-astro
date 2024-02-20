@@ -56,6 +56,7 @@ export default defineConfig({
   markdown: {
     rehypePlugins: rehypePlugins,
     remarkPlugins: remarkPlugins,
+    smartypants: false,
     syntaxHighlight: 'prism',
   },
   prefetch: true,

@@ -2,8 +2,7 @@ import type { Html } from 'mdast';
 import { SKIP } from 'unist-util-visit';
 import { z } from 'zod';
 
-import createMacro from '../create-macro.ts';
-import type { MacroNode } from '../types.ts';
+import type { MacroFunction, MacroNode } from '../types.ts';
 import { wrappedStringSchema } from '../validation.ts';
 const initialSlug = 'Global_Objects';
 const referenceContentSections = new Set([
@@ -25,7 +24,6 @@ const referenceContentSections = new Set([
 function parseArguments(
   value: string[],
 ): [string, string | undefined, string, boolean] {
-  console.log(value);
   if (value.length === 0 || !value[0]) {
     throw new Error('No arguments provided');
   }
@@ -86,10 +84,10 @@ function macro(node: MacroNode): Html {
   };
 }
 
-const jsxref = createMacro('jsxref', (node, index, parent) => {
+const jsxref: MacroFunction = (node, index, parent) => {
   const replacement = macro(node);
   parent.children[index] = replacement;
   return [SKIP, index];
-});
+};
 
 export default jsxref;
