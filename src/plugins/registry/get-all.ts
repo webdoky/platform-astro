@@ -1,8 +1,8 @@
-import registry from './registry.ts';
+import { translatedContentRegistry } from './index.ts';
 
 export default function getAll() {
-  if (registry.size === 0) {
+  if (translatedContentRegistry.size === 0) {
     throw new Error('Registry is not initialized');
   }
-  return [...registry.values()];
+  return [...translatedContentRegistry.values()];
 }

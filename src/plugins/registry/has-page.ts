@@ -1,11 +1,11 @@
-import registry from './registry.js';
+import { translatedContentRegistry } from './index.ts';
 
 export default function hasPage(slug: string): boolean {
   if (!slug) {
     throw new Error('Slug is required');
   }
-  if (registry.size === 0) {
+  if (translatedContentRegistry.size === 0) {
     throw new Error('Registry is not initialized');
   }
-  return registry.has(slug);
+  return translatedContentRegistry.has(slug);
 }

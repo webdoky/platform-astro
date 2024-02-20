@@ -3,13 +3,14 @@ import type { Root } from 'hast';
 import { visit } from 'unist-util-visit';
 
 import hasPage from '../registry/has-page.js';
-import { initRegistry } from '../registry/registry.js';
+import initTranslatedRegistry from '../registry/init-translated-registry.ts';
 import getSlugFromUrl from '../utils/get-slug-from-url.js';
 
 const EXTERNAL_LINK_CLASS = 'wd-external';
 const MISSING_LINK_CLASS = 'wd-nav-link-not-translated';
 
 function getClassesByUrl(url: string): string[] {
+  console.log('getClassesByUrl', url);
   if (url.startsWith('#')) {
     return [];
   }
@@ -29,12 +30,13 @@ function getClassesByUrl(url: string): string[] {
 }
 
 export default async function injectLinkClasses(tree: Root) {
-  await initRegistry();
+  await initTranslatedRegistry();
 
   visit(tree, 'element', (node: Element) => {
     if (node.tagName !== 'a') return;
     const url = node.properties?.href;
     if (typeof url !== 'string') return;
+    console.log(node);
     const classes = getClassesByUrl(url);
     node.properties.class = classes.join(' ');
     if (classes.includes(EXTERNAL_LINK_CLASS)) {

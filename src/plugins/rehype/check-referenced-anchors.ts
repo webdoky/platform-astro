@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 import hasAnchor, { initAnchorsRegistry } from '../registry/has-anchor.js';
 import hasPage from '../registry/has-page.js';
-import { initRegistry } from '../registry/registry.js';
+import initTranslatedRegistry from '../registry/init-translated-registry.ts';
 import getAnchorsFromTree from '../utils/get-anchors-from-tree.js';
 import getSlugFromUrl from '../utils/get-slug-from-url.js';
 
@@ -13,7 +13,7 @@ const stringSchema = z.optional(z.string());
 
 export default async function checkReferencedAnchors(tree: Root, file: VFile) {
   // console.log('checkReferencedAnchors');
-  await initRegistry();
+  await initTranslatedRegistry();
   await initAnchorsRegistry();
   const currentPageSlugs = getAnchorsFromTree(tree);
   const BASE_PATH = process.env.BASE_PATH;

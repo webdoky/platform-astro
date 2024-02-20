@@ -5,7 +5,8 @@ export default function getSlugFromUrl(url: string): string {
     throw new Error('process.env.TARGET_LOCALE is not defined');
   }
   if (!urlWithoutAnchor) {
-    throw new Error('urlWithoutAnchor is required');
+    console.error('urlWithoutAnchor is empty', url);
+    return '';
   }
   const separator = urlWithoutAnchor.includes(
     `/${process.env.TARGET_LOCALE}/docs/`,

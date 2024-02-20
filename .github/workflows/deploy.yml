@@ -82,6 +82,7 @@ jobs:
           BASE_PATH: ${{ vars.BASE_PATH }}
           MODE: production
           PATH_TO_LOCALIZED_CONTENT: ${{ vars.PATH_TO_LOCALIZED_CONTENT }}
+          PATH_TO_ORIGINAL_CONTENT: ${{ vars.PATH_TO_ORIGINAL_CONTENT }}
           ROLLBAR_ACCESS_TOKEN: ${{ secrets.ROLLBAR_ACCESS_TOKEN }}
           TARGET_LOCALE: ${{ vars.TARGET_LOCALE }}
           GOOGLE_ANALYTICS_ID: ${{ vars.GOOGLE_ANALYTICS_ID }}
