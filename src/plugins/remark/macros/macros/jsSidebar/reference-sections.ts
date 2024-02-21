@@ -1,8 +1,7 @@
-import type { Root } from 'mdast';
-
 import getAll from '../../../../registry/get-all.ts';
 import hasPage from '../../../../registry/has-page.ts';
 import type { RawPage } from '../../../../registry/validation.ts';
+import sortBySlug from '../../../../utils/sort-by-slug.ts';
 import type { AstroFile } from '../../../validate-astro-file.ts';
 
 import labels from './labels.ts';
@@ -11,7 +10,7 @@ function sortByTitle({ title: titleA = '' }, { title: titleB = '' }) {
   return titleA.localeCompare(titleB, process.env.TARGET_LOCALE);
 }
 
-export default function referenceSections(_tree: Root, file: AstroFile) {
+export default function referenceSections(file: AstroFile) {
   const targetLocale = process.env.TARGET_LOCALE;
   const currentPath = `/${targetLocale}/docs/${file.data.astro.frontmatter.slug}`;
   const jsPages = getAll().filter(({ slug }) =>
@@ -84,10 +83,11 @@ export default function referenceSections(_tree: Root, file: AstroFile) {
   const pageToNavItem = ({ slug, title }: RawPage) => {
     const path = `/${targetLocale}/docs/${slug}/`;
     return {
-      title,
-      path: path,
       hasTranslation: hasPage(slug),
       isCurrent: path === currentPath,
+      path: path,
+      slug,
+      title,
     };
   };
 
@@ -96,16 +96,14 @@ export default function referenceSections(_tree: Root, file: AstroFile) {
       title: labels.Global_Objects,
       items: globalObjectsPages
         .map((item) => pageToNavItem(item))
-        .sort(sortByTitle),
+        .sort(sortBySlug),
       expanded: globalObjectsPages.some(
         ({ slug }) => slug === file.data.astro.frontmatter.slug,
       ),
     },
     {
       title: labels.Operators,
-      items: operatorsPages
-        .map((item) => pageToNavItem(item))
-        .sort(sortByTitle),
+      items: operatorsPages.map((item) => pageToNavItem(item)).sort(sortBySlug),
       expanded: operatorsPages.some(
         ({ slug }) => slug === file.data.astro.frontmatter.slug,
       ),
@@ -114,30 +112,28 @@ export default function referenceSections(_tree: Root, file: AstroFile) {
       title: labels.Statements,
       items: statementsPages
         .map((item) => pageToNavItem(item))
-        .sort(sortByTitle),
+        .sort(sortBySlug),
       expanded: statementsPages.some(
         ({ slug }) => slug === file.data.astro.frontmatter.slug,
       ),
     },
     {
       title: labels.Functions,
-      items: functionsPages
-        .map((item) => pageToNavItem(item))
-        .sort(sortByTitle),
+      items: functionsPages.map((item) => pageToNavItem(item)).sort(sortBySlug),
       expanded: functionsPages.some(
         ({ slug }) => slug === file.data.astro.frontmatter.slug,
       ),
     },
     {
       title: labels.Classes,
-      items: classesPages.map((item) => pageToNavItem(item)).sort(sortByTitle),
+      items: classesPages.map((item) => pageToNavItem(item)).sort(sortBySlug),
       expanded: classesPages.some(
         ({ slug }) => slug === file.data.astro.frontmatter.slug,
       ),
     },
     {
       title: labels.Errors,
-      items: errorsPages.map((item) => pageToNavItem(item)).sort(sortByTitle),
+      items: errorsPages.map((item) => pageToNavItem(item)).sort(sortBySlug),
       expanded: errorsPages.some(
         ({ slug }) => slug === file.data.astro.frontmatter.slug,
       ),

@@ -1,3 +1,4 @@
+// import type { Root as HastRoot } from 'hast';
 import type { Root } from 'mdast';
 import type { Node } from 'unist';
 import type { BuildVisitor } from 'unist-util-visit';

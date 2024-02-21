@@ -19,3 +19,7 @@ export const wrappedNumberSchema = z.preprocess(
   (value_) => Number.parseInt(`${value_}`, 10),
   z.number(),
 );
+
+export const wrappedBooleanSchema = z
+  .string()
+  .transform((value) => !!JSON.parse(value));

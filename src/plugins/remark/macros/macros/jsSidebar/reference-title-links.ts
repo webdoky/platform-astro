@@ -1,11 +1,9 @@
-import type { Root } from 'mdast';
-
 import hasPage from '../../../../registry/has-page.ts';
 import type { AstroFile } from '../../../validate-astro-file.ts';
 
 import labels from './labels.js';
 
-export default function referenceTitleLinks(_tree: Root, file: AstroFile) {
+export default function referenceTitleLinks(file: AstroFile) {
   const targetLocale = process.env.TARGET_LOCALE;
   return [
     {

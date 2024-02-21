@@ -1,11 +1,9 @@
-import type { Root } from 'mdast';
-
 import hasPage from '../../../../registry/has-page.ts';
 import type { AstroFile } from '../../../validate-astro-file.ts';
 
 import labels from './labels.ts';
 
-export default function generalLinks(_tree: Root, file: AstroFile) {
+export default function generalLinks(file: AstroFile) {
   const targetLocale = process.env.TARGET_LOCALE;
   const currentPath = `/${targetLocale}/docs/${file.data.astro.frontmatter.slug}`;
   return [
