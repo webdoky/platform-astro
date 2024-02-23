@@ -1,4 +1,6 @@
 const SECTION_MAPPING: Record<string, string> = {
+  accessibility: 'Доступність',
+  api: 'API',
   css: 'CSS',
   html: 'HTML',
   javascript: 'JavaScript',

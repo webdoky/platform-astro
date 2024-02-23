@@ -25,7 +25,7 @@ export default function processHtml(node: Html, file: AstroFile) {
     'macro',
     (node: MacroNode, index: number, parent: AbstractMacroParentNode) => {
       try {
-        console.log('macro', node.name);
+        // console.log('macro', node.name);
         const macro = MACROS[node.name.toLowerCase()];
         if (macro) {
           return macro(node, index, parent, htmlTree as Root, file);
@@ -45,6 +45,19 @@ export default function processHtml(node: Html, file: AstroFile) {
   );
 
   unmakeMacroTree(htmlTree, macroToHast, brokenMacroToHast);
+
+  // Trick to fix html nodes in html tree
+  visit(htmlTree, 'html', (node: Html, index, parent) => {
+    if (!parent || !(parent as any).children) {
+      throw new Error('Parent node is not defined');
+    }
+    if (index === undefined) {
+      throw new Error('Index is not defined');
+    }
+    const replacement = fromHtml(node.value).children;
+    (parent as any).children.splice(index, 1, ...replacement);
+    return [SKIP, index];
+  });
 
   return toHtml(htmlTree);
 }

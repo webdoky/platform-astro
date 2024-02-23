@@ -3,9 +3,8 @@ import { visit } from 'unist-util-visit';
 import type { VFile } from 'vfile';
 import { z } from 'zod';
 
-import hasAnchor, { initAnchorsRegistry } from '../registry/has-anchor.js';
+import hasAnchor from '../registry/has-anchor.js';
 import hasPage from '../registry/has-page.js';
-import initTranslatedRegistry from '../registry/init-translated-registry.ts';
 import getAnchorsFromTree from '../utils/get-anchors-from-tree.js';
 import getSlugFromUrl from '../utils/get-slug-from-url.js';
 
@@ -13,8 +12,6 @@ const stringSchema = z.optional(z.string());
 
 export default async function checkReferencedAnchors(tree: Root, file: VFile) {
   // console.log('checkReferencedAnchors');
-  await initTranslatedRegistry();
-  await initAnchorsRegistry();
   const currentPageSlugs = getAnchorsFromTree(tree);
   const BASE_PATH = process.env.BASE_PATH;
   if (!BASE_PATH) {

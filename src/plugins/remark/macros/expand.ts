@@ -1,8 +1,6 @@
 import type { Root } from 'mdast';
 import { SKIP, visit } from 'unist-util-visit';
 
-import initOriginalRegistry from '../../registry/init-original-registry.ts';
-import initTranslatedRegistry from '../../registry/init-translated-registry.ts';
 import { type AstroFile } from '../validate-astro-file.ts';
 
 import brokenMacroToHtml from './broken-macro-to-html.js';
@@ -18,8 +16,6 @@ import type {
 import unmakeMacroTree from './unmake-macro-tree.js';
 
 export default async function expandMacros(tree: Root, file: AstroFile) {
-  await initTranslatedRegistry();
-  await initOriginalRegistry();
   visit(tree, 'html', (node) => {
     node.value = processHtml(node, file);
   });
@@ -30,7 +26,7 @@ export default async function expandMacros(tree: Root, file: AstroFile) {
     'macro',
     (node: MacroNode, index: number, parent: AbstractMacroParentNode) => {
       try {
-        console.log('macro', node.name);
+        // console.log('macro', node.name);
         const macro = MACROS[node.name.toLowerCase()];
         if (macro) {
           return macro(node, index, parent, tree, file);
