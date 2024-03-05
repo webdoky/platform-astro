@@ -1,5 +1,6 @@
 import type { MacroFunction } from '../types.ts';
 
+import CSReference from './CSSRef/index.ts';
 import EmbedLiveSample from './EmbedLiveSample/index.ts';
 import GlossaryDisambiguation from './GlossaryDisambiguation.ts';
 import GlossarySidebar from './GlossarySidebar.ts';
@@ -17,6 +18,7 @@ import jsSidebar from './jsSidebar/index.ts';
 import jsxref from './jsxref.ts';
 
 const MACROS: Record<string, MacroFunction> = {
+  cssref: CSReference,
   cssxref,
   deprecated_inline,
   domxref,
