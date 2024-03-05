@@ -6,31 +6,23 @@ import getSlugFromUrl from '../../../utils/get-slug-from-url.ts';
 import sortBySlug from '../../../utils/sort-by-slug.ts';
 import type { AstroFile } from '../../validate-astro-file.ts';
 import type { MacroFunction, MacroNode } from '../types.ts';
-import {
-  wrappedBooleanSchema,
-  wrappedNumberSchema,
-  wrappedStringSchema,
-} from '../validation.ts';
+import { wrappedStringSchema } from '../validation.ts';
 
-function parseArguments(value: string[]): [string, number, boolean] {
+function parseArguments(value: string[]): [string] {
   if (value.length === 0 || !value[0]) {
     throw new Error('No arguments provided');
   }
-  return [
-    wrappedStringSchema.parse(value[0]),
-    wrappedNumberSchema.parse(value[1]),
-    wrappedBooleanSchema.parse(value[2]),
-  ];
+  return [wrappedStringSchema.parse(value[0])];
 }
 
 function macro(node: MacroNode, file: AstroFile) {
   if (file.data.astro.frontmatter.sidebar) {
     throw new Error('Sidebar already exists');
   }
-  const [path, depth] = parseArguments(node.parameters);
+  const [path] = parseArguments(node.parameters);
   const slug = path ? getSlugFromUrl(path) : file.data.astro.frontmatter.slug;
   const targetLocale = process.env.TARGET_LOCALE;
-  const glossaryPages = getChildren(slug, depth);
+  const children = getChildren(slug);
 
   const pageToNavItem = ({ slug, title }: RawPage, currentSlug: string) => ({
     isCurrent: slug === currentSlug,
@@ -46,7 +38,7 @@ function macro(node: MacroNode, file: AstroFile) {
       sections: [
         {
           expanded: true,
-          items: glossaryPages
+          items: children
             .map((item) =>
               pageToNavItem(item, file.data.astro.frontmatter.slug),
             )
@@ -58,10 +50,16 @@ function macro(node: MacroNode, file: AstroFile) {
   ];
 }
 
-const ListSubpages: MacroFunction = (node, index, parent, _tree, file) => {
+const ListSubpagesForSidebar: MacroFunction = (
+  node,
+  index,
+  parent,
+  _tree,
+  file,
+) => {
   macro(node, file);
   parent.children.splice(index, 1);
   return [SKIP, index];
 };
 
-export default ListSubpages;
+export default ListSubpagesForSidebar;

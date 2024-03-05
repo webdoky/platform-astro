@@ -7,6 +7,7 @@ import HTMLElement from './HTMLElement.ts';
 import HTTPHeader from './HTTPHeader.ts';
 import HTTPMethod from './HTTPMethod.ts';
 import ListSubpages from './ListSubpages.ts';
+import ListSubpagesForSidebar from './ListSubpagesForSidebar.ts';
 import RFC from './RFC.ts';
 import cssxref from './cssxref.ts';
 import deprecated_inline from './deprecated_inline.ts';
@@ -29,6 +30,7 @@ const MACROS: Record<string, MacroFunction> = {
   jssidebar: jsSidebar,
   jsxref,
   listsubpages: ListSubpages,
+  listsubpagesforsidebar: ListSubpagesForSidebar,
   rfc: RFC,
 };
 
