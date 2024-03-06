@@ -10,6 +10,7 @@ import HTTPMethod from './HTTPMethod.ts';
 import ListSubpages from './ListSubpages.ts';
 import ListSubpagesForSidebar from './ListSubpagesForSidebar.ts';
 import RFC from './RFC.ts';
+import SeeCompatTable from './SeeCompatTable.ts';
 import cssxref from './cssxref.ts';
 import deprecated_inline from './deprecated_inline.ts';
 import domxref from './domxref.ts';
@@ -34,6 +35,7 @@ const MACROS: Record<string, MacroFunction> = {
   listsubpages: ListSubpages,
   listsubpagesforsidebar: ListSubpagesForSidebar,
   rfc: RFC,
+  seecompattable: SeeCompatTable,
 };
 
 export default MACROS;

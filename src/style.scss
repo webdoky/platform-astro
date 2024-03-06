@@ -224,3 +224,20 @@ blockquote {
     mask-image: url('../assets/deprecated.svg');
   }
 }
+
+.notecard {
+  --note-background: var(--background-information);
+  --note-theme: var(--icon-information);
+  background-color: var(--color-ui-note);
+  border: 1px solid var(--color-ui-note-border);
+  border-left: 4px solid var(--color-ui-note-border);
+  margin: 1rem 0;
+  padding: 1rem 1rem 1rem 3rem;
+  position: relative;
+}
+
+.notecard.notecard,
+.notecard.notecard li,
+.notecard.notecard p {
+  color: var(--color-ui-typo);
+}
