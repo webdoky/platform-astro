@@ -50,6 +50,7 @@ module.exports = {
       ],
       files: ['*.tsx'],
       rules: {
+        'import/extensions': ['error', 'ignorePackages'],
         'import/order': [
           'error',
           {
@@ -58,6 +59,7 @@ module.exports = {
         ],
         'unicorn/filename-case': ['error', { case: 'pascalCase' }],
         'unicorn/no-keyword-prefix': 'off',
+        'unicorn/no-null': 'off',
       },
     },
     {

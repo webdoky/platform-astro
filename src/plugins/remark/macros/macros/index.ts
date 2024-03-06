@@ -11,6 +11,7 @@ import ListSubpages from './ListSubpages.ts';
 import ListSubpagesForSidebar from './ListSubpagesForSidebar.ts';
 import RFC from './RFC.ts';
 import SeeCompatTable from './SeeCompatTable.ts';
+import Specifications from './Specifications.ts';
 import cssxref from './cssxref.ts';
 import deprecated_inline from './deprecated_inline.ts';
 import domxref from './domxref.ts';
@@ -36,6 +37,7 @@ const MACROS: Record<string, MacroFunction> = {
   listsubpagesforsidebar: ListSubpagesForSidebar,
   rfc: RFC,
   seecompattable: SeeCompatTable,
+  specifications: Specifications,
 };
 
 export default MACROS;

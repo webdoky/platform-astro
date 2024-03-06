@@ -22,6 +22,7 @@ export const sidebarSchema = z.array(
 export type SidebarData = z.infer<typeof sidebarSchema>;
 const processedFrontmatterSchema = z.object({
   authors: z.array(z.string()),
+  'browser-compat': z.union([z.string(), z.array(z.string())]).optional(),
   cover: z.string().optional(),
   coverAlt: z.string().optional(),
   description: z.string(),
@@ -29,6 +30,7 @@ const processedFrontmatterSchema = z.object({
   publishedTime: z.string().transform((value) => new Date(value)),
   section: z.string(),
   sidebar: sidebarSchema.optional(),
+  'spec-urls': z.union([z.string(), z.array(z.string())]).optional(),
 });
 
 export default processedFrontmatterSchema;

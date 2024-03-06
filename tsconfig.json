@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "exactOptionalPropertyTypes": false,
     "jsx": "react",
@@ -23,6 +24,7 @@
     "./src/**/*.tsx",
     "./src/**/*.astro",
     "./utils/**/*.ts",
-    "./*.ts"
+    "./*.ts",
+    "node_modules/@mdn/browser-compat-data/**/*.json",
   ],
 }
