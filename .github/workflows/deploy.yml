@@ -77,7 +77,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Renew data dependencies
-        run: yarn add @mdn/browser-compat-data@latest browsers-specs@latest
+        run: yarn add @mdn/browser-compat-data@latest browser-specs@latest
       - name: Run build
         run: npx astro build
         env:
