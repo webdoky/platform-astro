@@ -27,21 +27,21 @@ function macro(node: MacroNode): Html {
   let displayName = arguments_[1] || arguments_[0];
 
   // Deal with CSS data types by removing <>
-  let slug = arguments_[0].replaceAll(/&lt;(.*)&gt;/g, '$1');
+  let slug = arguments_[0].replaceAll(/<(.*)>/g, '$1');
 
   // Special case <color>, <flex>, and <position>
   switch (arguments_[0]) {
-    case '&lt;color&gt;': {
+    case '<color>': {
       slug = 'color_value';
       break;
     }
 
-    case '&lt;flex&gt;': {
+    case '<flex>': {
       slug = 'flex_value';
       break;
     }
 
-    case '&lt;position&gt;': {
+    case '<position>': {
       slug = 'position_value';
       break;
     }

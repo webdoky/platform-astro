@@ -20,9 +20,10 @@ function renderSpecifications({
   const specUrls: string[] = [];
   if (browserCompat) {
     for (const current of browserCompat.split('.')) {
-      if (data && !(data as Identifier).__compat) {
-        data = (data as Identifier)?.[current] || undefined;
-      }
+      data =
+        data && !(data as Identifier).__compat
+          ? (data as Identifier)?.[current] || undefined
+          : undefined;
     }
     if (data !== undefined) {
       for (const [key, value] of Object.entries(data)) {

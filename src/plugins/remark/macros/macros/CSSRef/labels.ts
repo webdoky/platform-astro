@@ -65,7 +65,8 @@ const labels = {
   'Using CSS animations': 'Застосування анімацій CSS',
   'Backgrounds and Borders': 'Фони та рамки',
   'Using multiple backgrounds': 'Застосування кількох фонів',
-  'Resizing background images': 'Зміна розмірів фонових зображень',
+  'Resizing background images':
+    'Зміни розмірів зображень тла за допомогою background-size',
   'Box model': 'Рамкова модель',
   'Box alignment': 'Шикування рамки',
   Columns: 'Колонки',
@@ -119,7 +120,7 @@ const labels = {
   'Flow layout and overflow': 'Потокове компонування та переповнення',
   'OpenType font features guide': 'Посібник з можливостей шрифтів OpenType',
   'Variable fonts guide': 'Посібник зі змінних шрифтів',
-  'Basics concepts of grid layout': 'Основні ідеї розкладки за сіткою',
+  'Basics concepts of grid layout': 'Базові концепції сіткового компонування',
   'Relationship to other layout methods':
     "Зв'язок з іншими способами компонування",
   'Line-based placement': 'Розміщення на основі рядів',

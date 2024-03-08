@@ -1,3 +1,5 @@
+import hasPage from '../../../../registry/has-page.ts';
+import getSlugFromUrl from '../../../../utils/get-slug-from-url.ts';
 import type { AstroFile } from '../../../validate-astro-file.ts';
 
 import labels from './labels.ts';
@@ -353,12 +355,16 @@ export default function guidesSections(file: AstroFile) {
     },
   ];
 
-  const pageToNavItem = ({ path, title }: { path: string; title: string }) => ({
-    hasTranslation: true,
-    isCurrent: path === currentPath,
-    title,
-    path,
-  });
+  const pageToNavItem = ({ path, title }: { path: string; title: string }) => {
+    const slug = getSlugFromUrl(path);
+    return {
+      hasTranslation: hasPage(slug),
+      isCurrent: path === currentPath,
+      slug,
+      title,
+      path,
+    };
+  };
 
   return [
     {
@@ -476,5 +482,11 @@ export default function guidesSections(file: AstroFile) {
       items: transitions.map((item) => pageToNavItem(item)),
       expanded: transitions.some(({ path }) => path === currentPath),
     },
-  ].filter(({ items }) => items.length > 0);
+  ]
+    .map(({ items, ...rest }) => ({
+      ...rest,
+      items: items.filter(({ hasTranslation }) => hasTranslation),
+    }))
+    .filter(({ items }) => items.length > 0)
+    .sort((a, b) => a.title.localeCompare(b.title));
 }

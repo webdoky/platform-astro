@@ -75,4 +75,11 @@ export default defineConfig({
   },
   prefetch: true,
   site: process.env.BASE_PATH,
+  vite: {
+    server: {
+      watch: {
+        ignored: ['src/plugins/**'],
+      },
+    },
+  },
 });

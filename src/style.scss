@@ -221,7 +221,7 @@ blockquote {
   width: var(--size);
 
   &.deprecated {
-    mask-image: url('../assets/deprecated.svg');
+    mask-image: url('../assets/icons/deprecated.svg');
   }
 }
 
@@ -241,3 +241,33 @@ blockquote {
 .notecard.notecard p {
   color: var(--color-ui-typo);
 }
+.icon {
+  --size: var(--icon-size, 1rem);
+  background-color: var(--color-ui-typo);
+  display: inline-block;
+  flex-shrink: 0;
+  height: 1rem;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  vertical-align: middle;
+  width: 1rem;
+}
+.icon.deprecated {
+  mask-image: url(../assets/icons/deprecated.svg);
+}
+.icon.experimental {
+  mask-image: url(../assets/icons/experimental.svg);
+}
+.icon.non-standard {
+  mask-image: url(../assets/icons/non-standard.svg);
+}
+.icon-link {
+  display: none;
+}
+.icon-footnote {
+  display: none;
+  mask-image: url(../assets/icons/footnote.svg);
+}
+@import './bc.scss';

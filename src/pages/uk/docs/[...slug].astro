@@ -125,7 +125,7 @@ const previewImageUrl = getAbsoluteUrl(
         style={{ top: '4rem' }}>
         <TableOfContents headings={headings} />
       </div>
-      <div class="order-1 w-full md:w-2/3"><Content /></div>
+      <div class="order-1 w-full md:w-2/3 main-page-content"><Content /></div>
     </div>
   </main>
 </Layout>
@@ -457,7 +457,7 @@ const previewImageUrl = getAbsoluteUrl(
         }
 
         .bc-browser-chrome::after,
-        .bc-browser-chrome-android::after {
+        .bc-browser-chrome_android::after {
           background: var(--icon-browser-chrome);
         }
 
@@ -466,7 +466,7 @@ const previewImageUrl = getAbsoluteUrl(
         }
 
         .bc-browser-firefox::after,
-        .bc-browser-firefox-android::after {
+        .bc-browser-firefox_android::after {
           background: var(--icon-browser-firefox);
         }
 
@@ -475,20 +475,20 @@ const previewImageUrl = getAbsoluteUrl(
         }
 
         .bc-browser-opera::after,
-        .bc-browser-opera-android::after {
+        .bc-browser-opera_android::after {
           background: var(--icon-browser-opera);
         }
 
         .bc-browser-safari::after,
-        .bc-browser-safari-ios::after {
+        .bc-browser-safari_ios::after {
           background: var(--icon-browser-safari);
         }
 
-        .bc-browser-webview-android::after {
+        .bc-browser-webview_android::after {
           background: var(--icon-browser-android);
         }
 
-        .bc-browser-samsunginternet-android::after {
+        .bc-browser-samsunginternet_android::after {
           background: var(--icon-browser-samsung-internet);
         }
 
